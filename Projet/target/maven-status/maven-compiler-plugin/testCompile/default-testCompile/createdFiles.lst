@@ -1,0 +1,3 @@
+com\ensam\projet\service\impl\BookServiceImplTest.class
+com\ensam\projet\controller\AuthControllerIntegrationTest.class
+com\ensam\projet\repository\BookRepositoryTest.class
