@@ -1,6 +1,0 @@
-spring:
-  profiles: dev
-  datasource:
-    url: jdbc:mysql://localhost:3306/ensam_bibliotheque_dev?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
-    username: root
-    password: root
