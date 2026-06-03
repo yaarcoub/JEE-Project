@@ -15,6 +15,13 @@ services:
       - mysql_data:/var/lib/mysql
     networks:
       - ensam-net
+    # ✅ FIX : healthcheck sur MySQL pour savoir quand il est vraiment prêt
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -27,7 +34,9 @@ services:
     ports:
       - "8081:80"
     depends_on:
-      - mysql
+      # ✅ FIX : attendre que MySQL soit healthy, pas juste démarré
+      mysql:
+        condition: service_healthy
     networks:
       - ensam-net
 
@@ -39,7 +48,9 @@ services:
     ports:
       - "8082:8080"
     depends_on:
-      - mysql
+      # ✅ FIX : attendre que MySQL soit healthy avant de démarrer Spring Boot
+      mysql:
+        condition: service_healthy
     environment:
       SPRING_PROFILES_ACTIVE: prod
       SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
