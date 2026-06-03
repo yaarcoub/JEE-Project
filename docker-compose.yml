@@ -32,7 +32,7 @@ services:
       - ensam-net
 
   backend:
-    build: ./Backned
+    build: backend
     container_name: backend
     env_file: .env
     restart: unless-stopped
