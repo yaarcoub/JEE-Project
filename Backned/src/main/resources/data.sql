@@ -4,13 +4,13 @@ INSERT IGNORE INTO roles (id, name) VALUES (3, 'ROLE_USER');
 
 -- Default passwords (before hashing):
 -- admin: admin123
--- manager: manager123
--- user: user123
+-- manager: manger123
+-- user: user123456
 INSERT IGNORE INTO users (id, username, email, password, enabled, created_at)
 VALUES
   (1, 'admin', 'admin@ensam.ma', '$2a$10$Due7v3Dn0SgPgdOvKMa6nekEvFUYM/CgCPQifNtjDYlmn14iocUNO', true, NOW()),
-  (2, 'manager', 'manager@ensam.ma', '$2a$10$16OkPWnzTJFt0CSCpraOruOVTpmm2M0s3Az419zbeVUP1UGOIXumq', true, NOW()),
-  (3, 'user', 'user@ensam.ma', '$2a$10$0VKCWJhhaN4vH2BVwput4eAhK6Kp.JnKR./B6XwEo9uvV6Oz6h3km', true, NOW());
+  (2, 'manager', 'manager@ensam.ma', '$2a$10$kN9lQ1qsXCeTllbgTabul.vhMbJ9EGKn5lRG5lCB/KdWFdxlB4O1m', true, NOW()),
+  (3, 'user', 'user@ensam.ma', '$2a$10$5hVdb0sqD3XHE/b/687AVuZ5NsLAdj4rAdglWdewPjAfn3qP7Y8Uq', true, NOW());
 
 INSERT IGNORE INTO user_roles (user_id, role_id) VALUES (1, 1);
 INSERT IGNORE INTO user_roles (user_id, role_id) VALUES (2, 2);
