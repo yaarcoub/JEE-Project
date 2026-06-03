@@ -14,7 +14,6 @@ import {
   Tooltip,
 } from "@mui/material";
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
-import AddIcon from "@mui/icons-material/Add";
 import ReturnIcon from "@mui/icons-material/AssignmentReturn";
 import { loansService, type Loan, type LoanStatus } from "@/services";
 import { useAuth } from "@/context/auth";
@@ -125,17 +124,7 @@ export function LoansPage() {
           <p className="text-gray-400 mt-1 font-light">{t("loans.subtitle")}</p>
         </div>
 
-        <Button
-          startIcon={<AddIcon />}
-          variant="contained"
-          onClick={() => setOpenNew(true)}
-          sx={{
-            background: "linear-gradient(to right, #10b981, #14b8a6)",
-            "&:hover": { opacity: 0.9 },
-          }}
-        >
-          {t("loans.add")}
-        </Button>
+
       </div>
 
       <div className="glass rounded-2xl p-6">
@@ -154,7 +143,6 @@ export function LoansPage() {
           }}
         >
           <MenuItem value="">{t("loans.allStatus")}</MenuItem>
-          <MenuItem value="PENDING">PENDING</MenuItem>
           <MenuItem value="ACTIVE">ACTIVE</MenuItem>
           <MenuItem value="RETURNED">RETURNED</MenuItem>
           <MenuItem value="OVERDUE">OVERDUE</MenuItem>
