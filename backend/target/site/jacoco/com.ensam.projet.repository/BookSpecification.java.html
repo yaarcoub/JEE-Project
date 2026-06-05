@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BookSpecification.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bibliotheque</a> &gt; <a href="index.source.html" class="el_package">com.ensam.projet.repository</a> &gt; <span class="el_source">BookSpecification.java</span></div><h1>BookSpecification.java</h1><pre class="source lang-java linenums">package com.ensam.projet.repository;
+
+import com.ensam.projet.entity.Book;
+import com.ensam.projet.entity.Category;
+import jakarta.persistence.criteria.Join;
+import jakarta.persistence.criteria.Root;
+import org.springframework.data.jpa.domain.Specification;
+
+<span class="nc" id="L9">public class BookSpecification {</span>
+
+    public static Specification&lt;Book&gt; hasTitle(String title) {
+<span class="nc bnc" id="L12" title="All 4 branches missed.">        return (root, query, cb) -&gt; title == null || title.isBlank() ? null</span>
+<span class="nc" id="L13">                : cb.like(cb.lower(root.get(&quot;title&quot;)), &quot;%&quot; + title.toLowerCase() + &quot;%&quot;);</span>
+    }
+
+    public static Specification&lt;Book&gt; hasAuthor(String author) {
+<span class="nc bnc" id="L17" title="All 4 branches missed.">        return (root, query, cb) -&gt; author == null || author.isBlank() ? null</span>
+<span class="nc" id="L18">                : cb.like(cb.lower(root.get(&quot;author&quot;)), &quot;%&quot; + author.toLowerCase() + &quot;%&quot;);</span>
+    }
+
+    public static Specification&lt;Book&gt; hasCategory(Long categoryId) {
+<span class="fc" id="L22">        return (root, query, cb) -&gt; {</span>
+<span class="pc bpc" id="L23" title="1 of 2 branches missed.">            if (categoryId == null) {</span>
+<span class="nc" id="L24">                return null;</span>
+            }
+<span class="fc" id="L26">            Join&lt;Book, Category&gt; categories = root.join(&quot;categories&quot;);</span>
+<span class="fc" id="L27">            return cb.equal(categories.get(&quot;id&quot;), categoryId);</span>
+        };
+    }
+
+    public static Specification&lt;Book&gt; hasKeyword(String keyword) {
+<span class="fc" id="L32">        return (root, query, cb) -&gt; {</span>
+<span class="nc bnc" id="L33" title="All 4 branches missed.">            if (keyword == null || keyword.isBlank()) {</span>
+<span class="nc" id="L34">                return null;</span>
+            }
+<span class="nc" id="L36">            String pattern = &quot;%&quot; + keyword.toLowerCase() + &quot;%&quot;;</span>
+<span class="nc" id="L37">            return cb.or(</span>
+<span class="nc" id="L38">                    cb.like(cb.lower(root.get(&quot;title&quot;)), pattern),</span>
+<span class="nc" id="L39">                    cb.like(cb.lower(root.get(&quot;author&quot;)), pattern),</span>
+<span class="nc" id="L40">                    cb.like(cb.lower(root.get(&quot;description&quot;)), pattern)</span>
+            );
+        };
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

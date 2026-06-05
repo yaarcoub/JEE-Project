@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BookRequest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bibliotheque</a> &gt; <a href="index.source.html" class="el_package">com.ensam.projet.dto.request</a> &gt; <span class="el_source">BookRequest.java</span></div><h1>BookRequest.java</h1><pre class="source lang-java linenums">package com.ensam.projet.dto.request;
+
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDate;
+import java.util.Set;
+
+@Getter
+<span class="pc" id="L14">@Setter</span>
+<span class="fc" id="L15">public class BookRequest {</span>
+    @NotBlank(message = &quot;Le titre est obligatoire&quot;)
+    @Size(max = 255, message = &quot;Le titre ne peut dépasser 255 caractères&quot;)
+<span class="fc" id="L18">    private String title;</span>
+
+    @NotBlank(message = &quot;L'auteur est obligatoire&quot;)
+<span class="fc" id="L21">    private String author;</span>
+
+    @Pattern(regexp = &quot;^(97(8|9))?\\-?\\d{1,5}\\-?\\d{1,7}\\-?\\d{1,7}\\-?\\d{1}$&quot;, message = &quot;ISBN invalide&quot;)
+<span class="fc" id="L24">    private String isbn;</span>
+
+<span class="fc" id="L26">    private String description;</span>
+
+    @Min(value = 0, message = &quot;Le stock ne peut pas être négatif&quot;)
+<span class="fc" id="L29">    private Integer stock;</span>
+
+<span class="fc" id="L31">    private LocalDate publishedDate;</span>
+<span class="fc" id="L32">    private Set&lt;Long&gt; categoryIds;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

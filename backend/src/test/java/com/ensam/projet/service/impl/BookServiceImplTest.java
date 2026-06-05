@@ -1,5 +1,6 @@
 package com.ensam.projet.service.impl;
 
+import com.ensam.projet.service.NotificationService;
 import com.ensam.projet.dto.request.BookRequest;
 import com.ensam.projet.dto.response.BookResponse;
 import com.ensam.projet.entity.Book;
@@ -41,6 +42,8 @@ class BookServiceImplTest {
     private LoanRepository loanRepository;
     @Mock
     private LoanMapper loanMapper;
+    @Mock
+    private NotificationService notificationService;
 
     @InjectMocks
     private BookServiceImpl bookService;
@@ -107,7 +110,6 @@ class BookServiceImplTest {
     @Test
     void shouldUpdateBook() {
         when(bookRepository.findById(1L)).thenReturn(Optional.of(book));
-        when(bookRepository.existsByIsbn(request.getIsbn())).thenReturn(false);
         when(bookRepository.save(book)).thenReturn(book);
         when(bookMapper.toResponse(book)).thenReturn(new BookResponse());
 

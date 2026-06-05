@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-06-02T20:17:26+0100",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.46.0.v20260407-0427, environment: Java 21.0.10 (Eclipse Adoptium)"
+    date = "2026-06-05T09:16:26+0100",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.11 (Red Hat, Inc.)"
 )
 @Component
 public class BookMapperImpl implements BookMapper {
@@ -30,16 +30,16 @@ public class BookMapperImpl implements BookMapper {
 
         BookResponse bookResponse = new BookResponse();
 
-        bookResponse.setAuthor( book.getAuthor() );
-        bookResponse.setCategories( categorySetToCategoryResponseSet( book.getCategories() ) );
-        bookResponse.setCreatedAt( book.getCreatedAt() );
-        bookResponse.setDescription( book.getDescription() );
         bookResponse.setId( book.getId() );
-        bookResponse.setIsbn( book.getIsbn() );
-        bookResponse.setPublishedDate( book.getPublishedDate() );
-        bookResponse.setStock( book.getStock() );
         bookResponse.setTitle( book.getTitle() );
+        bookResponse.setAuthor( book.getAuthor() );
+        bookResponse.setIsbn( book.getIsbn() );
+        bookResponse.setDescription( book.getDescription() );
+        bookResponse.setStock( book.getStock() );
+        bookResponse.setPublishedDate( book.getPublishedDate() );
+        bookResponse.setCreatedAt( book.getCreatedAt() );
         bookResponse.setUpdatedAt( book.getUpdatedAt() );
+        bookResponse.setCategories( categorySetToCategoryResponseSet( book.getCategories() ) );
 
         fillActiveLoans( book, bookResponse );
 
@@ -54,12 +54,12 @@ public class BookMapperImpl implements BookMapper {
 
         Book book = new Book();
 
-        book.setAuthor( request.getAuthor() );
-        book.setDescription( request.getDescription() );
-        book.setIsbn( request.getIsbn() );
-        book.setPublishedDate( request.getPublishedDate() );
-        book.setStock( request.getStock() );
         book.setTitle( request.getTitle() );
+        book.setAuthor( request.getAuthor() );
+        book.setIsbn( request.getIsbn() );
+        book.setDescription( request.getDescription() );
+        book.setStock( request.getStock() );
+        book.setPublishedDate( request.getPublishedDate() );
 
         return book;
     }

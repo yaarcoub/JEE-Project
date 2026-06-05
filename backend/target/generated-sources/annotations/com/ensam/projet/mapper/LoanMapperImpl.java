@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-06-02T20:17:26+0100",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.46.0.v20260407-0427, environment: Java 21.0.10 (Eclipse Adoptium)"
+    date = "2026-06-05T09:16:26+0100",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.11 (Red Hat, Inc.)"
 )
 @Component
 public class LoanMapperImpl implements LoanMapper {
@@ -29,14 +29,14 @@ public class LoanMapperImpl implements LoanMapper {
 
         LoanResponse loanResponse = new LoanResponse();
 
-        loanResponse.setActualReturnDate( loan.getActualReturnDate() );
-        loanResponse.setBook( bookMapper.toResponse( loan.getBook() ) );
-        loanResponse.setDetail( loanDetailMapper.toResponse( loan.getDetail() ) );
-        loanResponse.setExpectedReturnDate( loan.getExpectedReturnDate() );
         loanResponse.setId( loan.getId() );
         loanResponse.setLoanDate( loan.getLoanDate() );
+        loanResponse.setExpectedReturnDate( loan.getExpectedReturnDate() );
+        loanResponse.setActualReturnDate( loan.getActualReturnDate() );
         loanResponse.setStatus( loan.getStatus() );
+        loanResponse.setBook( bookMapper.toResponse( loan.getBook() ) );
         loanResponse.setUser( userMapper.toResponse( loan.getUser() ) );
+        loanResponse.setDetail( loanDetailMapper.toResponse( loan.getDetail() ) );
 
         return loanResponse;
     }

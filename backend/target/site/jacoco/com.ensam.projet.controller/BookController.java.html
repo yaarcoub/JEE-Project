@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BookController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bibliotheque</a> &gt; <a href="index.source.html" class="el_package">com.ensam.projet.controller</a> &gt; <span class="el_source">BookController.java</span></div><h1>BookController.java</h1><pre class="source lang-java linenums">package com.ensam.projet.controller;
+
+import com.ensam.projet.dto.request.BookRequest;
+import com.ensam.projet.dto.response.ApiResponse;
+import com.ensam.projet.dto.response.BookResponse;
+import com.ensam.projet.dto.response.LoanResponse;
+import com.ensam.projet.dto.response.PagedResponse;
+import com.ensam.projet.service.interfaces.BookService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Set;
+
+@RestController
+@RequestMapping(&quot;/api/books&quot;)
+@Tag(name = &quot;Books&quot;, description = &quot;Gestion des livres&quot;)
+<span class="fc" id="L23">@RequiredArgsConstructor</span>
+public class BookController {
+
+    private final BookService bookService;
+
+    @Operation(summary = &quot;Lister les livres&quot;)
+    @ApiResponses({})
+    @GetMapping
+    @PreAuthorize(&quot;isAuthenticated()&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;PagedResponse&lt;BookResponse&gt;&gt;&gt; getAllBooks(
+            @RequestParam(defaultValue = &quot;0&quot;) int page,
+            @RequestParam(defaultValue = &quot;10&quot;) int size,
+            @RequestParam(defaultValue = &quot;title&quot;) String sort,
+            @RequestParam(defaultValue = &quot;asc&quot;) String direction,
+            @RequestParam(required = false) String search,
+            @RequestParam(required = false) Long categoryId) {
+<span class="nc" id="L39">        return ResponseEntity.ok(ApiResponse.success(bookService.getAllBooks(page, size, sort, direction, search, categoryId), &quot;Liste récupérée&quot;));</span>
+    }
+
+    @Operation(summary = &quot;Récupérer un livre&quot;)
+    @GetMapping(&quot;/{id}&quot;)
+    @PreAuthorize(&quot;isAuthenticated()&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;BookResponse&gt;&gt; getBook(@PathVariable Long id) {
+<span class="nc" id="L46">        return ResponseEntity.ok(ApiResponse.success(bookService.getBookById(id), &quot;Livre récupéré&quot;));</span>
+    }
+
+    @Operation(summary = &quot;Créer un livre&quot;)
+    @PostMapping
+    @PreAuthorize(&quot;hasAnyRole('ADMIN','MANAGER')&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;BookResponse&gt;&gt; createBook(@Valid @RequestBody BookRequest request) {
+<span class="nc" id="L53">        return ResponseEntity.status(201).body(ApiResponse.success(bookService.createBook(request), &quot;Livre créé&quot;));</span>
+    }
+
+    @Operation(summary = &quot;Mettre à jour un livre&quot;)
+    @PutMapping(&quot;/{id}&quot;)
+    @PreAuthorize(&quot;hasAnyRole('ADMIN','MANAGER')&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;BookResponse&gt;&gt; updateBook(@PathVariable Long id, @Valid @RequestBody BookRequest request) {
+<span class="nc" id="L60">        return ResponseEntity.ok(ApiResponse.success(bookService.updateBook(id, request), &quot;Livre mis à jour&quot;));</span>
+    }
+
+    @Operation(summary = &quot;Supprimer un livre&quot;)
+    @DeleteMapping(&quot;/{id}&quot;)
+    @PreAuthorize(&quot;hasRole('ADMIN')&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; deleteBook(@PathVariable Long id) {
+<span class="nc" id="L67">        bookService.deleteBook(id);</span>
+<span class="nc" id="L68">        return ResponseEntity.noContent().build();</span>
+    }
+
+    @Operation(summary = &quot;Assigner des catégories à un livre&quot;)
+    @PostMapping(&quot;/{id}/categories&quot;)
+    @PreAuthorize(&quot;hasAnyRole('ADMIN','MANAGER')&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;BookResponse&gt;&gt; assignCategories(@PathVariable Long id, @RequestBody Set&lt;Long&gt; categoryIds) {
+<span class="nc" id="L75">        return ResponseEntity.ok(ApiResponse.success(bookService.assignCategories(id, categoryIds), &quot;Catégories assignées&quot;));</span>
+    }
+
+    @Operation(summary = &quot;Récupérer les emprunts d'un livre&quot;)
+    @GetMapping(&quot;/{id}/loans&quot;)
+    @PreAuthorize(&quot;hasAnyRole('ADMIN','MANAGER')&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;PagedResponse&lt;LoanResponse&gt;&gt;&gt; getBookLoans(
+            @PathVariable Long id,
+            @RequestParam(defaultValue = &quot;0&quot;) int page,
+            @RequestParam(defaultValue = &quot;10&quot;) int size) {
+<span class="nc" id="L85">        return ResponseEntity.ok(ApiResponse.success(bookService.getBookLoans(id, page, size), &quot;Emprunts récupérés&quot;));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

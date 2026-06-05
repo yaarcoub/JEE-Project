@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GlobalExceptionHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bibliotheque</a> &gt; <a href="index.source.html" class="el_package">com.ensam.projet.exception</a> &gt; <span class="el_source">GlobalExceptionHandler.java</span></div><h1>GlobalExceptionHandler.java</h1><pre class="source lang-java linenums">package com.ensam.projet.exception;
+
+import com.ensam.projet.dto.response.ApiResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.ConstraintViolationException;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.orm.ObjectOptimisticLockingFailureException;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
+
+@RestControllerAdvice
+<span class="fc" id="L21">public class GlobalExceptionHandler {</span>
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; handleNotFound(ResourceNotFoundException ex) {
+<span class="nc" id="L25">        return ResponseEntity.status(HttpStatus.NOT_FOUND)</span>
+<span class="nc" id="L26">                .body(ApiResponse.error(ex.getMessage(), HttpStatus.NOT_FOUND.value()));</span>
+    }
+
+    @ExceptionHandler(BadRequestException.class)
+    public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; handleBadRequest(BadRequestException ex) {
+<span class="fc" id="L31">        return ResponseEntity.badRequest()</span>
+<span class="fc" id="L32">                .body(ApiResponse.error(ex.getMessage(), HttpStatus.BAD_REQUEST.value()));</span>
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; handleValidation(MethodArgumentNotValidException ex) {
+<span class="nc" id="L37">        Map&lt;String, String&gt; errors = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        for (FieldError error : ex.getBindingResult().getFieldErrors()) {</span>
+<span class="nc" id="L39">            errors.put(error.getField(), error.getDefaultMessage());</span>
+<span class="nc" id="L40">        }</span>
+<span class="nc" id="L41">        return ResponseEntity.badRequest()</span>
+<span class="nc" id="L42">                .body(ApiResponse.error(&quot;Validation échouée&quot;, HttpStatus.BAD_REQUEST.value(), errors));</span>
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; handleAccessDenied(AccessDeniedException ex) {
+<span class="nc" id="L47">        return ResponseEntity.status(HttpStatus.FORBIDDEN)</span>
+<span class="nc" id="L48">                .body(ApiResponse.error(ex.getMessage(), HttpStatus.FORBIDDEN.value()));</span>
+    }
+
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; handleAuthentication(AuthenticationException ex) {
+<span class="fc" id="L53">        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)</span>
+<span class="fc" id="L54">                .body(ApiResponse.error(ex.getMessage(), HttpStatus.UNAUTHORIZED.value()));</span>
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; handleDataIntegrity(DataIntegrityViolationException ex) {
+<span class="nc" id="L59">        return ResponseEntity.status(HttpStatus.CONFLICT)</span>
+<span class="nc" id="L60">                .body(ApiResponse.error(&quot;Conflit de données : &quot; + ex.getMostSpecificCause().getMessage(), HttpStatus.CONFLICT.value()));</span>
+    }
+    @ExceptionHandler(ObjectOptimisticLockingFailureException.class)
+    public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; handleOptimisticLocking(ObjectOptimisticLockingFailureException ex) {
+<span class="nc" id="L64">        return ResponseEntity.status(HttpStatus.CONFLICT)</span>
+<span class="nc" id="L65">                .body(ApiResponse.error(&quot;error.optimisticLocking&quot;, HttpStatus.CONFLICT.value()));</span>
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; handleAll(Exception ex, HttpServletRequest request) {
+<span class="fc" id="L70">        ex.printStackTrace();</span>
+<span class="fc" id="L71">        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)</span>
+<span class="fc" id="L72">                .body(ApiResponse.error(&quot;Erreur serveur inattendue&quot;, HttpStatus.INTERNAL_SERVER_ERROR.value()));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

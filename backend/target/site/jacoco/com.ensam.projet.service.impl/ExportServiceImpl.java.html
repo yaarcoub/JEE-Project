@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ExportServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bibliotheque</a> &gt; <a href="index.source.html" class="el_package">com.ensam.projet.service.impl</a> &gt; <span class="el_source">ExportServiceImpl.java</span></div><h1>ExportServiceImpl.java</h1><pre class="source lang-java linenums">package com.ensam.projet.service.impl;
+
+import com.itextpdf.io.font.constants.StandardFonts;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
+import com.ensam.projet.entity.Book;
+import com.ensam.projet.entity.Loan;
+import com.ensam.projet.service.interfaces.ExportService;
+import com.itextpdf.layout.properties.TextAlignment;
+import com.itextpdf.kernel.colors.ColorConstants;
+import com.itextpdf.kernel.colors.DeviceRgb;
+import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.layout.borders.Border;
+import com.itextpdf.layout.borders.SolidBorder;
+import com.itextpdf.layout.properties.UnitValue;
+import lombok.RequiredArgsConstructor;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.*;
+import org.springframework.stereotype.Service;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+<span class="fc" id="L37">@RequiredArgsConstructor</span>
+public class ExportServiceImpl implements ExportService {
+
+    public byte[] exportBooksToPdf(List&lt;Book&gt; books) {
+<span class="nc" id="L41">        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {</span>
+<span class="nc" id="L42">            PdfWriter writer = new PdfWriter(baos);</span>
+<span class="nc" id="L43">            PdfDocument pdf = new PdfDocument(writer);</span>
+<span class="nc" id="L44">            Document document = new Document(pdf);</span>
+<span class="nc" id="L45">            document.setMargins(40, 40, 40, 40);</span>
+
+<span class="nc" id="L47">            PdfFont font = PdfFontFactory.createFont(StandardFonts.HELVETICA);</span>
+<span class="nc" id="L48">            PdfFont boldFont = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);</span>
+
+<span class="nc" id="L50">            DeviceRgb primaryColor = new DeviceRgb(59, 130, 246); // Blue 500</span>
+<span class="nc" id="L51">            DeviceRgb headerBgColor = new DeviceRgb(241, 245, 249); // Slate 100</span>
+<span class="nc" id="L52">            DeviceRgb evenRowColor = new DeviceRgb(248, 250, 252); // Slate 50</span>
+
+<span class="nc" id="L54">            Paragraph title = new Paragraph(&quot;CATALOGUE DES LIVRES&quot;)</span>
+<span class="nc" id="L55">                    .setFont(boldFont)</span>
+<span class="nc" id="L56">                    .setFontSize(22)</span>
+<span class="nc" id="L57">                    .setFontColor(primaryColor)</span>
+<span class="nc" id="L58">                    .setTextAlignment(TextAlignment.CENTER)</span>
+<span class="nc" id="L59">                    .setMarginBottom(10);</span>
+<span class="nc" id="L60">            document.add(title);</span>
+
+<span class="nc" id="L62">            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;dd/MM/yyyy HH:mm&quot;);</span>
+<span class="nc" id="L63">            Paragraph dateText = new Paragraph(&quot;Généré le : &quot; + java.time.LocalDateTime.now().format(formatter))</span>
+<span class="nc" id="L64">                    .setFont(font)</span>
+<span class="nc" id="L65">                    .setFontSize(10)</span>
+<span class="nc" id="L66">                    .setFontColor(new DeviceRgb(100, 116, 139))</span>
+<span class="nc" id="L67">                    .setTextAlignment(TextAlignment.CENTER)</span>
+<span class="nc" id="L68">                    .setMarginBottom(30);</span>
+<span class="nc" id="L69">            document.add(dateText);</span>
+
+<span class="nc" id="L71">            Table table = new Table(UnitValue.createPercentArray(new float[]{4, 3, 3, 1.5f, 3.5f})).useAllAvailableWidth();</span>
+
+<span class="nc" id="L73">            String[] headers = {&quot;Titre&quot;, &quot;Auteur&quot;, &quot;ISBN&quot;, &quot;Stock&quot;, &quot;Catégories&quot;};</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">            for (String header : headers) {</span>
+<span class="nc" id="L75">                Cell headerCell = new Cell()</span>
+<span class="nc" id="L76">                        .add(new Paragraph(header).setFont(boldFont).setFontSize(11))</span>
+<span class="nc" id="L77">                        .setBackgroundColor(headerBgColor)</span>
+<span class="nc" id="L78">                        .setFontColor(new DeviceRgb(15, 23, 42))</span>
+<span class="nc" id="L79">                        .setPadding(10)</span>
+<span class="nc" id="L80">                        .setBorder(Border.NO_BORDER)</span>
+<span class="nc" id="L81">                        .setBorderBottom(new SolidBorder(primaryColor, 2));</span>
+<span class="nc" id="L82">                table.addHeaderCell(headerCell);</span>
+            }
+
+<span class="nc" id="L85">            int rowIndex = 0;</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">            for (Book book : books) {</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">                boolean isEven = (rowIndex % 2 == 0);</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">                Color rowBg = isEven ? evenRowColor : ColorConstants.WHITE;</span>
+
+<span class="nc bnc" id="L90" title="All 2 branches missed.">                String categories = book.getCategories() == null ? &quot;-&quot; : book.getCategories().stream().map(c -&gt; c.getName()).collect(Collectors.joining(&quot;, &quot;));</span>
+
+<span class="nc" id="L92">                table.addCell(createCell(book.getTitle(), font, rowBg));</span>
+<span class="nc" id="L93">                table.addCell(createCell(book.getAuthor(), font, rowBg));</span>
+<span class="nc" id="L94">                table.addCell(createCell(book.getIsbn(), font, rowBg));</span>
+
+<span class="nc" id="L96">                Cell stockCell = createCell(String.valueOf(book.getStock()), font, rowBg);</span>
+<span class="nc bnc" id="L97" title="All 4 branches missed.">                if (book.getStock() == null || book.getStock() == 0) {</span>
+<span class="nc" id="L98">                    stockCell.setFontColor(new DeviceRgb(220, 38, 38)).setBold();</span>
+                }
+<span class="nc" id="L100">                table.addCell(stockCell);</span>
+
+<span class="nc" id="L102">                table.addCell(createCell(categories, font, rowBg));</span>
+
+<span class="nc" id="L104">                rowIndex++;</span>
+<span class="nc" id="L105">            }</span>
+
+<span class="nc" id="L107">            document.add(table);</span>
+<span class="nc" id="L108">            document.close();</span>
+<span class="nc" id="L109">            return baos.toByteArray();</span>
+<span class="nc" id="L110">        } catch (IOException ex) {</span>
+<span class="nc" id="L111">            throw new RuntimeException(&quot;Impossible d'exporter le PDF&quot;, ex);</span>
+        }
+    }
+
+    @Override
+    public byte[] exportBooksToExcel(List&lt;Book&gt; books) {
+<span class="nc" id="L117">        try (Workbook workbook = new XSSFWorkbook(); ByteArrayOutputStream baos = new ByteArrayOutputStream()) {</span>
+<span class="nc" id="L118">            XSSFSheet sheet = (XSSFSheet) workbook.createSheet(&quot;Livres&quot;);</span>
+<span class="nc" id="L119">            XSSFRow headerRow = sheet.createRow(0);</span>
+<span class="nc" id="L120">            XSSFFont headerFont = ((XSSFWorkbook) workbook).createFont();</span>
+<span class="nc" id="L121">            headerFont.setBold(true);</span>
+<span class="nc" id="L122">            headerFont.setColor(IndexedColors.WHITE.getIndex());</span>
+<span class="nc" id="L123">            XSSFCellStyle headerStyle = (XSSFCellStyle) workbook.createCellStyle();</span>
+<span class="nc" id="L124">            headerStyle.setFillForegroundColor(IndexedColors.BLUE.getIndex());</span>
+<span class="nc" id="L125">            headerStyle.setFont(headerFont);</span>
+<span class="nc" id="L126">            String[] headers = {&quot;ID&quot;, &quot;Titre&quot;, &quot;Auteur&quot;, &quot;ISBN&quot;, &quot;Stock&quot;, &quot;Catégories&quot;, &quot;Créé le&quot;};</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">            for (int i = 0; i &lt; headers.length; i++) {</span>
+<span class="nc" id="L128">                XSSFCell cell = headerRow.createCell(i);</span>
+<span class="nc" id="L129">                cell.setCellValue(headers[i]);</span>
+<span class="nc" id="L130">                cell.setCellStyle(headerStyle);</span>
+            }
+<span class="nc" id="L132">            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd HH:mm:ss&quot;);</span>
+<span class="nc" id="L133">            int rowIndex = 1;</span>
+<span class="nc bnc" id="L134" title="All 2 branches missed.">            for (Book book : books) {</span>
+<span class="nc" id="L135">                Row row = sheet.createRow(rowIndex++);</span>
+<span class="nc" id="L136">                row.createCell(0).setCellValue(book.getId());</span>
+<span class="nc" id="L137">                row.createCell(1).setCellValue(book.getTitle());</span>
+<span class="nc" id="L138">                row.createCell(2).setCellValue(book.getAuthor());</span>
+<span class="nc" id="L139">                row.createCell(3).setCellValue(book.getIsbn());</span>
+<span class="nc bnc" id="L140" title="All 2 branches missed.">                row.createCell(4).setCellValue(book.getStock() == null ? 0 : book.getStock());</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">                String categories = book.getCategories() == null ? &quot;&quot; : book.getCategories().stream().map(c -&gt; c.getName()).collect(Collectors.joining(&quot;, &quot;));</span>
+<span class="nc" id="L142">                row.createCell(5).setCellValue(categories);</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">                row.createCell(6).setCellValue(book.getCreatedAt() == null ? &quot;&quot; : book.getCreatedAt().format(formatter));</span>
+<span class="nc" id="L144">            }</span>
+<span class="nc bnc" id="L145" title="All 2 branches missed.">            for (int i = 0; i &lt; headers.length; i++) {</span>
+<span class="nc" id="L146">                sheet.autoSizeColumn(i);</span>
+            }
+<span class="nc" id="L148">            workbook.write(baos);</span>
+<span class="nc" id="L149">            return baos.toByteArray();</span>
+<span class="nc" id="L150">        } catch (IOException ex) {</span>
+<span class="nc" id="L151">            throw new RuntimeException(&quot;Impossible d'exporter l'Excel&quot;, ex);</span>
+        }
+    }
+
+    @Override
+    public byte[] exportLoansToPdf(List&lt;Loan&gt; loans) {
+<span class="nc" id="L157">        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {</span>
+<span class="nc" id="L158">            PdfWriter writer = new PdfWriter(baos);</span>
+<span class="nc" id="L159">            PdfDocument pdf = new PdfDocument(writer);</span>
+<span class="nc" id="L160">            Document document = new Document(pdf);</span>
+<span class="nc" id="L161">            PdfFont font = PdfFontFactory.createFont(StandardFonts.HELVETICA);</span>
+<span class="nc" id="L162">            document.add(new Paragraph(&quot;Export des emprunts&quot;).setFont(font).setBold().setFontSize(16).setTextAlignment(TextAlignment.CENTER));</span>
+<span class="nc" id="L163">            document.add(new Paragraph(&quot;Date de génération : &quot; + java.time.LocalDate.now()).setFont(font).setFontSize(10));</span>
+<span class="nc" id="L164">            Table table = new Table(new float[]{3, 3, 3, 2, 2});</span>
+<span class="nc" id="L165">            table.addHeaderCell(new Cell().add(new Paragraph(&quot;Livre&quot;)).setBold());</span>
+<span class="nc" id="L166">            table.addHeaderCell(new Cell().add(new Paragraph(&quot;Utilisateur&quot;)).setBold());</span>
+<span class="nc" id="L167">            table.addHeaderCell(new Cell().add(new Paragraph(&quot;Statut&quot;)).setBold());</span>
+<span class="nc" id="L168">            table.addHeaderCell(new Cell().add(new Paragraph(&quot;Début&quot;)).setBold());</span>
+<span class="nc" id="L169">            table.addHeaderCell(new Cell().add(new Paragraph(&quot;Retour prévu&quot;)).setBold());</span>
+<span class="nc bnc" id="L170" title="All 2 branches missed.">            for (Loan loan : loans) {</span>
+<span class="nc" id="L171">                table.addCell(new Cell().add(new Paragraph(loan.getBook().getTitle())).setFont(font));</span>
+<span class="nc" id="L172">                table.addCell(new Cell().add(new Paragraph(loan.getUser().getUsername())).setFont(font));</span>
+<span class="nc" id="L173">                table.addCell(new Cell().add(new Paragraph(loan.getStatus().name())).setFont(font));</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">                table.addCell(new Cell().add(new Paragraph(loan.getLoanDate() == null ? &quot;&quot; : loan.getLoanDate().toString())).setFont(font));</span>
+<span class="nc bnc" id="L175" title="All 2 branches missed.">                table.addCell(new Cell().add(new Paragraph(loan.getExpectedReturnDate() == null ? &quot;&quot; : loan.getExpectedReturnDate().toString())).setFont(font));</span>
+<span class="nc" id="L176">            }</span>
+<span class="nc" id="L177">            document.add(table);</span>
+<span class="nc" id="L178">            document.close();</span>
+<span class="nc" id="L179">            return baos.toByteArray();</span>
+<span class="nc" id="L180">        } catch (IOException ex) {</span>
+<span class="nc" id="L181">            throw new RuntimeException(&quot;Impossible d'exporter le PDF des emprunts&quot;, ex);</span>
+        }
+    }
+
+    private Cell createCell(String content, PdfFont font, Color bgColor) {
+<span class="nc" id="L186">        return new Cell()</span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">                .add(new Paragraph(content != null ? content : &quot;-&quot;).setFont(font).setFontSize(10))</span>
+<span class="nc" id="L188">                .setBackgroundColor(bgColor)</span>
+<span class="nc" id="L189">                .setPadding(8)</span>
+<span class="nc" id="L190">                .setBorder(Border.NO_BORDER)</span>
+<span class="nc" id="L191">                .setBorderBottom(new SolidBorder(new DeviceRgb(226, 232, 240), 1));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

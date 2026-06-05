@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuthController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bibliotheque</a> &gt; <a href="index.source.html" class="el_package">com.ensam.projet.controller</a> &gt; <span class="el_source">AuthController.java</span></div><h1>AuthController.java</h1><pre class="source lang-java linenums">package com.ensam.projet.controller;
+
+import com.ensam.projet.dto.request.LoginRequest;
+import com.ensam.projet.dto.request.RegisterRequest;
+import com.ensam.projet.dto.response.ApiResponse;
+import com.ensam.projet.dto.response.AuthResponse;
+import com.ensam.projet.service.interfaces.AuthService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping(&quot;/api/auth&quot;)
+@Tag(name = &quot;Auth&quot;, description = &quot;Authentification et gestion des tokens&quot;)
+<span class="fc" id="L18">@RequiredArgsConstructor</span>
+public class AuthController {
+
+    private final AuthService authService;
+
+    @Operation(summary = &quot;Enregistrer un nouvel utilisateur&quot;)
+    @PostMapping(&quot;/register&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;AuthResponse&gt;&gt; register(@Valid @RequestBody RegisterRequest request) {
+<span class="fc" id="L26">        return ResponseEntity.ok(ApiResponse.success(authService.register(request), &quot;Inscription réussie&quot;));</span>
+    }
+
+    @Operation(summary = &quot;Connexion utilisateur&quot;)
+    @PostMapping(&quot;/login&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;AuthResponse&gt;&gt; login(@Valid @RequestBody LoginRequest request) {
+<span class="fc" id="L32">        return ResponseEntity.ok(ApiResponse.success(authService.login(request), &quot;Connexion réussie&quot;));</span>
+    }
+
+    @Operation(summary = &quot;Renouveler le jeton d'accès&quot;)
+    @PostMapping(&quot;/refresh&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;AuthResponse&gt;&gt; refresh(@RequestParam String refreshToken) {
+<span class="nc" id="L38">        return ResponseEntity.ok(ApiResponse.success(authService.refreshToken(refreshToken), &quot;Token rafraîchi&quot;));</span>
+    }
+
+    @Operation(summary = &quot;Déconnexion&quot;)
+    @PostMapping(&quot;/logout&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; logout() {
+<span class="nc" id="L44">        authService.logout();</span>
+<span class="nc" id="L45">        return ResponseEntity.ok(ApiResponse.success(null, &quot;Déconnexion réussie&quot;));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
