@@ -1,4 +1,7 @@
 com/ensam/projet/controller/UserControllerIntegrationTest.class
+com/ensam/projet/service/impl/LoanServiceImplTest.class
+com/ensam/projet/repository/LoanRepositoryTest.class
 com/ensam/projet/service/impl/UserServiceImplTest.class
+com/ensam/projet/controller/LoanControllerTest.class
 com/ensam/projet/repository/UserRepositoryTest.class
 com/ensam/projet/controller/BookControllerTest.class

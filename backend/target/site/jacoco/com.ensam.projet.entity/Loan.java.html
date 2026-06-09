@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = &quot;loans&quot;)
 @Getter
-<span class="nc" id="L13">@Setter</span>
+<span class="fc" id="L13">@Setter</span>
 <span class="fc" id="L14">@NoArgsConstructor</span>
 public class Loan {
 
@@ -25,17 +25,17 @@ public class Loan {
 <span class="nc" id="L25">    private LocalDate actualReturnDate;</span>
 
     @Enumerated(EnumType.STRING)
-<span class="nc" id="L28">    private LoanStatus status;</span>
+<span class="fc" id="L28">    private LoanStatus status;</span>
 
     @ManyToOne
     @JoinColumn(name = &quot;book_id&quot;, nullable = false)
-<span class="nc" id="L32">    private Book book;</span>
+<span class="fc" id="L32">    private Book book;</span>
 
     @ManyToOne
     @JoinColumn(name = &quot;user_id&quot;, nullable = false)
-<span class="nc" id="L36">    private User user;</span>
+<span class="fc" id="L36">    private User user;</span>
 
     @OneToOne(mappedBy = &quot;loan&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
-<span class="nc" id="L39">    private LoanDetail detail;</span>
+<span class="fc" id="L39">    private LoanDetail detail;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

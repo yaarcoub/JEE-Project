@@ -1,7 +1,10 @@
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/controller/BookControllerTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/repository/BookRepositoryTest.java
+/home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/controller/LoanControllerTest.java
+/home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/repository/LoanRepositoryTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/service/impl/UserServiceImplTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/service/impl/BookServiceImplTest.java
+/home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/service/impl/LoanServiceImplTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/controller/AuthControllerIntegrationTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/controller/UserControllerIntegrationTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/repository/UserRepositoryTest.java

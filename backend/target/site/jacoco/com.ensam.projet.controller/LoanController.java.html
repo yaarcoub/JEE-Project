@@ -34,51 +34,51 @@ public class LoanController {
             @RequestParam(defaultValue = &quot;10&quot;) int size,
             @RequestParam(required = false) LoanStatus status,
             @RequestParam(required = false) Long userId) {
-<span class="nc" id="L37">        return ResponseEntity.ok(ApiResponse.success(loanService.getAllLoans(page, size, status, userId), &quot;Liste récupérée&quot;));</span>
+<span class="fc" id="L37">        return ResponseEntity.ok(ApiResponse.success(loanService.getAllLoans(page, size, status, userId), &quot;Liste récupérée&quot;));</span>
     }
 
     @Operation(summary = &quot;Récupérer un emprunt&quot;)
     @GetMapping(&quot;/{id}&quot;)
     @PreAuthorize(&quot;isAuthenticated()&quot;)
     public ResponseEntity&lt;ApiResponse&lt;LoanResponse&gt;&gt; getLoan(@PathVariable Long id, Authentication authentication) {
-<span class="nc" id="L44">        LoanResponse response = loanService.getLoanById(id);</span>
-<span class="nc bnc" id="L45" title="All 6 branches missed.">        if (authentication.getAuthorities().stream().anyMatch(auth -&gt; auth.getAuthority().equals(&quot;ROLE_MANAGER&quot;) || auth.getAuthority().equals(&quot;ROLE_ADMIN&quot;))) {</span>
-<span class="nc" id="L46">            return ResponseEntity.ok(ApiResponse.success(response, &quot;Emprunt récupéré&quot;));</span>
+<span class="fc" id="L44">        LoanResponse response = loanService.getLoanById(id);</span>
+<span class="pc bpc" id="L45" title="1 of 6 branches missed.">        if (authentication.getAuthorities().stream().anyMatch(auth -&gt; auth.getAuthority().equals(&quot;ROLE_MANAGER&quot;) || auth.getAuthority().equals(&quot;ROLE_ADMIN&quot;))) {</span>
+<span class="fc" id="L46">            return ResponseEntity.ok(ApiResponse.success(response, &quot;Emprunt récupéré&quot;));</span>
         }
-<span class="nc" id="L48">        String username = ((UserDetails) authentication.getPrincipal()).getUsername();</span>
-<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (!response.getUser().getUsername().equals(username)) {</span>
-<span class="nc" id="L50">            throw new AccessDeniedException(&quot;Accès refusé&quot;);</span>
+<span class="fc" id="L48">        String username = ((UserDetails) authentication.getPrincipal()).getUsername();</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        if (!response.getUser().getUsername().equals(username)) {</span>
+<span class="fc" id="L50">            throw new AccessDeniedException(&quot;Accès refusé&quot;);</span>
         }
-<span class="nc" id="L52">        return ResponseEntity.ok(ApiResponse.success(response, &quot;Emprunt récupéré&quot;));</span>
+<span class="fc" id="L52">        return ResponseEntity.ok(ApiResponse.success(response, &quot;Emprunt récupéré&quot;));</span>
     }
 
     @Operation(summary = &quot;Créer un emprunt&quot;)
     @PostMapping
     @PreAuthorize(&quot;hasAnyRole('ADMIN','MANAGER','USER')&quot;)
     public ResponseEntity&lt;ApiResponse&lt;LoanResponse&gt;&gt; createLoan(@Valid @RequestBody LoanRequest request) {
-<span class="nc" id="L59">        return ResponseEntity.status(201).body(ApiResponse.success(loanService.createLoan(request), &quot;Emprunt créé&quot;));</span>
+<span class="fc" id="L59">        return ResponseEntity.status(201).body(ApiResponse.success(loanService.createLoan(request), &quot;Emprunt créé&quot;));</span>
     }
 
     @Operation(summary = &quot;Mettre à jour un emprunt&quot;)
     @PutMapping(&quot;/{id}&quot;)
     @PreAuthorize(&quot;hasAnyRole('ADMIN','MANAGER')&quot;)
     public ResponseEntity&lt;ApiResponse&lt;LoanResponse&gt;&gt; updateLoan(@PathVariable Long id, @Valid @RequestBody LoanRequest request) {
-<span class="nc" id="L66">        return ResponseEntity.ok(ApiResponse.success(loanService.updateLoan(id, request), &quot;Emprunt mis à jour&quot;));</span>
+<span class="fc" id="L66">        return ResponseEntity.ok(ApiResponse.success(loanService.updateLoan(id, request), &quot;Emprunt mis à jour&quot;));</span>
     }
 
     @Operation(summary = &quot;Marquer un emprunt comme retourné&quot;)
     @PutMapping(&quot;/{id}/return&quot;)
     @PreAuthorize(&quot;hasAnyRole('ADMIN','MANAGER')&quot;)
     public ResponseEntity&lt;ApiResponse&lt;LoanResponse&gt;&gt; returnLoan(@PathVariable Long id, @RequestParam String returnedBy) {
-<span class="nc" id="L73">        return ResponseEntity.ok(ApiResponse.success(loanService.returnLoan(id, returnedBy), &quot;Emprunt retourné&quot;));</span>
+<span class="fc" id="L73">        return ResponseEntity.ok(ApiResponse.success(loanService.returnLoan(id, returnedBy), &quot;Emprunt retourné&quot;));</span>
     }
 
     @Operation(summary = &quot;Supprimer un emprunt&quot;)
     @DeleteMapping(&quot;/{id}&quot;)
     @PreAuthorize(&quot;hasRole('ADMIN')&quot;)
     public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; deleteLoan(@PathVariable Long id) {
-<span class="nc" id="L80">        loanService.deleteLoan(id);</span>
-<span class="nc" id="L81">        return ResponseEntity.noContent().build();</span>
+<span class="fc" id="L80">        loanService.deleteLoan(id);</span>
+<span class="fc" id="L81">        return ResponseEntity.noContent().build();</span>
     }
 
     @Operation(summary = &quot;Lister mes emprunts&quot;)
@@ -87,7 +87,7 @@ public class LoanController {
     public ResponseEntity&lt;ApiResponse&lt;PagedResponse&lt;LoanResponse&gt;&gt;&gt; getMyLoans(
             @RequestParam(defaultValue = &quot;0&quot;) int page,
             @RequestParam(defaultValue = &quot;10&quot;) int size) {
-<span class="nc" id="L90">        return ResponseEntity.ok(ApiResponse.success(loanService.getMyLoans(page, size), &quot;Mes emprunts récupérés&quot;));</span>
+<span class="fc" id="L90">        return ResponseEntity.ok(ApiResponse.success(loanService.getMyLoans(page, size), &quot;Mes emprunts récupérés&quot;));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
