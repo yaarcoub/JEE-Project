@@ -1,4 +1,4 @@
-# 🌐 Bibliothèque ENSAM — Guide Complet du Frontend (De A à Z)
+# 🌐 Bibliothèque ENSAM — Guide Complet du Frontend 
 
 Bienvenue dans la documentation complète et détaillée du **Frontend** de l'application de gestion de la bibliothèque ENSAM. Ce document couvre absolument tout ce qui se trouve dans le frontend : l'architecture, les composants, les pages, le routage, la communication backend, et la gestion de l'état.
 
@@ -107,7 +107,7 @@ Le système utilise un **AuthContext** (`src/context/auth.tsx`).
 
 ---
 
-## 📡 Communication Backend (De A à Z)
+## 📡 Communication Backend 
 
 ### 1. Requêtes HTTP (Axios + JWT Interceptors)
 Le fichier `src/services/http.ts` est la tour de contrôle des API.
