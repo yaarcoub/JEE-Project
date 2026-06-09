@@ -9,19 +9,19 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Getter
-<span class="nc" id="L12">@Setter</span>
-<span class="nc" id="L13">@NoArgsConstructor</span>
-<span class="fc" id="L14">@AllArgsConstructor</span>
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ApiResponse&lt;T&gt; {
 
-<span class="fc" id="L18">    private boolean success;</span>
-<span class="fc" id="L19">    private T data;</span>
-<span class="fc" id="L20">    private String message;</span>
-<span class="fc" id="L21">    private String error;</span>
-<span class="fc" id="L22">    private Integer status;</span>
-<span class="fc" id="L23">    private LocalDateTime timestamp;</span>
-<span class="fc" id="L24">    private Object details;</span>
+    private boolean success;
+    private T data;
+    private String message;
+    private String error;
+    private Integer status;
+    private LocalDateTime timestamp;
+    private Object details;
 
     public static &lt;T&gt; ApiResponse&lt;T&gt; success(T data, String message) {
 <span class="fc" id="L27">        return new ApiResponse&lt;&gt;(true, data, message, null, null, LocalDateTime.now(), null);</span>

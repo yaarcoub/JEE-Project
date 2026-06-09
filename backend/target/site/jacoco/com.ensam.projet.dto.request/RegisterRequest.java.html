@@ -7,17 +7,17 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-<span class="fc" id="L10">@Setter</span>
+@Setter
 <span class="fc" id="L11">public class RegisterRequest {</span>
     @NotBlank(message = &quot;Le nom d'utilisateur est obligatoire&quot;)
-<span class="fc" id="L13">    private String username;</span>
+    private String username;
 
     @Email(message = &quot;Email invalide&quot;)
     @NotBlank(message = &quot;L'email est obligatoire&quot;)
-<span class="fc" id="L17">    private String email;</span>
+    private String email;
 
     @NotBlank(message = &quot;Le mot de passe est obligatoire&quot;)
     @Size(min = 8, message = &quot;Minimum 8 caractères&quot;)
-<span class="fc" id="L21">    private String password;</span>
+    private String password;
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
