@@ -30,7 +30,7 @@ public class UserController {
     public ResponseEntity&lt;ApiResponse&lt;PagedResponse&lt;UserResponse&gt;&gt;&gt; getAllUsers(
             @RequestParam(defaultValue = &quot;0&quot;) int page,
             @RequestParam(defaultValue = &quot;10&quot;) int size) {
-<span class="nc" id="L33">        return ResponseEntity.ok(ApiResponse.success(userService.getAllUsers(page, size), &quot;Utilisateurs récupérés&quot;));</span>
+<span class="fc" id="L33">        return ResponseEntity.ok(ApiResponse.success(userService.getAllUsers(page, size), &quot;Utilisateurs récupérés&quot;));</span>
     }
 
     @Operation(summary = &quot;Récupérer un utilisateur&quot;)
@@ -44,7 +44,7 @@ public class UserController {
     @PutMapping(&quot;/{id}/roles&quot;)
     @PreAuthorize(&quot;hasRole('ADMIN')&quot;)
     public ResponseEntity&lt;ApiResponse&lt;UserResponse&gt;&gt; updateRoles(@PathVariable Long id, @RequestBody Set&lt;String&gt; roles) {
-<span class="nc" id="L47">        return ResponseEntity.ok(ApiResponse.success(userService.updateRoles(id, roles), &quot;Rôles mis à jour&quot;));</span>
+<span class="fc" id="L47">        return ResponseEntity.ok(ApiResponse.success(userService.updateRoles(id, roles), &quot;Rôles mis à jour&quot;));</span>
     }
 
     @Operation(summary = &quot;Activer / désactiver un utilisateur&quot;)
@@ -58,30 +58,30 @@ public class UserController {
     @DeleteMapping(&quot;/{id}&quot;)
     @PreAuthorize(&quot;hasRole('ADMIN')&quot;)
     public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; deleteUser(@PathVariable Long id) {
-<span class="nc" id="L61">        userService.deleteUser(id);</span>
-<span class="nc" id="L62">        return ResponseEntity.noContent().build();</span>
+<span class="fc" id="L61">        userService.deleteUser(id);</span>
+<span class="fc" id="L62">        return ResponseEntity.noContent().build();</span>
     }
 
     @Operation(summary = &quot;Récupérer mon profil&quot;)
     @GetMapping(&quot;/me&quot;)
     @PreAuthorize(&quot;isAuthenticated()&quot;)
     public ResponseEntity&lt;ApiResponse&lt;UserResponse&gt;&gt; getProfile() {
-<span class="nc" id="L69">        return ResponseEntity.ok(ApiResponse.success(userService.getCurrentUser(), &quot;Profil récupéré&quot;));</span>
+<span class="fc" id="L69">        return ResponseEntity.ok(ApiResponse.success(userService.getCurrentUser(), &quot;Profil récupéré&quot;));</span>
     }
 
     @Operation(summary = &quot;Mettre à jour mon profil&quot;)
     @PutMapping(&quot;/me&quot;)
     @PreAuthorize(&quot;isAuthenticated()&quot;)
     public ResponseEntity&lt;ApiResponse&lt;UserResponse&gt;&gt; updateProfile(@Valid @RequestBody UpdateProfileRequest request) {
-<span class="nc" id="L76">        return ResponseEntity.ok(ApiResponse.success(userService.updateProfile(request.getUsername(), request.getEmail()), &quot;Profil mis à jour&quot;));</span>
+<span class="fc" id="L76">        return ResponseEntity.ok(ApiResponse.success(userService.updateProfile(request.getUsername(), request.getEmail()), &quot;Profil mis à jour&quot;));</span>
     }
 
     @Operation(summary = &quot;Modifier le mot de passe&quot;)
     @PutMapping(&quot;/me/password&quot;)
     @PreAuthorize(&quot;isAuthenticated()&quot;)
     public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; changePassword(@Valid @RequestBody com.ensam.projet.dto.request.ChangePasswordRequest request) {
-<span class="nc" id="L83">        userService.changePassword(request.getOldPassword(), request.getNewPassword());</span>
-<span class="nc" id="L84">        return ResponseEntity.ok(ApiResponse.success(null, &quot;Mot de passe mis à jour avec succès&quot;));</span>
+<span class="fc" id="L83">        userService.changePassword(request.getOldPassword(), request.getNewPassword());</span>
+<span class="fc" id="L84">        return ResponseEntity.ok(ApiResponse.success(null, &quot;Mot de passe mis à jour avec succès&quot;));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

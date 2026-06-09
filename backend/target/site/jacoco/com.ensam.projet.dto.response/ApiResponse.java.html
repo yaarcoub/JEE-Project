@@ -32,7 +32,7 @@ public class ApiResponse&lt;T&gt; {
     }
 
     public static &lt;T&gt; ApiResponse&lt;T&gt; error(String error, int status, Object details) {
-<span class="nc" id="L35">        return new ApiResponse&lt;&gt;(false, null, null, error, status, LocalDateTime.now(), details);</span>
+<span class="fc" id="L35">        return new ApiResponse&lt;&gt;(false, null, null, error, status, LocalDateTime.now(), details);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

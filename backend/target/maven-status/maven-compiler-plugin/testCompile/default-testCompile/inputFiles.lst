@@ -1,3 +1,6 @@
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/repository/BookRepositoryTest.java
+/home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/service/impl/UserServiceImplTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/service/impl/BookServiceImplTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/controller/AuthControllerIntegrationTest.java
+/home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/controller/UserControllerIntegrationTest.java
+/home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/repository/UserRepositoryTest.java

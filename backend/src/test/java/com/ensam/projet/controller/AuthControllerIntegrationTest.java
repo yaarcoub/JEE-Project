@@ -67,19 +67,19 @@ class AuthControllerIntegrationTest {
         }
 
     @Test
-void registerShouldReturn200() throws Exception {
-    RegisterRequest request = new RegisterRequest();
-    request.setUsername("testuser");
-    request.setEmail("testuser@example.com");
-    request.setPassword("password123");
+    void registerShouldReturn200() throws Exception {
+        RegisterRequest request = new RegisterRequest();
+        request.setUsername("testuser");
+        request.setEmail("testuser@example.com");
+        request.setPassword("password123");
 
-    mockMvc.perform(post("/api/auth/register")
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .content(objectMapper.writeValueAsString(request)))
-            .andDo(org.springframework.test.web.servlet.result.MockMvcResultHandlers.print())
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$.success").value(true));
-}
+        mockMvc.perform(post("/api/auth/register")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andDo(org.springframework.test.web.servlet.result.MockMvcResultHandlers.print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.success").value(true));
+        }
     @Test
     void loginValidCredentialsReturnsToken() throws Exception {
         RegisterRequest request = new RegisterRequest();

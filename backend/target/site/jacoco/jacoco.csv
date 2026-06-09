@@ -6,14 +6,14 @@ bibliotheque,com.ensam.projet.controller,BookController,66,6,0,0,8,1,7,1,7,1
 bibliotheque,com.ensam.projet.controller,AuthController,16,22,0,0,3,3,2,3,2,3
 bibliotheque,com.ensam.projet.controller,CategoryController,41,6,0,0,6,1,5,1,5,1
 bibliotheque,com.ensam.projet.controller,LoanController,106,6,8,0,14,1,12,1,8,1
-bibliotheque,com.ensam.projet.controller,UserController,71,6,0,0,10,1,8,1,8,1
+bibliotheque,com.ensam.projet.controller,UserController,16,61,0,0,2,9,2,7,2,7
 bibliotheque,com.ensam.projet.dto.response,LoanDetailResponse,56,0,0,0,8,0,12,0,12,0
-bibliotheque,com.ensam.projet.dto.response,UserResponse,66,0,0,0,9,0,14,0,14,0
+bibliotheque,com.ensam.projet.dto.response,UserResponse,33,33,0,0,1,8,4,10,4,10
 bibliotheque,com.ensam.projet.dto.response,DashboardStatsResponse,86,0,0,0,11,0,18,0,18,0
 bibliotheque,com.ensam.projet.dto.response,LoanResponse,86,0,0,0,11,0,18,0,18,0
-bibliotheque,com.ensam.projet.dto.response,PagedResponse,42,24,0,0,7,2,12,2,12,2
+bibliotheque,com.ensam.projet.dto.response,PagedResponse,16,50,0,0,0,9,4,10,4,10
 bibliotheque,com.ensam.projet.dto.response,AuthResponse,26,36,0,0,2,6,6,6,6,6
-bibliotheque,com.ensam.projet.dto.response,ApiResponse,43,68,0,0,3,10,9,10,9,10
+bibliotheque,com.ensam.projet.dto.response,ApiResponse,31,80,0,0,2,11,8,11,8,11
 bibliotheque,com.ensam.projet.dto.response,CategoryStatDto,26,0,0,0,5,0,6,0,6,0
 bibliotheque,com.ensam.projet.dto.response,MonthlyStatDto,26,0,0,0,5,0,6,0,6,0
 bibliotheque,com.ensam.projet.dto.response,CategoryResponse,56,0,0,0,8,0,12,0,12,0
@@ -21,7 +21,7 @@ bibliotheque,com.ensam.projet.dto.response,BookResponse,113,3,0,0,13,1,23,1,23,1
 bibliotheque,com.ensam.projet.service.impl,DashboardServiceImpl,138,15,4,0,25,1,7,1,5,1
 bibliotheque,com.ensam.projet.service.impl,BookServiceImpl,200,203,17,7,30,32,19,7,7,7
 bibliotheque,com.ensam.projet.service.impl,AuthServiceImpl,129,152,4,2,35,31,10,6,7,6
-bibliotheque,com.ensam.projet.service.impl,UserServiceImpl,304,15,20,0,54,1,26,1,16,1
+bibliotheque,com.ensam.projet.service.impl,UserServiceImpl,174,145,15,5,30,25,18,9,9,8
 bibliotheque,com.ensam.projet.service.impl,CategoryServiceImpl,105,9,2,0,19,1,8,1,7,1
 bibliotheque,com.ensam.projet.service.impl,ExportServiceImpl,867,3,34,0,120,1,23,1,6,1
 bibliotheque,com.ensam.projet.service.impl,LoanServiceImpl,478,18,26,0,82,1,30,1,17,1
@@ -30,8 +30,8 @@ bibliotheque,com.ensam.projet.dto.request,LoanRequest,31,0,0,0,6,0,9,0,9,0
 bibliotheque,com.ensam.projet.dto.request,LoginRequest,0,17,0,0,0,4,0,5,0,5
 bibliotheque,com.ensam.projet.dto.request,BookRequest,12,40,0,0,0,9,3,12,3,12
 bibliotheque,com.ensam.projet.dto.request,CategoryRequest,24,0,0,0,5,0,7,0,7,0
-bibliotheque,com.ensam.projet.dto.request,UpdateProfileRequest,17,0,0,0,4,0,5,0,5,0
-bibliotheque,com.ensam.projet.dto.request,ChangePasswordRequest,17,0,0,0,4,0,5,0,5,0
+bibliotheque,com.ensam.projet.dto.request,UpdateProfileRequest,0,17,0,0,0,4,0,5,0,5
+bibliotheque,com.ensam.projet.dto.request,ChangePasswordRequest,0,17,0,0,0,4,0,5,0,5
 bibliotheque,com.ensam.projet.security,JwtAuthFilter,47,26,8,2,10,8,5,2,0,2
 bibliotheque,com.ensam.projet.security,JwtUtil,51,48,4,0,11,12,7,5,5,5
 bibliotheque,com.ensam.projet.security,CustomUserDetailsService,23,52,3,3,2,12,5,3,2,3
@@ -47,7 +47,7 @@ bibliotheque,com.ensam.projet.config,WebSocketConfig,0,40,0,0,0,8,0,3,0,3
 bibliotheque,com.ensam.projet.config,SecurityConfig,0,96,0,0,0,17,0,9,0,9
 bibliotheque,com.ensam.projet.service,NotificationService,25,6,0,0,6,1,1,1,1,1
 bibliotheque,com.ensam.projet.exception,BadRequestException,0,4,0,0,0,2,0,1,0,1
-bibliotheque,com.ensam.projet.exception,GlobalExceptionHandler,69,30,2,0,14,8,6,4,5,4
+bibliotheque,com.ensam.projet.exception,GlobalExceptionHandler,28,71,0,2,6,16,3,7,3,6
 bibliotheque,com.ensam.projet.exception,ResourceNotFoundException,0,4,0,0,0,2,0,1,0,1
 bibliotheque,com.ensam.projet.exception,UnauthorizedException,4,0,0,0,2,0,1,0,1,0
 bibliotheque,com.ensam.projet.entity,LoanDetail,42,7,0,0,6,2,12,1,12,1
@@ -57,5 +57,5 @@ bibliotheque,com.ensam.projet.entity,Category,28,15,0,0,4,4,8,3,8,3
 bibliotheque,com.ensam.projet.entity,LoanStatus,0,27,0,0,0,5,0,1,0,1
 bibliotheque,com.ensam.projet.entity,ERole,0,21,0,0,0,4,0,1,0,1
 bibliotheque,com.ensam.projet.entity,Book,44,53,0,0,8,8,13,12,13,12
-bibliotheque,com.ensam.projet.entity,User,29,38,0,0,3,8,8,9,8,9
+bibliotheque,com.ensam.projet.entity,User,18,49,0,0,2,9,5,12,5,12
 bibliotheque,com.ensam.projet,ProjetApplication,5,3,0,0,2,1,1,1,1,1

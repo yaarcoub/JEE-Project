@@ -1,0 +1,3 @@
+com/ensam/projet/controller/UserControllerIntegrationTest.class
+com/ensam/projet/service/impl/UserServiceImplTest.class
+com/ensam/projet/repository/UserRepositoryTest.class
