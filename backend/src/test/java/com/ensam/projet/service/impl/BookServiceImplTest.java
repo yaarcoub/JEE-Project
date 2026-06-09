@@ -13,12 +13,14 @@ import com.ensam.projet.repository.LoanRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.util.Collections;
@@ -59,6 +61,7 @@ class BookServiceImplTest {
         book.setAuthor("Craig Walls");
         book.setIsbn("978-1617292545");
         book.setStock(5);
+        
         request = new BookRequest();
         request.setTitle("Spring Boot in Action");
         request.setAuthor("Craig Walls");
@@ -67,15 +70,27 @@ class BookServiceImplTest {
     }
 
     @Test
-    void shouldReturnPagedBooks() {
+    void shouldReturnPagedBooksWithCorrectPaginationAndSorting() {
         Page<Book> page = new PageImpl<>(Collections.singletonList(book));
-        when(bookRepository.findAll(org.mockito.ArgumentMatchers.<Specification<Book>>any(), any(Pageable.class))).thenReturn(page);
+        
+        ArgumentCaptor<Pageable> pageableCaptor = ArgumentCaptor.forClass(Pageable.class);
+        @SuppressWarnings("unchecked")
+        ArgumentCaptor<Specification<Book>> specCaptor = ArgumentCaptor.forClass(Specification.class);
+
+        when(bookRepository.findAll(specCaptor.capture(), pageableCaptor.capture())).thenReturn(page);
         when(bookMapper.toResponse(book)).thenReturn(new BookResponse());
 
-        var response = bookService.getAllBooks(0, 10, "title", "asc", null, null);
+        var response = bookService.getAllBooks(1, 5, "title", "desc", "Spring", 2L);
 
         assertThat(response.getContent()).hasSize(1);
-        verify(bookRepository, times(1)).findAll(org.mockito.ArgumentMatchers.<Specification<Book>>any(), any(Pageable.class));
+        
+        Pageable capturedPageable = pageableCaptor.getValue();
+        assertThat(capturedPageable.getPageNumber()).isEqualTo(1);
+        assertThat(capturedPageable.getPageSize()).isEqualTo(5);
+        
+        Sort.Order sortOrder = capturedPageable.getSort().getOrderFor("title");
+        assertThat(sortOrder).isNotNull();
+        assertThat(sortOrder.getDirection()).isEqualTo(Sort.Direction.DESC);
     }
 
     @Test

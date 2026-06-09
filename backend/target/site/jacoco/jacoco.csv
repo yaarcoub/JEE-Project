@@ -2,7 +2,7 @@ GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_
 bibliotheque,com.ensam.projet.repository,BookSpecification,96,19,13,1,13,5,13,3,6,3
 bibliotheque,com.ensam.projet.controller,ExportController,260,12,4,0,59,1,10,1,8,1
 bibliotheque,com.ensam.projet.controller,DashboardController,7,6,0,0,1,1,1,1,1,1
-bibliotheque,com.ensam.projet.controller,BookController,66,6,0,0,8,1,7,1,7,1
+bibliotheque,com.ensam.projet.controller,BookController,10,62,0,0,1,8,1,7,1,7
 bibliotheque,com.ensam.projet.controller,AuthController,16,22,0,0,3,3,2,3,2,3
 bibliotheque,com.ensam.projet.controller,CategoryController,41,6,0,0,6,1,5,1,5,1
 bibliotheque,com.ensam.projet.controller,LoanController,106,6,8,0,14,1,12,1,8,1
@@ -17,7 +17,7 @@ bibliotheque,com.ensam.projet.dto.response,ApiResponse,31,80,0,0,2,11,8,11,8,11
 bibliotheque,com.ensam.projet.dto.response,CategoryStatDto,26,0,0,0,5,0,6,0,6,0
 bibliotheque,com.ensam.projet.dto.response,MonthlyStatDto,26,0,0,0,5,0,6,0,6,0
 bibliotheque,com.ensam.projet.dto.response,CategoryResponse,56,0,0,0,8,0,12,0,12,0
-bibliotheque,com.ensam.projet.dto.response,BookResponse,113,3,0,0,13,1,23,1,23,1
+bibliotheque,com.ensam.projet.dto.response,BookResponse,60,56,0,0,1,13,7,17,7,17
 bibliotheque,com.ensam.projet.service.impl,DashboardServiceImpl,138,15,4,0,25,1,7,1,5,1
 bibliotheque,com.ensam.projet.service.impl,BookServiceImpl,200,203,17,7,30,32,19,7,7,7
 bibliotheque,com.ensam.projet.service.impl,AuthServiceImpl,129,152,4,2,35,31,10,6,7,6
@@ -28,7 +28,7 @@ bibliotheque,com.ensam.projet.service.impl,LoanServiceImpl,478,18,26,0,82,1,30,1
 bibliotheque,com.ensam.projet.dto.request,RegisterRequest,0,24,0,0,0,5,0,7,0,7
 bibliotheque,com.ensam.projet.dto.request,LoanRequest,31,0,0,0,6,0,9,0,9,0
 bibliotheque,com.ensam.projet.dto.request,LoginRequest,0,17,0,0,0,4,0,5,0,5
-bibliotheque,com.ensam.projet.dto.request,BookRequest,12,40,0,0,0,9,3,12,3,12
+bibliotheque,com.ensam.projet.dto.request,BookRequest,0,52,0,0,0,9,0,15,0,15
 bibliotheque,com.ensam.projet.dto.request,CategoryRequest,24,0,0,0,5,0,7,0,7,0
 bibliotheque,com.ensam.projet.dto.request,UpdateProfileRequest,0,17,0,0,0,4,0,5,0,5
 bibliotheque,com.ensam.projet.dto.request,ChangePasswordRequest,0,17,0,0,0,4,0,5,0,5

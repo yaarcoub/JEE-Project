@@ -36,43 +36,43 @@ public class BookController {
             @RequestParam(defaultValue = &quot;asc&quot;) String direction,
             @RequestParam(required = false) String search,
             @RequestParam(required = false) Long categoryId) {
-<span class="nc" id="L39">        return ResponseEntity.ok(ApiResponse.success(bookService.getAllBooks(page, size, sort, direction, search, categoryId), &quot;Liste récupérée&quot;));</span>
+<span class="fc" id="L39">        return ResponseEntity.ok(ApiResponse.success(bookService.getAllBooks(page, size, sort, direction, search, categoryId), &quot;Liste récupérée&quot;));</span>
     }
 
     @Operation(summary = &quot;Récupérer un livre&quot;)
     @GetMapping(&quot;/{id}&quot;)
     @PreAuthorize(&quot;isAuthenticated()&quot;)
     public ResponseEntity&lt;ApiResponse&lt;BookResponse&gt;&gt; getBook(@PathVariable Long id) {
-<span class="nc" id="L46">        return ResponseEntity.ok(ApiResponse.success(bookService.getBookById(id), &quot;Livre récupéré&quot;));</span>
+<span class="fc" id="L46">        return ResponseEntity.ok(ApiResponse.success(bookService.getBookById(id), &quot;Livre récupéré&quot;));</span>
     }
 
     @Operation(summary = &quot;Créer un livre&quot;)
     @PostMapping
     @PreAuthorize(&quot;hasAnyRole('ADMIN','MANAGER')&quot;)
     public ResponseEntity&lt;ApiResponse&lt;BookResponse&gt;&gt; createBook(@Valid @RequestBody BookRequest request) {
-<span class="nc" id="L53">        return ResponseEntity.status(201).body(ApiResponse.success(bookService.createBook(request), &quot;Livre créé&quot;));</span>
+<span class="fc" id="L53">        return ResponseEntity.status(201).body(ApiResponse.success(bookService.createBook(request), &quot;Livre créé&quot;));</span>
     }
 
     @Operation(summary = &quot;Mettre à jour un livre&quot;)
     @PutMapping(&quot;/{id}&quot;)
     @PreAuthorize(&quot;hasAnyRole('ADMIN','MANAGER')&quot;)
     public ResponseEntity&lt;ApiResponse&lt;BookResponse&gt;&gt; updateBook(@PathVariable Long id, @Valid @RequestBody BookRequest request) {
-<span class="nc" id="L60">        return ResponseEntity.ok(ApiResponse.success(bookService.updateBook(id, request), &quot;Livre mis à jour&quot;));</span>
+<span class="fc" id="L60">        return ResponseEntity.ok(ApiResponse.success(bookService.updateBook(id, request), &quot;Livre mis à jour&quot;));</span>
     }
 
     @Operation(summary = &quot;Supprimer un livre&quot;)
     @DeleteMapping(&quot;/{id}&quot;)
     @PreAuthorize(&quot;hasRole('ADMIN')&quot;)
     public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; deleteBook(@PathVariable Long id) {
-<span class="nc" id="L67">        bookService.deleteBook(id);</span>
-<span class="nc" id="L68">        return ResponseEntity.noContent().build();</span>
+<span class="fc" id="L67">        bookService.deleteBook(id);</span>
+<span class="fc" id="L68">        return ResponseEntity.noContent().build();</span>
     }
 
     @Operation(summary = &quot;Assigner des catégories à un livre&quot;)
     @PostMapping(&quot;/{id}/categories&quot;)
     @PreAuthorize(&quot;hasAnyRole('ADMIN','MANAGER')&quot;)
     public ResponseEntity&lt;ApiResponse&lt;BookResponse&gt;&gt; assignCategories(@PathVariable Long id, @RequestBody Set&lt;Long&gt; categoryIds) {
-<span class="nc" id="L75">        return ResponseEntity.ok(ApiResponse.success(bookService.assignCategories(id, categoryIds), &quot;Catégories assignées&quot;));</span>
+<span class="fc" id="L75">        return ResponseEntity.ok(ApiResponse.success(bookService.assignCategories(id, categoryIds), &quot;Catégories assignées&quot;));</span>
     }
 
     @Operation(summary = &quot;Récupérer les emprunts d'un livre&quot;)
