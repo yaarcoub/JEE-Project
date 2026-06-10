@@ -59,9 +59,9 @@ import java.util.function.Function;
     }
 
     public Claims extractAllClaims(String token) {
-<span class="nc" id="L62">        return Jwts.parserBuilder()</span>
-<span class="nc" id="L63">                .setSigningKey(getSigningKey())</span>
-<span class="nc" id="L64">                .build()</span>
+<span class="pc" id="L62">        return Jwts.parserBuilder()</span>
+<span class="fc" id="L63">                .setSigningKey(getSigningKey())</span>
+<span class="fc" id="L64">                .build()</span>
 <span class="nc" id="L65">                .parseClaimsJws(token)</span>
 <span class="nc" id="L66">                .getBody();</span>
     }

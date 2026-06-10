@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.ensam.projet.controller.AuthControllerIntegrationTest" time="29.492" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.ensam.projet.controller.AuthControllerIntegrationTest" time="10.94" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -14,7 +14,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-21-openjdk/lib"/>
-    <property name="sun.java.command" value="/home/yass/S8/JEE/project/JEE-Project/backend/target/surefire/surefirebooter-20260605101540113_3.jar /home/yass/S8/JEE/project/JEE-Project/backend/target/surefire 2026-06-05T10-15-39_985-jvmRun1 surefire-20260605101540113_1tmp surefire_0-20260605101540113_2tmp"/>
+    <property name="sun.java.command" value="/home/yass/S8/JEE/project/JEE-Project/backend/target/surefire/surefirebooter-20260610093757424_3.jar /home/yass/S8/JEE/project/JEE-Project/backend/target/surefire 2026-06-10T09-37-57_281-jvmRun1 surefire-20260610093757424_1tmp surefire_0-20260610093757424_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/yass/S8/JEE/project/JEE-Project/backend/target/test-classes:/home/yass/S8/JEE/project/JEE-Project/backend/target/classes:/home/yass/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.2.2/spring-boot-starter-web-3.2.2.jar:/home/yass/.m2/repository/org/springframework/boot/spring-boot-starter/3.2.2/spring-boot-starter-3.2.2.jar:/home/yass/.m2/repository/org/springframework/boot/spring-boot/3.2.2/spring-boot-3.2.2.jar:/home/yass/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.2.2/spring-boot-autoconfigure-3.2.2.jar:/home/yass/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.2.2/spring-boot-starter-logging-3.2.2.jar:/home/yass/.m2/repository/ch/qos/logback/logback-classic/1.4.14/logback-classic-1.4.14.jar:/home/yass/.m2/repository/ch/qos/logback/logback-core/1.4.14/logback-core-1.4.14.jar:/home/yass/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.21.1/log4j-to-slf4j-2.21.1.jar:/home/yass/.m2/repository/org/slf4j/jul-to-slf4j/2.0.11/jul-to-slf4j-2.0.11.jar:/home/yass/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/home/yass/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/home/yass/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.2.2/spring-boot-starter-json-3.2.2.jar:/home/yass/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.15.3/jackson-datatype-jdk8-2.15.3.jar:/home/yass/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.15.3/jackson-datatype-jsr310-2.15.3.jar:/home/yass/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.15.3/jackson-module-parameter-names-2.15.3.jar:/home/yass/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.2.2/spring-boot-starter-tomcat-3.2.2.jar:/home/yass/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.18/tomcat-embed-core-10.1.18.jar:/home/yass/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.18/tomcat-embed-websocket-10.1.18.jar:/home/yass/.m2/repository/org/springframework/spring-web/6.1.3/spring-web-6.1.3.jar:/home/yass/.m2/repository/org/springframework/spring-beans/6.1.3/spring-beans-6.1.3.jar:/home/yass/.m2/repository/io/micrometer/micrometer-observation/1.12.2/micrometer-observation-1.12.2.jar:/home/yass/.m2/repository/io/micrometer/micrometer-commons/1.12.2/micrometer-commons-1.12.2.jar:/home/yass/.m2/repository/org/springframework/spring-webmvc/6.1.3/spring-webmvc-6.1.3.jar:/home/yass/.m2/repository/org/springframework/spring-context/6.1.3/spring-context-6.1.3.jar:/home/yass/.m2/repository/org/springframework/spring-expression/6.1.3/spring-expression-6.1.3.jar:/home/yass/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.2.2/spring-boot-starter-data-jpa-3.2.2.jar:/home/yass/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.2.2/spring-boot-starter-aop-3.2.2.jar:/home/yass/.m2/repository/org/aspectj/aspectjweaver/1.9.21/aspectjweaver-1.9.21.jar:/home/yass/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.2.2/spring-boot-starter-jdbc-3.2.2.jar:/home/yass/.m2/repository/com/zaxxer/HikariCP/5.0.1/HikariCP-5.0.1.jar:/home/yass/.m2/repository/org/springframework/spring-jdbc/6.1.3/spring-jdbc-6.1.3.jar:/home/yass/.m2/repository/org/hibernate/orm/hibernate-core/6.4.1.Final/hibernate-core-6.4.1.Final.jar:/home/yass/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/home/yass/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/home/yass/.m2/repository/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar:/home/yass/.m2/repository/org/hibernate/common/hibernate-commons-annotations/6.0.6.Final/hibernate-commons-annotations-6.0.6.Final.jar:/home/yass/.m2/repository/io/smallrye/jandex/3.1.2/jandex-3.1.2.jar:/home/yass/.m2/repository/com/fasterxml/classmate/1.6.0/classmate-1.6.0.jar:/home/yass/.m2/repository/net/bytebuddy/byte-buddy/1.14.11/byte-buddy-1.14.11.jar:/home/yass/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.4/jaxb-runtime-4.0.4.jar:/home/yass/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.4/jaxb-core-4.0.4.jar:/home/yass/.m2/repository/org/eclipse/angus/angus-activation/2.0.1/angus-activation-2.0.1.jar:/home/yass/.m2/repository/org/glassfish/jaxb/txw2/4.0.4/txw2-4.0.4.jar:/home/yass/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/home/yass/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/home/yass/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/home/yass/.m2/repository/org/springframework/data/spring-data-jpa/3.2.2/spring-data-jpa-3.2.2.jar:/home/yass/.m2/repository/org/springframework/data/spring-data-commons/3.2.2/spring-data-commons-3.2.2.jar:/home/yass/.m2/repository/org/springframework/spring-orm/6.1.3/spring-orm-6.1.3.jar:/home/yass/.m2/repository/org/springframework/spring-tx/6.1.3/spring-tx-6.1.3.jar:/home/yass/.m2/repository/org/slf4j/slf4j-api/2.0.11/slf4j-api-2.0.11.jar:/home/yass/.m2/repository/org/springframework/spring-aspects/6.1.3/spring-aspects-6.1.3.jar:/home/yass/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.2.2/spring-boot-starter-security-3.2.2.jar:/home/yass/.m2/repository/org/springframework/spring-aop/6.1.3/spring-aop-6.1.3.jar:/home/yass/.m2/repository/org/springframework/security/spring-security-config/6.2.1/spring-security-config-6.2.1.jar:/home/yass/.m2/repository/org/springframework/security/spring-security-web/6.2.1/spring-security-web-6.2.1.jar:/home/yass/.m2/repository/org/springframework/boot/spring-boot-starter-validation/3.2.2/spring-boot-starter-validation-3.2.2.jar:/home/yass/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.18/tomcat-embed-el-10.1.18.jar:/home/yass/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.1.Final/hibernate-validator-8.0.1.Final.jar:/home/yass/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/home/yass/.m2/repository/org/springframework/boot/spring-boot-starter-websocket/3.2.2/spring-boot-starter-websocket-3.2.2.jar:/home/yass/.m2/repository/org/springframework/spring-messaging/6.1.3/spring-messaging-6.1.3.jar:/home/yass/.m2/repository/org/springframework/spring-websocket/6.1.3/spring-websocket-6.1.3.jar:/home/yass/.m2/repository/io/jsonwebtoken/jjwt-api/0.11.5/jjwt-api-0.11.5.jar:/home/yass/.m2/repository/io/jsonwebtoken/jjwt-impl/0.11.5/jjwt-impl-0.11.5.jar:/home/yass/.m2/repository/io/jsonwebtoken/jjwt-jackson/0.11.5/jjwt-jackson-0.11.5.jar:/home/yass/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.3/jackson-databind-2.15.3.jar:/home/yass/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.3/jackson-annotations-2.15.3.jar:/home/yass/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.3/jackson-core-2.15.3.jar:/home/yass/.m2/repository/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar:/home/yass/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar:/home/yass/.m2/repository/org/projectlombok/lombok/1.18.32/lombok-1.18.32.jar:/home/yass/.m2/repository/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar:/home/yass/.m2/repository/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar:/home/yass/.m2/repository/org/springdoc/springdoc-openapi-starter-webmvc-ui/2.3.0/springdoc-openapi-starter-webmvc-ui-2.3.0.jar:/home/yass/.m2/repository/org/springdoc/springdoc-openapi-starter-webmvc-api/2.3.0/springdoc-openapi-starter-webmvc-api-2.3.0.jar:/home/yass/.m2/repository/org/springdoc/springdoc-openapi-starter-common/2.3.0/springdoc-openapi-starter-common-2.3.0.jar:/home/yass/.m2/repository/io/swagger/core/v3/swagger-core-jakarta/2.2.19/swagger-core-jakarta-2.2.19.jar:/home/yass/.m2/repository/org/apache/commons/commons-lang3/3.13.0/commons-lang3-3.13.0.jar:/home/yass/.m2/repository/io/swagger/core/v3/swagger-annotations-jakarta/2.2.19/swagger-annotations-jakarta-2.2.19.jar:/home/yass/.m2/repository/io/swagger/core/v3/swagger-models-jakarta/2.2.19/swagger-models-jakarta-2.2.19.jar:/home/yass/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.15.3/jackson-dataformat-yaml-2.15.3.jar:/home/yass/.m2/repository/org/webjars/swagger-ui/5.10.3/swagger-ui-5.10.3.jar:/home/yass/.m2/repository/com/itextpdf/barcodes/7.2.5/barcodes-7.2.5.jar:/home/yass/.m2/repository/com/itextpdf/font-asian/7.2.5/font-asian-7.2.5.jar:/home/yass/.m2/repository/com/itextpdf/forms/7.2.5/forms-7.2.5.jar:/home/yass/.m2/repository/com/itextpdf/hyph/7.2.5/hyph-7.2.5.jar:/home/yass/.m2/repository/com/itextpdf/io/7.2.5/io-7.2.5.jar:/home/yass/.m2/repository/com/itextpdf/commons/7.2.5/commons-7.2.5.jar:/home/yass/.m2/repository/com/itextpdf/kernel/7.2.5/kernel-7.2.5.jar:/home/yass/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.70/bcpkix-jdk15on-1.70.jar:/home/yass/.m2/repository/org/bouncycastle/bcutil-jdk15on/1.70/bcutil-jdk15on-1.70.jar:/home/yass/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.jar:/home/yass/.m2/repository/com/itextpdf/layout/7.2.5/layout-7.2.5.jar:/home/yass/.m2/repository/com/itextpdf/pdfa/7.2.5/pdfa-7.2.5.jar:/home/yass/.m2/repository/com/itextpdf/sign/7.2.5/sign-7.2.5.jar:/home/yass/.m2/repository/com/itextpdf/styled-xml-parser/7.2.5/styled-xml-parser-7.2.5.jar:/home/yass/.m2/repository/com/itextpdf/svg/7.2.5/svg-7.2.5.jar:/home/yass/.m2/repository/org/apache/poi/poi-ooxml/5.2.5/poi-ooxml-5.2.5.jar:/home/yass/.m2/repository/org/apache/poi/poi/5.2.5/poi-5.2.5.jar:/home/yass/.m2/repository/commons-codec/commons-codec/1.16.0/commons-codec-1.16.0.jar:/home/yass/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar:/home/yass/.m2/repository/com/zaxxer/SparseBitSet/1.3/SparseBitSet-1.3.jar:/home/yass/.m2/repository/org/apache/poi/poi-ooxml-lite/5.2.5/poi-ooxml-lite-5.2.5.jar:/home/yass/.m2/repository/org/apache/xmlbeans/xmlbeans/5.2.0/xmlbeans-5.2.0.jar:/home/yass/.m2/repository/org/apache/commons/commons-compress/1.25.0/commons-compress-1.25.0.jar:/home/yass/.m2/repository/commons-io/commons-io/2.15.0/commons-io-2.15.0.jar:/home/yass/.m2/repository/com/github/virtuald/curvesapi/1.08/curvesapi-1.08.jar:/home/yass/.m2/repository/org/apache/logging/log4j/log4j-api/2.21.1/log4j-api-2.21.1.jar:/home/yass/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar:/home/yass/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.2.2/spring-boot-starter-test-3.2.2.jar:/home/yass/.m2/repository/org/springframework/boot/spring-boot-test/3.2.2/spring-boot-test-3.2.2.jar:/home/yass/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.2.2/spring-boot-test-autoconfigure-3.2.2.jar:/home/yass/.m2/repository/com/jayway/jsonpath/json-path/2.8.0/json-path-2.8.0.jar:/home/yass/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.1/jakarta.xml.bind-api-4.0.1.jar:/home/yass/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.2/jakarta.activation-api-2.1.2.jar:/home/yass/.m2/repository/net/minidev/json-smart/2.5.0/json-smart-2.5.0.jar:/home/yass/.m2/repository/net/minidev/accessors-smart/2.5.0/accessors-smart-2.5.0.jar:/home/yass/.m2/repository/org/ow2/asm/asm/9.3/asm-9.3.jar:/home/yass/.m2/repository/org/assertj/assertj-core/3.24.2/assertj-core-3.24.2.jar:/home/yass/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/home/yass/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/home/yass/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.1/junit-jupiter-5.10.1.jar:/home/yass/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.1/junit-jupiter-params-5.10.1.jar:/home/yass/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.1/junit-jupiter-engine-5.10.1.jar:/home/yass/.m2/repository/org/junit/platform/junit-platform-engine/1.10.1/junit-platform-engine-1.10.1.jar:/home/yass/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/home/yass/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.11/byte-buddy-agent-1.14.11.jar:/home/yass/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/home/yass/.m2/repository/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1.jar:/home/yass/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/home/yass/.m2/repository/org/springframework/spring-core/6.1.3/spring-core-6.1.3.jar:/home/yass/.m2/repository/org/springframework/spring-jcl/6.1.3/spring-jcl-6.1.3.jar:/home/yass/.m2/repository/org/springframework/spring-test/6.1.3/spring-test-6.1.3.jar:/home/yass/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/home/yass/.m2/repository/org/springframework/security/spring-security-test/6.2.1/spring-security-test-6.2.1.jar:/home/yass/.m2/repository/org/springframework/security/spring-security-core/6.2.1/spring-security-core-6.2.1.jar:/home/yass/.m2/repository/org/springframework/security/spring-security-crypto/6.2.1/spring-security-crypto-6.2.1.jar:/home/yass/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/home/yass/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.1/junit-jupiter-api-5.10.1.jar:/home/yass/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/yass/.m2/repository/org/junit/platform/junit-platform-commons/1.10.1/junit-platform-commons-1.10.1.jar:/home/yass/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="FILE_LOG_CHARSET" value="UTF-8"/>
     <property name="java.awt.headless" value="true"/>
-    <property name="surefire.real.class.path" value="/home/yass/S8/JEE/project/JEE-Project/backend/target/surefire/surefirebooter-20260605101540113_3.jar"/>
+    <property name="surefire.real.class.path" value="/home/yass/S8/JEE/project/JEE-Project/backend/target/surefire/surefirebooter-20260610093757424_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.11+10"/>
     <property name="user.name" value="yass"/>
@@ -45,12 +45,12 @@
     <property name="localRepository" value="/home/yass/.m2/repository"/>
     <property name="java.vendor.url.bug" value="https://bugzilla.redhat.com/enter_bug.cgi?product=Fedora&amp;component=java-21-openjdk&amp;version=42"/>
     <property name="java.io.tmpdir" value="/tmp"/>
-    <property name="com.zaxxer.hikari.pool_number" value="5"/>
+    <property name="com.zaxxer.hikari.pool_number" value="9"/>
     <property name="java.version" value="21.0.11"/>
     <property name="user.dir" value="/home/yass/S8/JEE/project/JEE-Project/backend"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="10819"/>
+    <property name="PID" value="35962"/>
     <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
     <property name="native.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
@@ -62,9 +62,9 @@
     <property name="java.class.version" value="65.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[ensam-bibliotheque] "/>
   </properties>
-  <testcase name="loginInvalidPasswordReturns401" classname="com.ensam.projet.controller.AuthControllerIntegrationTest" time="4.898">
-    <system-out><![CDATA[10:15:43.177 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.ensam.projet.controller.AuthControllerIntegrationTest]: AuthControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-10:15:43.783 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.ensam.projet.ProjetApplication for test class com.ensam.projet.controller.AuthControllerIntegrationTest
+  <testcase name="loginInvalidPasswordReturns401" classname="com.ensam.projet.controller.AuthControllerIntegrationTest" time="3.394">
+    <system-out><![CDATA[2026-06-10T09:38:34.856+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.ensam.projet.controller.AuthControllerIntegrationTest]: AuthControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-10T09:38:34.862+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.ensam.projet.ProjetApplication for test class com.ensam.projet.controller.AuthControllerIntegrationTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -74,19 +74,18 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.2)
 
-2026-06-05T10:15:45.683+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Starting AuthControllerIntegrationTest using Java 21.0.11 with PID 10819 (started by yass in /home/yass/S8/JEE/project/JEE-Project/backend)
-2026-06-05T10:15:45.690+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : No active profile set, falling back to 1 default profile: "default"
-2026-06-05T10:15:48.629+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-05T10:15:48.908+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 254 ms. Found 6 JPA repository interfaces.
-2026-06-05T10:15:50.620+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-05T10:15:50.782+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
-2026-06-05T10:15:50.898+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-05T10:15:51.651+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-05T10:15:51.740+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-06-05T10:15:52.570+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:authdb user=${SPRING_DATASOURCE_USERNAME}
-2026-06-05T10:15:52.575+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-06-05T10:15:52.658+01:00  WARN 10819 --- [ensam-bibliotheque] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-05T10:15:55.908+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-10T09:38:34.916+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Starting AuthControllerIntegrationTest using Java 21.0.11 with PID 35962 (started by yass in /home/yass/S8/JEE/project/JEE-Project/backend)
+2026-06-10T09:38:34.917+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : No active profile set, falling back to 1 default profile: "default"
+2026-06-10T09:38:35.274+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-10T09:38:35.302+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 6 JPA repository interfaces.
+2026-06-10T09:38:35.470+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-10T09:38:35.473+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-10T09:38:35.477+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-10T09:38:35.478+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2026-06-10T09:38:35.484+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection conn40: url=jdbc:h2:mem:authdb user=${SPRING_DATASOURCE_USERNAME}
+2026-06-10T09:38:35.499+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2026-06-10T09:38:35.500+01:00  WARN 35962 --- [ensam-bibliotheque] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-10T09:38:35.722+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: 
     drop table if exists book_categories cascade 
 Hibernate: 
@@ -212,21 +211,20 @@ Hibernate:
        add constraint FKhfh9dx7w3ubf1co1vdev94g3f 
        foreign key (user_id) 
        references users
-2026-06-05T10:15:56.121+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-05T10:15:57.610+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-06-05T10:15:59.662+01:00  WARN 10819 --- [ensam-bibliotheque] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-05T10:16:00.496+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2e2cb8e5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2a81c550, org.springframework.security.web.context.SecurityContextHolderFilter@443e68a5, org.springframework.security.web.header.HeaderWriterFilter@15808d95, org.springframework.web.filter.CorsFilter@76308d9a, org.springframework.security.web.authentication.logout.LogoutFilter@50cfa74d, com.ensam.projet.security.JwtAuthFilter@1e79c8b9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@198da7f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@e4452f7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@186fbbd3, org.springframework.security.web.session.SessionManagementFilter@1e3ea3b0, org.springframework.security.web.access.ExceptionTranslationFilter@46c39644, org.springframework.security.web.access.intercept.AuthorizationFilter@2e6387f4]
-2026-06-05T10:16:01.621+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-06-05T10:16:01.622+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-06-05T10:16:01.625+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
-2026-06-05T10:16:01.655+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
-2026-06-05T10:16:01.659+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@b9af0d1]]
-2026-06-05T10:16:01.661+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
-2026-06-05T10:16:01.679+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Started AuthControllerIntegrationTest in 17.281 seconds (process running for 21.415)
-2026-06-05T10:16:01.741+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
-2026-06-05T10:16:01.742+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@b9af0d1]]
-2026-06-05T10:16:01.742+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
-2026-06-05T10:16:01.753+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-10T09:38:35.769+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-10T09:38:36.208+01:00  WARN 35962 --- [ensam-bibliotheque] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-10T09:38:36.374+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@32d3042b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c47fd55, org.springframework.security.web.context.SecurityContextHolderFilter@3612c3bb, org.springframework.security.web.header.HeaderWriterFilter@584ea55d, org.springframework.web.filter.CorsFilter@e52e766, org.springframework.security.web.authentication.logout.LogoutFilter@3041dd71, com.ensam.projet.security.JwtAuthFilter@532f0702, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21d94557, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c90787c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@19a5c643, org.springframework.security.web.session.SessionManagementFilter@36e550f2, org.springframework.security.web.access.ExceptionTranslationFilter@6d3f5c62, org.springframework.security.web.access.intercept.AuthorizationFilter@5485154c]
+2026-06-10T09:38:36.731+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-06-10T09:38:36.732+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-06-10T09:38:36.735+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-06-10T09:38:36.752+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-06-10T09:38:36.753+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@256689a8]]
+2026-06-10T09:38:36.753+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-06-10T09:38:36.763+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Started AuthControllerIntegrationTest in 1.893 seconds (process running for 39.226)
+2026-06-10T09:38:36.782+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-06-10T09:38:36.783+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@256689a8]]
+2026-06-10T09:38:36.783+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-06-10T09:38:36.805+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 Hibernate: 
     drop table if exists book_categories cascade 
 Hibernate: 
@@ -243,8 +241,8 @@ Hibernate:
     drop table if exists user_roles cascade 
 Hibernate: 
     drop table if exists users cascade 
-2026-06-05T10:16:01.780+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-06-05T10:16:01.784+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-10T09:38:36.843+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2026-06-10T09:38:36.849+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -254,18 +252,18 @@ Hibernate:
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.2)
 
-2026-06-05T10:16:01.847+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Starting AuthControllerIntegrationTest using Java 21.0.11 with PID 10819 (started by yass in /home/yass/S8/JEE/project/JEE-Project/backend)
-2026-06-05T10:16:01.847+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : No active profile set, falling back to 1 default profile: "default"
-2026-06-05T10:16:02.247+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-05T10:16:02.275+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 6 JPA repository interfaces.
-2026-06-05T10:16:02.449+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-05T10:16:02.452+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-05T10:16:02.456+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-05T10:16:02.457+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2026-06-05T10:16:02.459+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:authdb user=${SPRING_DATASOURCE_USERNAME}
-2026-06-05T10:16:02.459+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2026-06-05T10:16:02.460+01:00  WARN 10819 --- [ensam-bibliotheque] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-05T10:16:02.821+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-10T09:38:36.934+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Starting AuthControllerIntegrationTest using Java 21.0.11 with PID 35962 (started by yass in /home/yass/S8/JEE/project/JEE-Project/backend)
+2026-06-10T09:38:36.935+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : No active profile set, falling back to 1 default profile: "default"
+2026-06-10T09:38:37.248+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-10T09:38:37.271+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 6 JPA repository interfaces.
+2026-06-10T09:38:37.441+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-10T09:38:37.446+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-10T09:38:37.451+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-10T09:38:37.453+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2026-06-10T09:38:37.456+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection conn50: url=jdbc:h2:mem:authdb user=${SPRING_DATASOURCE_USERNAME}
+2026-06-10T09:38:37.456+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2026-06-10T09:38:37.457+01:00  WARN 35962 --- [ensam-bibliotheque] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-10T09:38:37.683+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: 
     drop table if exists book_categories cascade 
 Hibernate: 
@@ -391,16 +389,16 @@ Hibernate:
        add constraint FKhfh9dx7w3ubf1co1vdev94g3f 
        foreign key (user_id) 
        references users
-2026-06-05T10:16:02.880+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-05T10:16:03.334+01:00  WARN 10819 --- [ensam-bibliotheque] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-05T10:16:03.474+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@77db9559, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@755dead5, org.springframework.security.web.context.SecurityContextHolderFilter@b1329ac, org.springframework.security.web.header.HeaderWriterFilter@71efe908, org.springframework.web.filter.CorsFilter@4b641933, org.springframework.security.web.authentication.logout.LogoutFilter@41287592, com.ensam.projet.security.JwtAuthFilter@33a48816, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3d0335f0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@332a3cf1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@13bc8778, org.springframework.security.web.session.SessionManagementFilter@f0df463, org.springframework.security.web.access.ExceptionTranslationFilter@66ba0395, org.springframework.security.web.access.intercept.AuthorizationFilter@78f1103]
-2026-06-05T10:16:03.796+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-06-05T10:16:03.797+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-06-05T10:16:03.799+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
-2026-06-05T10:16:03.811+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
-2026-06-05T10:16:03.812+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@c091add]]
-2026-06-05T10:16:03.812+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
-2026-06-05T10:16:03.822+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Started AuthControllerIntegrationTest in 2.032 seconds (process running for 23.558)
+2026-06-10T09:38:37.730+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-10T09:38:38.149+01:00  WARN 35962 --- [ensam-bibliotheque] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-10T09:38:38.393+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1a24cca5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7543cc33, org.springframework.security.web.context.SecurityContextHolderFilter@401b7a26, org.springframework.security.web.header.HeaderWriterFilter@3525d7da, org.springframework.web.filter.CorsFilter@1e338a3b, org.springframework.security.web.authentication.logout.LogoutFilter@7d924359, com.ensam.projet.security.JwtAuthFilter@2c3c2df3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b91d280, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@10914f2f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@19e04e71, org.springframework.security.web.session.SessionManagementFilter@4e971676, org.springframework.security.web.access.ExceptionTranslationFilter@31cf41c4, org.springframework.security.web.access.intercept.AuthorizationFilter@62e05ba3]
+2026-06-10T09:38:38.682+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-06-10T09:38:38.683+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-06-10T09:38:38.684+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-06-10T09:38:38.693+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-06-10T09:38:38.694+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@789fe243]]
+2026-06-10T09:38:38.694+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-06-10T09:38:38.699+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Started AuthControllerIntegrationTest in 1.843 seconds (process running for 41.163)
 Hibernate: 
     select
         count(*) 
@@ -460,7 +458,7 @@ Hibernate:
         (created_at, email, enabled, password, username, id) 
     values
         (?, ?, ?, ?, ?, default)
-$2a$10$IMjpwoaVJZ8edadnY8vwEOG4j9379ohXV8/7Xb.RXP5FN6UMJyxcK
+$2a$10$PVgT7M16ROAqdtTUGw5qouyBuZtvEA78wm3Hazh4goM2rJGLMMrCu
 Hibernate: 
     insert 
     into
@@ -493,17 +491,12 @@ Hibernate:
     where
         r1_0.user_id=?
 ]]></system-out>
-    <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/home/yass/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.11/byte-buddy-agent-1.14.11.jar)
-WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
-WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
-WARNING: Dynamic loading of agents will be disallowed by default in a future release
-]]></system-err>
   </testcase>
-  <testcase name="loginValidCredentialsReturnsToken" classname="com.ensam.projet.controller.AuthControllerIntegrationTest" time="2.29">
-    <system-out><![CDATA[2026-06-05T10:16:06.624+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
-2026-06-05T10:16:06.624+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@c091add]]
-2026-06-05T10:16:06.624+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
-2026-06-05T10:16:06.630+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+  <testcase name="loginValidCredentialsReturnsToken" classname="com.ensam.projet.controller.AuthControllerIntegrationTest" time="2.287">
+    <system-out><![CDATA[2026-06-10T09:38:40.171+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-06-10T09:38:40.171+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@789fe243]]
+2026-06-10T09:38:40.171+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-06-10T09:38:40.176+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 Hibernate: 
     drop table if exists book_categories cascade 
 Hibernate: 
@@ -520,8 +513,8 @@ Hibernate:
     drop table if exists user_roles cascade 
 Hibernate: 
     drop table if exists users cascade 
-2026-06-05T10:16:06.644+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2026-06-05T10:16:06.646+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2026-06-10T09:38:40.191+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2026-06-10T09:38:40.192+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -531,18 +524,18 @@ Hibernate:
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.2)
 
-2026-06-05T10:16:06.692+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Starting AuthControllerIntegrationTest using Java 21.0.11 with PID 10819 (started by yass in /home/yass/S8/JEE/project/JEE-Project/backend)
-2026-06-05T10:16:06.692+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : No active profile set, falling back to 1 default profile: "default"
-2026-06-05T10:16:06.983+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-05T10:16:07.006+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 6 JPA repository interfaces.
-2026-06-05T10:16:07.150+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-05T10:16:07.153+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-05T10:16:07.157+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-05T10:16:07.158+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
-2026-06-05T10:16:07.161+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:authdb user=${SPRING_DATASOURCE_USERNAME}
-2026-06-05T10:16:07.161+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
-2026-06-05T10:16:07.162+01:00  WARN 10819 --- [ensam-bibliotheque] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-05T10:16:07.412+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-10T09:38:40.232+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Starting AuthControllerIntegrationTest using Java 21.0.11 with PID 35962 (started by yass in /home/yass/S8/JEE/project/JEE-Project/backend)
+2026-06-10T09:38:40.233+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : No active profile set, falling back to 1 default profile: "default"
+2026-06-10T09:38:40.506+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-10T09:38:40.531+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 6 JPA repository interfaces.
+2026-06-10T09:38:40.702+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-10T09:38:40.704+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-10T09:38:40.708+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-10T09:38:40.709+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2026-06-10T09:38:40.711+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection conn60: url=jdbc:h2:mem:authdb user=${SPRING_DATASOURCE_USERNAME}
+2026-06-10T09:38:40.712+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2026-06-10T09:38:40.712+01:00  WARN 35962 --- [ensam-bibliotheque] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-10T09:38:40.941+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: 
     drop table if exists book_categories cascade 
 Hibernate: 
@@ -668,16 +661,16 @@ Hibernate:
        add constraint FKhfh9dx7w3ubf1co1vdev94g3f 
        foreign key (user_id) 
        references users
-2026-06-05T10:16:07.451+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-05T10:16:07.788+01:00  WARN 10819 --- [ensam-bibliotheque] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-05T10:16:07.918+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@58ef7aa7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7d7d1c10, org.springframework.security.web.context.SecurityContextHolderFilter@22cfae1a, org.springframework.security.web.header.HeaderWriterFilter@41472617, org.springframework.web.filter.CorsFilter@3a0b41af, org.springframework.security.web.authentication.logout.LogoutFilter@23e0daf0, com.ensam.projet.security.JwtAuthFilter@163db564, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@174d0c49, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f42f729, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@24b8b293, org.springframework.security.web.session.SessionManagementFilter@442aef6a, org.springframework.security.web.access.ExceptionTranslationFilter@6f7b499b, org.springframework.security.web.access.intercept.AuthorizationFilter@2433ea91]
-2026-06-05T10:16:08.165+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-06-05T10:16:08.165+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-06-05T10:16:08.166+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2026-06-05T10:16:08.175+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
-2026-06-05T10:16:08.176+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@659e3022]]
-2026-06-05T10:16:08.176+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
-2026-06-05T10:16:08.181+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Started AuthControllerIntegrationTest in 1.53 seconds (process running for 27.917)
+2026-06-10T09:38:40.982+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-10T09:38:41.396+01:00  WARN 35962 --- [ensam-bibliotheque] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-10T09:38:41.530+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@61b1ba1c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5e8e4dec, org.springframework.security.web.context.SecurityContextHolderFilter@24fde1b6, org.springframework.security.web.header.HeaderWriterFilter@244ab450, org.springframework.web.filter.CorsFilter@6234ae87, org.springframework.security.web.authentication.logout.LogoutFilter@7799133d, com.ensam.projet.security.JwtAuthFilter@7a266b5e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4cbf173b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3da6c2c8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@43995813, org.springframework.security.web.session.SessionManagementFilter@5beb4dd7, org.springframework.security.web.access.ExceptionTranslationFilter@2c68985a, org.springframework.security.web.access.intercept.AuthorizationFilter@4810fe15]
+2026-06-10T09:38:41.789+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-06-10T09:38:41.790+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-06-10T09:38:41.791+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-06-10T09:38:41.801+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-06-10T09:38:41.802+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6b8422c3]]
+2026-06-10T09:38:41.802+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-06-10T09:38:41.808+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Started AuthControllerIntegrationTest in 1.611 seconds (process running for 44.271)
 Hibernate: 
     select
         count(*) 
@@ -737,7 +730,7 @@ Hibernate:
         (created_at, email, enabled, password, username, id) 
     values
         (?, ?, ?, ?, ?, default)
-$2a$10$cYwaKif1OEfTnCM8YYqAwuUn6AlID0ydY2U5qaXKhYI0zxo8OVaom
+$2a$10$FwXE.qZfXvNniqksCI0jrOy.HYcupEgMDRqsAap0pvXMIPpljI.8S
 Hibernate: 
     insert 
     into
@@ -783,11 +776,11 @@ Hibernate:
         u1_0.username=?
 ]]></system-out>
   </testcase>
-  <testcase name="protectedEndpointWithoutTokenReturns401" classname="com.ensam.projet.controller.AuthControllerIntegrationTest" time="1.454">
-    <system-out><![CDATA[2026-06-05T10:16:08.918+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
-2026-06-05T10:16:08.918+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@659e3022]]
-2026-06-05T10:16:08.918+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
-2026-06-05T10:16:08.922+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+  <testcase name="protectedEndpointWithoutTokenReturns401" classname="com.ensam.projet.controller.AuthControllerIntegrationTest" time="1.518">
+    <system-out><![CDATA[2026-06-10T09:38:42.461+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-06-10T09:38:42.461+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6b8422c3]]
+2026-06-10T09:38:42.462+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-06-10T09:38:42.465+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 Hibernate: 
     drop table if exists book_categories cascade 
 Hibernate: 
@@ -804,8 +797,8 @@ Hibernate:
     drop table if exists user_roles cascade 
 Hibernate: 
     drop table if exists users cascade 
-2026-06-05T10:16:08.939+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
-2026-06-05T10:16:08.941+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2026-06-10T09:38:42.476+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2026-06-10T09:38:42.478+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -815,18 +808,18 @@ Hibernate:
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.2)
 
-2026-06-05T10:16:08.999+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Starting AuthControllerIntegrationTest using Java 21.0.11 with PID 10819 (started by yass in /home/yass/S8/JEE/project/JEE-Project/backend)
-2026-06-05T10:16:08.999+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : No active profile set, falling back to 1 default profile: "default"
-2026-06-05T10:16:09.256+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-05T10:16:09.277+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 6 JPA repository interfaces.
-2026-06-05T10:16:09.397+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-05T10:16:09.399+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-05T10:16:09.403+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-05T10:16:09.404+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
-2026-06-05T10:16:09.405+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection conn30: url=jdbc:h2:mem:authdb user=${SPRING_DATASOURCE_USERNAME}
-2026-06-05T10:16:09.406+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
-2026-06-05T10:16:09.407+01:00  WARN 10819 --- [ensam-bibliotheque] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-05T10:16:09.621+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-10T09:38:42.517+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Starting AuthControllerIntegrationTest using Java 21.0.11 with PID 35962 (started by yass in /home/yass/S8/JEE/project/JEE-Project/backend)
+2026-06-10T09:38:42.517+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : No active profile set, falling back to 1 default profile: "default"
+2026-06-10T09:38:42.761+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-10T09:38:42.781+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 6 JPA repository interfaces.
+2026-06-10T09:38:42.995+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-10T09:38:42.999+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-10T09:38:43.004+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-10T09:38:43.005+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2026-06-10T09:38:43.009+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection conn70: url=jdbc:h2:mem:authdb user=${SPRING_DATASOURCE_USERNAME}
+2026-06-10T09:38:43.009+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2026-06-10T09:38:43.010+01:00  WARN 35962 --- [ensam-bibliotheque] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-10T09:38:43.200+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: 
     drop table if exists book_categories cascade 
 Hibernate: 
@@ -952,16 +945,16 @@ Hibernate:
        add constraint FKhfh9dx7w3ubf1co1vdev94g3f 
        foreign key (user_id) 
        references users
-2026-06-05T10:16:09.660+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-05T10:16:09.990+01:00  WARN 10819 --- [ensam-bibliotheque] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-05T10:16:10.105+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@36047b2a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2e1f8312, org.springframework.security.web.context.SecurityContextHolderFilter@5d3f196a, org.springframework.security.web.header.HeaderWriterFilter@3a04aa02, org.springframework.web.filter.CorsFilter@5d11195c, org.springframework.security.web.authentication.logout.LogoutFilter@46abd505, com.ensam.projet.security.JwtAuthFilter@7d69e394, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@39e37232, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@26a88bb6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1032d89c, org.springframework.security.web.session.SessionManagementFilter@4b71ccc6, org.springframework.security.web.access.ExceptionTranslationFilter@f3d60a7, org.springframework.security.web.access.intercept.AuthorizationFilter@66c9f02]
-2026-06-05T10:16:10.323+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-06-05T10:16:10.323+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-06-05T10:16:10.324+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2026-06-05T10:16:10.332+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
-2026-06-05T10:16:10.332+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5c69202]]
-2026-06-05T10:16:10.332+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
-2026-06-05T10:16:10.337+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Started AuthControllerIntegrationTest in 1.391 seconds (process running for 30.073)
+2026-06-10T09:38:43.238+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-10T09:38:43.574+01:00  WARN 35962 --- [ensam-bibliotheque] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-10T09:38:43.689+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3c13c5d2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4f740ff1, org.springframework.security.web.context.SecurityContextHolderFilter@13cb6913, org.springframework.security.web.header.HeaderWriterFilter@53e349a4, org.springframework.web.filter.CorsFilter@65dd7ddb, org.springframework.security.web.authentication.logout.LogoutFilter@2bdb09e8, com.ensam.projet.security.JwtAuthFilter@8ab9d87, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2d989cc9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@64ff4eb7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@68ab2847, org.springframework.security.web.session.SessionManagementFilter@26c4259d, org.springframework.security.web.access.ExceptionTranslationFilter@587cc229, org.springframework.security.web.access.intercept.AuthorizationFilter@5cd8d296]
+2026-06-10T09:38:43.912+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-06-10T09:38:43.912+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-06-10T09:38:43.913+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-06-10T09:38:43.922+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-06-10T09:38:43.922+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@13c45d74]]
+2026-06-10T09:38:43.923+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-06-10T09:38:43.938+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Started AuthControllerIntegrationTest in 1.457 seconds (process running for 46.402)
 Hibernate: 
     select
         count(*) 
@@ -990,11 +983,11 @@ Hibernate:
         (?, default)
 ]]></system-out>
   </testcase>
-  <testcase name="registerShouldReturn200" classname="com.ensam.projet.controller.AuthControllerIntegrationTest" time="1.612">
-    <system-out><![CDATA[2026-06-05T10:16:10.373+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
-2026-06-05T10:16:10.373+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5c69202]]
-2026-06-05T10:16:10.373+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
-2026-06-05T10:16:10.377+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+  <testcase name="registerShouldReturn200" classname="com.ensam.projet.controller.AuthControllerIntegrationTest" time="1.813">
+    <system-out><![CDATA[2026-06-10T09:38:43.981+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-06-10T09:38:43.982+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@13c45d74]]
+2026-06-10T09:38:43.982+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-06-10T09:38:43.986+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 Hibernate: 
     drop table if exists book_categories cascade 
 Hibernate: 
@@ -1011,8 +1004,8 @@ Hibernate:
     drop table if exists user_roles cascade 
 Hibernate: 
     drop table if exists users cascade 
-2026-06-05T10:16:10.392+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
-2026-06-05T10:16:10.393+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2026-06-10T09:38:43.998+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2026-06-10T09:38:43.999+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -1022,18 +1015,18 @@ Hibernate:
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.2)
 
-2026-06-05T10:16:10.445+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Starting AuthControllerIntegrationTest using Java 21.0.11 with PID 10819 (started by yass in /home/yass/S8/JEE/project/JEE-Project/backend)
-2026-06-05T10:16:10.445+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : No active profile set, falling back to 1 default profile: "default"
-2026-06-05T10:16:10.678+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-05T10:16:10.698+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 6 JPA repository interfaces.
-2026-06-05T10:16:10.821+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-05T10:16:10.824+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-05T10:16:10.827+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-05T10:16:10.828+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
-2026-06-05T10:16:10.830+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection conn40: url=jdbc:h2:mem:authdb user=${SPRING_DATASOURCE_USERNAME}
-2026-06-05T10:16:10.830+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
-2026-06-05T10:16:10.831+01:00  WARN 10819 --- [ensam-bibliotheque] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-05T10:16:11.035+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-10T09:38:44.034+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Starting AuthControllerIntegrationTest using Java 21.0.11 with PID 35962 (started by yass in /home/yass/S8/JEE/project/JEE-Project/backend)
+2026-06-10T09:38:44.034+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : No active profile set, falling back to 1 default profile: "default"
+2026-06-10T09:38:44.280+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-10T09:38:44.301+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 6 JPA repository interfaces.
+2026-06-10T09:38:44.425+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-10T09:38:44.428+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-10T09:38:44.432+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-10T09:38:44.433+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2026-06-10T09:38:44.435+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-9 - Added connection conn80: url=jdbc:h2:mem:authdb user=${SPRING_DATASOURCE_USERNAME}
+2026-06-10T09:38:44.435+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2026-06-10T09:38:44.436+01:00  WARN 35962 --- [ensam-bibliotheque] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-10T09:38:44.620+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: 
     drop table if exists book_categories cascade 
 Hibernate: 
@@ -1159,16 +1152,16 @@ Hibernate:
        add constraint FKhfh9dx7w3ubf1co1vdev94g3f 
        foreign key (user_id) 
        references users
-2026-06-05T10:16:11.071+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-05T10:16:11.384+01:00  WARN 10819 --- [ensam-bibliotheque] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-05T10:16:11.499+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@52fabb67, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3679d661, org.springframework.security.web.context.SecurityContextHolderFilter@63425c04, org.springframework.security.web.header.HeaderWriterFilter@25934339, org.springframework.web.filter.CorsFilter@51374836, org.springframework.security.web.authentication.logout.LogoutFilter@4ea55849, com.ensam.projet.security.JwtAuthFilter@3b135a37, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3cbc9c9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3c7ec802, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4f536e96, org.springframework.security.web.session.SessionManagementFilter@3c67fd87, org.springframework.security.web.access.ExceptionTranslationFilter@3e2bc845, org.springframework.security.web.access.intercept.AuthorizationFilter@5989b160]
-2026-06-05T10:16:11.709+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-06-05T10:16:11.710+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-06-05T10:16:11.711+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2026-06-05T10:16:11.719+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
-2026-06-05T10:16:11.719+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2bf87090]]
-2026-06-05T10:16:11.719+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
-2026-06-05T10:16:11.724+01:00  INFO 10819 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Started AuthControllerIntegrationTest in 1.326 seconds (process running for 31.461)
+2026-06-10T09:38:44.655+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-10T09:38:45.150+01:00  WARN 35962 --- [ensam-bibliotheque] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-10T09:38:45.276+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@792531f1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4acb14b3, org.springframework.security.web.context.SecurityContextHolderFilter@8a9a329, org.springframework.security.web.header.HeaderWriterFilter@6dfc563a, org.springframework.web.filter.CorsFilter@7e130e02, org.springframework.security.web.authentication.logout.LogoutFilter@3ca1ef81, com.ensam.projet.security.JwtAuthFilter@78dfb903, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@51cb80cd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e094148, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@75fc4897, org.springframework.security.web.session.SessionManagementFilter@965d3fb, org.springframework.security.web.access.ExceptionTranslationFilter@5bf04978, org.springframework.security.web.access.intercept.AuthorizationFilter@25f6c955]
+2026-06-10T09:38:45.502+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-06-10T09:38:45.502+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-06-10T09:38:45.503+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-06-10T09:38:45.511+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-06-10T09:38:45.512+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@615f52f2]]
+2026-06-10T09:38:45.512+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-06-10T09:38:45.516+01:00  INFO 35962 --- [ensam-bibliotheque] [           main] c.e.p.c.AuthControllerIntegrationTest    : Started AuthControllerIntegrationTest in 1.512 seconds (process running for 47.979)
 Hibernate: 
     select
         count(*) 
@@ -1228,7 +1221,7 @@ Hibernate:
         (created_at, email, enabled, password, username, id) 
     values
         (?, ?, ?, ?, ?, default)
-$2a$10$ZxRpZbYapb3kWDyHKwcCm.r68anlWB/LssN670ECs8We69RSUFOky
+$2a$10$nuSDmpOYTpzR3nmF98PIrutEx84.Rb4Ha7fNStepDmDUJCDF/hCDq
 Hibernate: 
     insert 
     into
@@ -1269,7 +1262,7 @@ MockHttpServletResponse:
     Error message = null
           Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
      Content type = application/json
-             Body = {"success":true,"data":{"accessToken":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc4MDY1MDk3MSwiZXhwIjoxNzgwNjUxODcxfQ.pFt2KFMqR1TJuAgYk5ouQ74IXsG-8fY6BMFEbi1dtRI","refreshToken":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc4MDY1MDk3MSwiZXhwIjoxNzgxMjU1NzcxfQ.5zOtXuhaIt-DLjUdNTQf0CLYtPPMNOai0iE2COIxCTc","tokenType":"Bearer","username":"testuser","email":"testuser@example.com"},"message":"Inscription réussie","timestamp":"2026-06-05T10:16:11.960483393"}
+             Body = {"success":true,"data":{"accessToken":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc4MTA4MDcyNSwiZXhwIjoxNzgxMDgxNjI1fQ.EaMtPbKlseaAmGc1qqyC0VBQa6w22_u9lnB3gzgoMBM","refreshToken":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc4MTA4MDcyNSwiZXhwIjoxNzgxNjg1NTI1fQ.ymC6XXIEKN6VmWefIGTzH7fqalJQtgZ0cOeMHyyGer4","tokenType":"Bearer","username":"testuser","email":"testuser@example.com"},"message":"Inscription réussie","timestamp":"2026-06-10T09:38:45.770261866"}
     Forwarded URL = null
    Redirected URL = null
           Cookies = []

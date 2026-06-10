@@ -6,13 +6,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-<span class="nc" id="L9">@Setter</span>
-<span class="nc" id="L10">public class UpdateProfileRequest {</span>
+@Setter
+<span class="fc" id="L10">public class UpdateProfileRequest {</span>
     @NotBlank(message = &quot;Le nom d'utilisateur est obligatoire&quot;)
-<span class="nc" id="L12">    private String username;</span>
+    private String username;
 
     @Email(message = &quot;Email invalide&quot;)
     @NotBlank(message = &quot;L'email est obligatoire&quot;)
-<span class="nc" id="L16">    private String email;</span>
+    private String email;
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

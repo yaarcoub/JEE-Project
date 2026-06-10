@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = &quot;org.mapstruct.ap.MappingProcessor&quot;,
-    date = &quot;2026-06-05T09:16:26+0100&quot;,
+    date = &quot;2026-06-10T09:37:51+0100&quot;,
     comments = &quot;version: 1.5.5.Final, compiler: javac, environment: Java 21.0.11 (Red Hat, Inc.)&quot;
 )
 @Component
@@ -15,18 +15,18 @@ import org.springframework.stereotype.Component;
 
     @Override
     public LoanDetailResponse toResponse(LoanDetail detail) {
-<span class="nc bnc" id="L18" title="All 2 branches missed.">        if ( detail == null ) {</span>
-<span class="nc" id="L19">            return null;</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">        if ( detail == null ) {</span>
+<span class="fc" id="L19">            return null;</span>
         }
 
-<span class="nc" id="L22">        LoanDetailResponse loanDetailResponse = new LoanDetailResponse();</span>
+<span class="fc" id="L22">        LoanDetailResponse loanDetailResponse = new LoanDetailResponse();</span>
 
-<span class="nc" id="L24">        loanDetailResponse.setId( detail.getId() );</span>
-<span class="nc" id="L25">        loanDetailResponse.setNotes( detail.getNotes() );</span>
-<span class="nc" id="L26">        loanDetailResponse.setRenewalCount( detail.getRenewalCount() );</span>
-<span class="nc" id="L27">        loanDetailResponse.setReturnedBy( detail.getReturnedBy() );</span>
+<span class="fc" id="L24">        loanDetailResponse.setId( detail.getId() );</span>
+<span class="fc" id="L25">        loanDetailResponse.setNotes( detail.getNotes() );</span>
+<span class="fc" id="L26">        loanDetailResponse.setRenewalCount( detail.getRenewalCount() );</span>
+<span class="fc" id="L27">        loanDetailResponse.setReturnedBy( detail.getReturnedBy() );</span>
 
-<span class="nc" id="L29">        return loanDetailResponse;</span>
+<span class="fc" id="L29">        return loanDetailResponse;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

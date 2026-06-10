@@ -19,16 +19,16 @@ public interface BookMapper {
 
     @AfterMapping
     default void fillActiveLoans(Book book, @MappingTarget BookResponse response) {
-<span class="nc bnc" id="L22" title="All 4 branches missed.">        if (book == null || book.getLoans() == null) {</span>
-<span class="nc" id="L23">            response.setActiveLoansCount(0);</span>
-<span class="nc" id="L24">            return;</span>
+<span class="pc bpc" id="L22" title="1 of 4 branches missed.">        if (book == null || book.getLoans() == null) {</span>
+<span class="fc" id="L23">            response.setActiveLoansCount(0);</span>
+<span class="fc" id="L24">            return;</span>
         }
 
-<span class="nc" id="L27">        long count = book.getLoans().stream()</span>
-<span class="nc bnc" id="L28" title="All 2 branches missed.">                .filter(l -&gt; l.getStatus() == LoanStatus.ACTIVE)</span>
-<span class="nc" id="L29">                .count();</span>
+<span class="fc" id="L27">        long count = book.getLoans().stream()</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">                .filter(l -&gt; l.getStatus() == LoanStatus.ACTIVE)</span>
+<span class="fc" id="L29">                .count();</span>
 
-<span class="nc" id="L31">        response.setActiveLoansCount(count);</span>
-<span class="nc" id="L32">    }</span>
+<span class="fc" id="L31">        response.setActiveLoansCount(count);</span>
+<span class="fc" id="L32">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -23,7 +23,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 @Service
-<span class="fc" id="L26">@RequiredArgsConstructor</span>
+@RequiredArgsConstructor
 @Transactional
 public class AuthServiceImpl implements AuthService {
 
@@ -46,7 +46,7 @@ public class AuthServiceImpl implements AuthService {
 <span class="fc" id="L46">        user.setEmail(request.getEmail());</span>
 <span class="fc" id="L47">        user.setPassword(passwordEncoder.encode(request.getPassword()));</span>
 <span class="fc" id="L48">        Role role = roleRepository.findByName(ERole.ROLE_USER)</span>
-<span class="fc" id="L49">                .orElseThrow(() -&gt; new BadRequestException(&quot;Role utilisateur non trouvé&quot;));</span>
+<span class="pc" id="L49">                .orElseThrow(() -&gt; new BadRequestException(&quot;Role utilisateur non trouvé&quot;));</span>
 <span class="fc" id="L50">        user.getRoles().add(role);</span>
 <span class="fc" id="L51">        userRepository.save(user);</span>
 <span class="fc" id="L52">        System.out.println(user.getPassword());</span>
@@ -108,7 +108,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public void logout() {
-<span class="nc" id="L111">    }</span>
+<span class="fc" id="L111">    }</span>
 
     private AuthResponse generateAuthResponse(User user) {
 <span class="fc" id="L114">        UserDetails userDetails = org.springframework.security.core.userdetails.User.builder()</span>

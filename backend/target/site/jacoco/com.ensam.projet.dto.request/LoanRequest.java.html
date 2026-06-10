@@ -8,16 +8,16 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 @Getter
-<span class="nc" id="L11">@Setter</span>
-<span class="nc" id="L12">public class LoanRequest {</span>
+@Setter
+<span class="fc" id="L12">public class LoanRequest {</span>
     @NotNull(message = &quot;L'identifiant du livre est obligatoire&quot;)
-<span class="nc" id="L14">    private Long bookId;</span>
+    private Long bookId;
 
     @NotNull(message = &quot;La date de retour attendue est obligatoire&quot;)
     @FutureOrPresent(message = &quot;La date de retour attendue doit être aujourd'hui ou ultérieure&quot;)
-<span class="nc" id="L18">    private LocalDate expectedReturnDate;</span>
+    private LocalDate expectedReturnDate;
 
-<span class="nc" id="L20">    private String notes;</span>
-<span class="nc" id="L21">    private String condition;</span>
+    private String notes;
+    private String condition;
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

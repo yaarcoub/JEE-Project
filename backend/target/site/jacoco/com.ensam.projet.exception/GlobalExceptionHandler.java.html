@@ -28,24 +28,24 @@ import java.util.Map;
 
     @ExceptionHandler(BadRequestException.class)
     public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; handleBadRequest(BadRequestException ex) {
-<span class="fc" id="L31">        return ResponseEntity.badRequest()</span>
-<span class="fc" id="L32">                .body(ApiResponse.error(ex.getMessage(), HttpStatus.BAD_REQUEST.value()));</span>
+<span class="nc" id="L31">        return ResponseEntity.badRequest()</span>
+<span class="nc" id="L32">                .body(ApiResponse.error(ex.getMessage(), HttpStatus.BAD_REQUEST.value()));</span>
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; handleValidation(MethodArgumentNotValidException ex) {
-<span class="nc" id="L37">        Map&lt;String, String&gt; errors = new HashMap&lt;&gt;();</span>
-<span class="nc bnc" id="L38" title="All 2 branches missed.">        for (FieldError error : ex.getBindingResult().getFieldErrors()) {</span>
-<span class="nc" id="L39">            errors.put(error.getField(), error.getDefaultMessage());</span>
-<span class="nc" id="L40">        }</span>
-<span class="nc" id="L41">        return ResponseEntity.badRequest()</span>
-<span class="nc" id="L42">                .body(ApiResponse.error(&quot;Validation échouée&quot;, HttpStatus.BAD_REQUEST.value(), errors));</span>
+<span class="fc" id="L37">        Map&lt;String, String&gt; errors = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        for (FieldError error : ex.getBindingResult().getFieldErrors()) {</span>
+<span class="fc" id="L39">            errors.put(error.getField(), error.getDefaultMessage());</span>
+<span class="fc" id="L40">        }</span>
+<span class="fc" id="L41">        return ResponseEntity.badRequest()</span>
+<span class="fc" id="L42">                .body(ApiResponse.error(&quot;Validation échouée&quot;, HttpStatus.BAD_REQUEST.value(), errors));</span>
     }
 
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; handleAccessDenied(AccessDeniedException ex) {
-<span class="nc" id="L47">        return ResponseEntity.status(HttpStatus.FORBIDDEN)</span>
-<span class="nc" id="L48">                .body(ApiResponse.error(ex.getMessage(), HttpStatus.FORBIDDEN.value()));</span>
+<span class="fc" id="L47">        return ResponseEntity.status(HttpStatus.FORBIDDEN)</span>
+<span class="fc" id="L48">                .body(ApiResponse.error(ex.getMessage(), HttpStatus.FORBIDDEN.value()));</span>
     }
 
     @ExceptionHandler(AuthenticationException.class)

@@ -11,24 +11,24 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @Getter
-<span class="pc" id="L14">@Setter</span>
+@Setter
 <span class="fc" id="L15">public class BookRequest {</span>
     @NotBlank(message = &quot;Le titre est obligatoire&quot;)
     @Size(max = 255, message = &quot;Le titre ne peut dépasser 255 caractères&quot;)
-<span class="fc" id="L18">    private String title;</span>
+    private String title;
 
     @NotBlank(message = &quot;L'auteur est obligatoire&quot;)
-<span class="fc" id="L21">    private String author;</span>
+    private String author;
 
     @Pattern(regexp = &quot;^(97(8|9))?\\-?\\d{1,5}\\-?\\d{1,7}\\-?\\d{1,7}\\-?\\d{1}$&quot;, message = &quot;ISBN invalide&quot;)
-<span class="fc" id="L24">    private String isbn;</span>
+    private String isbn;
 
-<span class="fc" id="L26">    private String description;</span>
+    private String description;
 
     @Min(value = 0, message = &quot;Le stock ne peut pas être négatif&quot;)
-<span class="fc" id="L29">    private Integer stock;</span>
+    private Integer stock;
 
-<span class="fc" id="L31">    private LocalDate publishedDate;</span>
-<span class="fc" id="L32">    private Set&lt;Long&gt; categoryIds;</span>
+    private LocalDate publishedDate;
+    private Set&lt;Long&gt; categoryIds;
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
