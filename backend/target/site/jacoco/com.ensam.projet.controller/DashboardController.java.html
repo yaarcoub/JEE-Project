@@ -24,7 +24,7 @@ public class DashboardController {
     @GetMapping(&quot;/stats&quot;)
     @PreAuthorize(&quot;isAuthenticated()&quot;)
     public ResponseEntity&lt;ApiResponse&lt;DashboardStatsResponse&gt;&gt; stats() {
-<span class="nc" id="L27">        return ResponseEntity.ok(ApiResponse.success(dashboardService.getDashboardStats(), &quot;Statistiques récupérées&quot;));</span>
+<span class="fc" id="L27">        return ResponseEntity.ok(ApiResponse.success(dashboardService.getDashboardStats(), &quot;Statistiques récupérées&quot;));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

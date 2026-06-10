@@ -35,37 +35,37 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public AuthResponse register(RegisterRequest request) {
-<span class="nc bnc" id="L38" title="All 2 branches missed.">        if (userRepository.existsByUsername(request.getUsername())) {</span>
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">        if (userRepository.existsByUsername(request.getUsername())) {</span>
 <span class="nc" id="L39">            throw new BadRequestException(&quot;Nom d'utilisateur déjà utilisé&quot;);</span>
         }
-<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (userRepository.existsByEmail(request.getEmail())) {</span>
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">        if (userRepository.existsByEmail(request.getEmail())) {</span>
 <span class="nc" id="L42">            throw new BadRequestException(&quot;Email déjà utilisé&quot;);</span>
         }
-<span class="nc" id="L44">        User user = new User();</span>
-<span class="nc" id="L45">        user.setUsername(request.getUsername());</span>
-<span class="nc" id="L46">        user.setEmail(request.getEmail());</span>
-<span class="nc" id="L47">        user.setPassword(passwordEncoder.encode(request.getPassword()));</span>
-<span class="nc" id="L48">        Role role = roleRepository.findByName(ERole.ROLE_USER)</span>
-<span class="nc" id="L49">                .orElseThrow(() -&gt; new BadRequestException(&quot;Role utilisateur non trouvé&quot;));</span>
-<span class="nc" id="L50">        user.getRoles().add(role);</span>
-<span class="nc" id="L51">        userRepository.save(user);</span>
-<span class="nc" id="L52">        System.out.println(user.getPassword());</span>
-<span class="nc" id="L53">        return generateAuthResponse(user);</span>
+<span class="fc" id="L44">        User user = new User();</span>
+<span class="fc" id="L45">        user.setUsername(request.getUsername());</span>
+<span class="fc" id="L46">        user.setEmail(request.getEmail());</span>
+<span class="fc" id="L47">        user.setPassword(passwordEncoder.encode(request.getPassword()));</span>
+<span class="fc" id="L48">        Role role = roleRepository.findByName(ERole.ROLE_USER)</span>
+<span class="pc" id="L49">                .orElseThrow(() -&gt; new BadRequestException(&quot;Role utilisateur non trouvé&quot;));</span>
+<span class="fc" id="L50">        user.getRoles().add(role);</span>
+<span class="fc" id="L51">        userRepository.save(user);</span>
+<span class="fc" id="L52">        System.out.println(user.getPassword());</span>
+<span class="fc" id="L53">        return generateAuthResponse(user);</span>
     }
 
     @Override
     public AuthResponse login(LoginRequest request) {
-<span class="nc" id="L58">        Authentication authentication = authenticationManager.authenticate(</span>
-<span class="nc" id="L59">                new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));</span>
-<span class="nc" id="L60">        UserDetails userDetails = (UserDetails) authentication.getPrincipal();</span>
+<span class="fc" id="L58">        Authentication authentication = authenticationManager.authenticate(</span>
+<span class="fc" id="L59">                new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));</span>
+<span class="fc" id="L60">        UserDetails userDetails = (UserDetails) authentication.getPrincipal();</span>
 
        // System.out.println(&quot;Admin :&quot;+passwordEncoder.encode(&quot;admin123&quot;));
        // System.out.println(&quot;Manager :&quot;+passwordEncoder.encode(&quot;Manager123&quot;));
 
 
-<span class="nc" id="L66">        User user = userRepository.findByUsername(userDetails.getUsername())</span>
-<span class="nc" id="L67">                .orElseThrow(() -&gt; new BadRequestException(&quot;Utilisateur introuvable&quot;));</span>
-<span class="nc" id="L68">        return generateAuthResponse(user);</span>
+<span class="fc" id="L66">        User user = userRepository.findByUsername(userDetails.getUsername())</span>
+<span class="pc" id="L67">                .orElseThrow(() -&gt; new BadRequestException(&quot;Utilisateur introuvable&quot;));</span>
+<span class="fc" id="L68">        return generateAuthResponse(user);</span>
     }
 
     @Override
@@ -108,22 +108,22 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public void logout() {
-<span class="nc" id="L111">    }</span>
+<span class="fc" id="L111">    }</span>
 
     private AuthResponse generateAuthResponse(User user) {
-<span class="nc" id="L114">        UserDetails userDetails = org.springframework.security.core.userdetails.User.builder()</span>
-<span class="nc" id="L115">                .username(user.getUsername())</span>
-<span class="nc" id="L116">                .password(user.getPassword())</span>
-<span class="nc" id="L117">                .authorities(</span>
-<span class="nc" id="L118">                user.getRoles()</span>
-<span class="nc" id="L119">                        .stream()</span>
-<span class="nc" id="L120">                        .map(role -&gt; new SimpleGrantedAuthority(role.getName().name()))</span>
-<span class="nc" id="L121">                        .toList()</span>
+<span class="fc" id="L114">        UserDetails userDetails = org.springframework.security.core.userdetails.User.builder()</span>
+<span class="fc" id="L115">                .username(user.getUsername())</span>
+<span class="fc" id="L116">                .password(user.getPassword())</span>
+<span class="fc" id="L117">                .authorities(</span>
+<span class="fc" id="L118">                user.getRoles()</span>
+<span class="fc" id="L119">                        .stream()</span>
+<span class="fc" id="L120">                        .map(role -&gt; new SimpleGrantedAuthority(role.getName().name()))</span>
+<span class="fc" id="L121">                        .toList()</span>
         )
-<span class="nc" id="L123">                .build();</span>
-<span class="nc" id="L124">        String accessToken = jwtUtil.generateAccessToken(userDetails);</span>
-<span class="nc" id="L125">        String refreshToken = jwtUtil.generateRefreshToken(userDetails);</span>
-<span class="nc" id="L126">        return new AuthResponse(accessToken, refreshToken, &quot;Bearer&quot;, user.getUsername(), user.getEmail());</span>
+<span class="fc" id="L123">                .build();</span>
+<span class="fc" id="L124">        String accessToken = jwtUtil.generateAccessToken(userDetails);</span>
+<span class="fc" id="L125">        String refreshToken = jwtUtil.generateRefreshToken(userDetails);</span>
+<span class="fc" id="L126">        return new AuthResponse(accessToken, refreshToken, &quot;Bearer&quot;, user.getUsername(), user.getEmail());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -42,136 +42,136 @@ public class LoanServiceImpl implements LoanService {
 
     @Override
     public PagedResponse&lt;LoanResponse&gt; getAllLoans(int page, int size, LoanStatus status, Long userId) {
-<span class="nc" id="L45">        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, &quot;loanDate&quot;));</span>
+<span class="fc" id="L45">        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, &quot;loanDate&quot;));</span>
         Page&lt;Loan&gt; loans;
-<span class="nc bnc" id="L47" title="All 4 branches missed.">        if (status == null &amp;&amp; userId == null) {</span>
-<span class="nc" id="L48">            loans = loanRepository.findAll(pageable);</span>
-<span class="nc bnc" id="L49" title="All 4 branches missed.">        } else if (status != null &amp;&amp; userId != null) {</span>
-<span class="nc" id="L50">            loans = loanRepository.findAll((root, query, cb) -&gt; cb.and(</span>
+<span class="fc bfc" id="L47" title="All 4 branches covered.">        if (status == null &amp;&amp; userId == null) {</span>
+<span class="fc" id="L48">            loans = loanRepository.findAll(pageable);</span>
+<span class="fc bfc" id="L49" title="All 4 branches covered.">        } else if (status != null &amp;&amp; userId != null) {</span>
+<span class="pc" id="L50">            loans = loanRepository.findAll((root, query, cb) -&gt; cb.and(</span>
 <span class="nc" id="L51">                    cb.equal(root.get(&quot;status&quot;), status),</span>
 <span class="nc" id="L52">                    cb.equal(root.get(&quot;user&quot;).get(&quot;id&quot;), userId)</span>
             ), pageable);
-<span class="nc bnc" id="L54" title="All 2 branches missed.">        } else if (status != null) {</span>
-<span class="nc" id="L55">            loans = loanRepository.findAll((root, query, cb) -&gt; cb.equal(root.get(&quot;status&quot;), status), pageable);</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        } else if (status != null) {</span>
+<span class="pc" id="L55">            loans = loanRepository.findAll((root, query, cb) -&gt; cb.equal(root.get(&quot;status&quot;), status), pageable);</span>
         } else {
-<span class="nc" id="L57">            loans = loanRepository.findAll((root, query, cb) -&gt; cb.equal(root.get(&quot;user&quot;).get(&quot;id&quot;), userId), pageable);</span>
+<span class="pc" id="L57">            loans = loanRepository.findAll((root, query, cb) -&gt; cb.equal(root.get(&quot;user&quot;).get(&quot;id&quot;), userId), pageable);</span>
         }
-<span class="nc" id="L59">        return new PagedResponse&lt;&gt;(loans.map(loanMapper::toResponse).getContent(), loans.getNumber(), loans.getTotalPages(), loans.getTotalElements(), loans.getSize(), loans.isLast());</span>
+<span class="fc" id="L59">        return new PagedResponse&lt;&gt;(loans.map(loanMapper::toResponse).getContent(), loans.getNumber(), loans.getTotalPages(), loans.getTotalElements(), loans.getSize(), loans.isLast());</span>
     }
 
     @Override
     public LoanResponse getLoanById(Long id) {
-<span class="nc" id="L64">        Loan loan = loanRepository.findById(id)</span>
-<span class="nc" id="L65">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Emprunt introuvable&quot;));</span>
-<span class="nc" id="L66">        return loanMapper.toResponse(loan);</span>
+<span class="fc" id="L64">        Loan loan = loanRepository.findById(id)</span>
+<span class="fc" id="L65">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Emprunt introuvable&quot;));</span>
+<span class="fc" id="L66">        return loanMapper.toResponse(loan);</span>
     }
 
     @Override
     public LoanResponse createLoan(LoanRequest request) {
-<span class="nc" id="L71">        String username = getCurrentUsername();</span>
-<span class="nc" id="L72">        User user = userRepository.findByUsername(username)</span>
-<span class="nc" id="L73">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;));</span>
-<span class="nc" id="L74">        Book book = bookRepository.findById(request.getBookId())</span>
-<span class="nc" id="L75">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Livre introuvable&quot;));</span>
-<span class="nc bnc" id="L76" title="All 4 branches missed.">        if (book.getStock() == null || book.getStock() &lt;= 0) {</span>
-<span class="nc" id="L77">            throw new BadRequestException(&quot;Stock insuffisant&quot;);</span>
+<span class="fc" id="L71">        String username = getCurrentUsername();</span>
+<span class="fc" id="L72">        User user = userRepository.findByUsername(username)</span>
+<span class="pc" id="L73">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;));</span>
+<span class="fc" id="L74">        Book book = bookRepository.findById(request.getBookId())</span>
+<span class="pc" id="L75">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Livre introuvable&quot;));</span>
+<span class="pc bpc" id="L76" title="1 of 4 branches missed.">        if (book.getStock() == null || book.getStock() &lt;= 0) {</span>
+<span class="fc" id="L77">            throw new BadRequestException(&quot;Stock insuffisant&quot;);</span>
         }
 
-<span class="nc" id="L80">        boolean alreadyBorrowed = loanRepository.existsByUserIdAndBookIdAndStatus(user.getId(), book.getId(), LoanStatus.ACTIVE);</span>
-<span class="nc bnc" id="L81" title="All 2 branches missed.">        if (alreadyBorrowed) {</span>
-<span class="nc" id="L82">            throw new BadRequestException(&quot;Vous avez déjà un emprunt en cours pour ce livre&quot;);</span>
+<span class="fc" id="L80">        boolean alreadyBorrowed = loanRepository.existsByUserIdAndBookIdAndStatus(user.getId(), book.getId(), LoanStatus.ACTIVE);</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        if (alreadyBorrowed) {</span>
+<span class="fc" id="L82">            throw new BadRequestException(&quot;Vous avez déjà un emprunt en cours pour ce livre&quot;);</span>
         }
-<span class="nc" id="L84">        Loan loan = new Loan();</span>
-<span class="nc" id="L85">        loan.setBook(book);</span>
-<span class="nc" id="L86">        loan.setUser(user);</span>
-<span class="nc" id="L87">        loan.setLoanDate(LocalDate.now());</span>
-<span class="nc" id="L88">        loan.setExpectedReturnDate(request.getExpectedReturnDate());</span>
-<span class="nc" id="L89">        loan.setStatus(LoanStatus.ACTIVE);</span>
-<span class="nc" id="L90">        LoanDetail detail = new LoanDetail();</span>
-<span class="nc" id="L91">        detail.setNotes(request.getNotes());</span>
-<span class="nc" id="L92">        detail.setItemcondition(request.getCondition());</span>
-<span class="nc" id="L93">        detail.setRenewalCount(0);</span>
-<span class="nc" id="L94">        detail.setLoan(loan);</span>
-<span class="nc" id="L95">        loan.setDetail(detail);</span>
-<span class="nc" id="L96">        book.setStock(book.getStock() - 1);</span>
-<span class="nc" id="L97">        bookRepository.save(book);</span>
-<span class="nc" id="L98">        Loan savedLoan = loanRepository.save(loan);</span>
+<span class="fc" id="L84">        Loan loan = new Loan();</span>
+<span class="fc" id="L85">        loan.setBook(book);</span>
+<span class="fc" id="L86">        loan.setUser(user);</span>
+<span class="fc" id="L87">        loan.setLoanDate(LocalDate.now());</span>
+<span class="fc" id="L88">        loan.setExpectedReturnDate(request.getExpectedReturnDate());</span>
+<span class="fc" id="L89">        loan.setStatus(LoanStatus.ACTIVE);</span>
+<span class="fc" id="L90">        LoanDetail detail = new LoanDetail();</span>
+<span class="fc" id="L91">        detail.setNotes(request.getNotes());</span>
+<span class="fc" id="L92">        detail.setItemcondition(request.getCondition());</span>
+<span class="fc" id="L93">        detail.setRenewalCount(0);</span>
+<span class="fc" id="L94">        detail.setLoan(loan);</span>
+<span class="fc" id="L95">        loan.setDetail(detail);</span>
+<span class="fc" id="L96">        book.setStock(book.getStock() - 1);</span>
+<span class="fc" id="L97">        bookRepository.save(book);</span>
+<span class="fc" id="L98">        Loan savedLoan = loanRepository.save(loan);</span>
         
-<span class="nc" id="L100">        notificationService.sendNotification(</span>
+<span class="fc" id="L100">        notificationService.sendNotification(</span>
             &quot;Nouvel Emprunt&quot;,
-<span class="nc" id="L102">            &quot;Le livre '&quot; + book.getTitle() + &quot;' a été emprunté par &quot; + user.getUsername(),</span>
+<span class="fc" id="L102">            &quot;Le livre '&quot; + book.getTitle() + &quot;' a été emprunté par &quot; + user.getUsername(),</span>
             &quot;INFO&quot;
         );
         
-<span class="nc" id="L106">        return loanMapper.toResponse(savedLoan);</span>
+<span class="fc" id="L106">        return loanMapper.toResponse(savedLoan);</span>
     }
 
     @Override
     public LoanResponse updateLoan(Long id, LoanRequest request) {
-<span class="nc" id="L111">        Loan loan = loanRepository.findById(id)</span>
-<span class="nc" id="L112">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Emprunt introuvable&quot;));</span>
-<span class="nc" id="L113">        loan.setExpectedReturnDate(request.getExpectedReturnDate());</span>
-<span class="nc bnc" id="L114" title="All 2 branches missed.">        if (loan.getDetail() == null) {</span>
-<span class="nc" id="L115">            LoanDetail detail = new LoanDetail();</span>
-<span class="nc" id="L116">            detail.setLoan(loan);</span>
-<span class="nc" id="L117">            loan.setDetail(detail);</span>
+<span class="fc" id="L111">        Loan loan = loanRepository.findById(id)</span>
+<span class="fc" id="L112">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Emprunt introuvable&quot;));</span>
+<span class="fc" id="L113">        loan.setExpectedReturnDate(request.getExpectedReturnDate());</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">        if (loan.getDetail() == null) {</span>
+<span class="fc" id="L115">            LoanDetail detail = new LoanDetail();</span>
+<span class="fc" id="L116">            detail.setLoan(loan);</span>
+<span class="fc" id="L117">            loan.setDetail(detail);</span>
         }
-<span class="nc" id="L119">        loan.getDetail().setNotes(request.getNotes());</span>
-<span class="nc" id="L120">        loan.getDetail().setItemcondition(request.getCondition());</span>
-<span class="nc" id="L121">        return loanMapper.toResponse(loanRepository.save(loan));</span>
+<span class="fc" id="L119">        loan.getDetail().setNotes(request.getNotes());</span>
+<span class="fc" id="L120">        loan.getDetail().setItemcondition(request.getCondition());</span>
+<span class="fc" id="L121">        return loanMapper.toResponse(loanRepository.save(loan));</span>
     }
 
     @Override
     public LoanResponse returnLoan(Long id, String returnedBy) {
-<span class="nc" id="L126">        Loan loan = loanRepository.findById(id)</span>
-<span class="nc" id="L127">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Emprunt introuvable&quot;));</span>
-<span class="nc bnc" id="L128" title="All 2 branches missed.">        if (loan.getStatus() == LoanStatus.RETURNED) {</span>
-<span class="nc" id="L129">            throw new BadRequestException(&quot;Emprunt déjà retourné&quot;);</span>
+<span class="fc" id="L126">        Loan loan = loanRepository.findById(id)</span>
+<span class="fc" id="L127">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Emprunt introuvable&quot;));</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">        if (loan.getStatus() == LoanStatus.RETURNED) {</span>
+<span class="fc" id="L129">            throw new BadRequestException(&quot;Emprunt déjà retourné&quot;);</span>
         }
-<span class="nc" id="L131">        loan.setActualReturnDate(LocalDate.now());</span>
-<span class="nc" id="L132">        loan.setStatus(LoanStatus.RETURNED);</span>
-<span class="nc" id="L133">        loan.getBook().setStock(Optional.ofNullable(loan.getBook().getStock()).orElse(0) + 1);</span>
-<span class="nc bnc" id="L134" title="All 2 branches missed.">        if (loan.getDetail() == null) {</span>
-<span class="nc" id="L135">            LoanDetail detail = new LoanDetail();</span>
-<span class="nc" id="L136">            detail.setLoan(loan);</span>
-<span class="nc" id="L137">            loan.setDetail(detail);</span>
+<span class="fc" id="L131">        loan.setActualReturnDate(LocalDate.now());</span>
+<span class="fc" id="L132">        loan.setStatus(LoanStatus.RETURNED);</span>
+<span class="fc" id="L133">        loan.getBook().setStock(Optional.ofNullable(loan.getBook().getStock()).orElse(0) + 1);</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">        if (loan.getDetail() == null) {</span>
+<span class="fc" id="L135">            LoanDetail detail = new LoanDetail();</span>
+<span class="fc" id="L136">            detail.setLoan(loan);</span>
+<span class="fc" id="L137">            loan.setDetail(detail);</span>
         }
-<span class="nc" id="L139">        loan.getDetail().setReturnedBy(returnedBy);</span>
-<span class="nc" id="L140">        Loan savedLoan = loanRepository.save(loan);</span>
+<span class="fc" id="L139">        loan.getDetail().setReturnedBy(returnedBy);</span>
+<span class="fc" id="L140">        Loan savedLoan = loanRepository.save(loan);</span>
         
-<span class="nc" id="L142">        notificationService.sendNotification(</span>
+<span class="fc" id="L142">        notificationService.sendNotification(</span>
             &quot;Livre Retourné&quot;,
-<span class="nc" id="L144">            &quot;Le livre '&quot; + loan.getBook().getTitle() + &quot;' a été retourné.&quot;,</span>
+<span class="fc" id="L144">            &quot;Le livre '&quot; + loan.getBook().getTitle() + &quot;' a été retourné.&quot;,</span>
             &quot;SUCCESS&quot;
         );
         
-<span class="nc" id="L148">        return loanMapper.toResponse(savedLoan);</span>
+<span class="fc" id="L148">        return loanMapper.toResponse(savedLoan);</span>
     }
 
     @Override
     public void deleteLoan(Long id) {
-<span class="nc bnc" id="L153" title="All 2 branches missed.">        if (!loanRepository.existsById(id)) {</span>
-<span class="nc" id="L154">            throw new ResourceNotFoundException(&quot;Emprunt introuvable&quot;);</span>
+<span class="fc bfc" id="L153" title="All 2 branches covered.">        if (!loanRepository.existsById(id)) {</span>
+<span class="fc" id="L154">            throw new ResourceNotFoundException(&quot;Emprunt introuvable&quot;);</span>
         }
-<span class="nc" id="L156">        loanRepository.deleteById(id);</span>
-<span class="nc" id="L157">    }</span>
+<span class="fc" id="L156">        loanRepository.deleteById(id);</span>
+<span class="fc" id="L157">    }</span>
 
     @Override
     public PagedResponse&lt;LoanResponse&gt; getMyLoans(int page, int size) {
-<span class="nc" id="L161">        String username = getCurrentUsername();</span>
-<span class="nc" id="L162">        User user = userRepository.findByUsername(username)</span>
-<span class="nc" id="L163">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;));</span>
-<span class="nc" id="L164">        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, &quot;loanDate&quot;));</span>
-<span class="nc" id="L165">        Page&lt;Loan&gt; loans = loanRepository.findByUserId(user.getId(), pageable);</span>
-<span class="nc" id="L166">        return new PagedResponse&lt;&gt;(loans.map(loanMapper::toResponse).getContent(), loans.getNumber(), loans.getTotalPages(), loans.getTotalElements(), loans.getSize(), loans.isLast());</span>
+<span class="fc" id="L161">        String username = getCurrentUsername();</span>
+<span class="fc" id="L162">        User user = userRepository.findByUsername(username)</span>
+<span class="pc" id="L163">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;));</span>
+<span class="fc" id="L164">        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, &quot;loanDate&quot;));</span>
+<span class="fc" id="L165">        Page&lt;Loan&gt; loans = loanRepository.findByUserId(user.getId(), pageable);</span>
+<span class="fc" id="L166">        return new PagedResponse&lt;&gt;(loans.map(loanMapper::toResponse).getContent(), loans.getNumber(), loans.getTotalPages(), loans.getTotalElements(), loans.getSize(), loans.isLast());</span>
     }
 
     private String getCurrentUsername() {
-<span class="nc" id="L170">        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();</span>
-<span class="nc bnc" id="L171" title="All 2 branches missed.">        if (principal instanceof UserDetails userDetails) {</span>
-<span class="nc" id="L172">            return userDetails.getUsername();</span>
+<span class="fc" id="L170">        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();</span>
+<span class="fc bfc" id="L171" title="All 2 branches covered.">        if (principal instanceof UserDetails userDetails) {</span>
+<span class="fc" id="L172">            return userDetails.getUsername();</span>
         }
-<span class="nc" id="L174">        return principal.toString();</span>
+<span class="fc" id="L174">        return principal.toString();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

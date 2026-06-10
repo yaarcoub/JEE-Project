@@ -34,77 +34,77 @@ public class ExportController {
     @GetMapping(&quot;/pdf/books&quot;)
     @PreAuthorize(&quot;hasAnyRole('ADMIN','MANAGER')&quot;)
     public ResponseEntity&lt;byte[]&gt; exportBooksPdf() {
-<span class="nc" id="L37">        List&lt;BookResponse&gt; books = bookService.getAllBooks(0, 1000, &quot;title&quot;, &quot;asc&quot;, null, null).getContent();</span>
-<span class="nc" id="L38">        byte[] pdf = exportService.exportBooksToPdf(books.stream().map(book -&gt; {</span>
-<span class="nc" id="L39">            com.ensam.projet.entity.Book entity = new com.ensam.projet.entity.Book();</span>
-<span class="nc" id="L40">            entity.setId(book.getId());</span>
-<span class="nc" id="L41">            entity.setTitle(book.getTitle());</span>
-<span class="nc" id="L42">            entity.setAuthor(book.getAuthor());</span>
-<span class="nc" id="L43">            entity.setIsbn(book.getIsbn());</span>
-<span class="nc" id="L44">            entity.setStock(book.getStock());</span>
-<span class="nc bnc" id="L45" title="All 2 branches missed.">            entity.setCategories(book.getCategories() == null ? null : book.getCategories().stream().map(categoryResponse -&gt; {</span>
-<span class="nc" id="L46">                com.ensam.projet.entity.Category category = new com.ensam.projet.entity.Category();</span>
-<span class="nc" id="L47">                category.setName(categoryResponse.getName());</span>
-<span class="nc" id="L48">                return category;</span>
-<span class="nc" id="L49">            }).collect(java.util.stream.Collectors.toSet()));</span>
-<span class="nc" id="L50">            entity.setCreatedAt(book.getCreatedAt());</span>
-<span class="nc" id="L51">            return entity;</span>
-<span class="nc" id="L52">        }).toList());</span>
-<span class="nc" id="L53">        return ResponseEntity.ok()</span>
-<span class="nc" id="L54">                .header(HttpHeaders.CONTENT_DISPOSITION, &quot;attachment; filename=books.pdf&quot;)</span>
-<span class="nc" id="L55">                .contentType(MediaType.APPLICATION_PDF)</span>
-<span class="nc" id="L56">                .body(pdf);</span>
+<span class="fc" id="L37">        List&lt;BookResponse&gt; books = bookService.getAllBooks(0, 1000, &quot;title&quot;, &quot;asc&quot;, null, null).getContent();</span>
+<span class="fc" id="L38">        byte[] pdf = exportService.exportBooksToPdf(books.stream().map(book -&gt; {</span>
+<span class="fc" id="L39">            com.ensam.projet.entity.Book entity = new com.ensam.projet.entity.Book();</span>
+<span class="fc" id="L40">            entity.setId(book.getId());</span>
+<span class="fc" id="L41">            entity.setTitle(book.getTitle());</span>
+<span class="fc" id="L42">            entity.setAuthor(book.getAuthor());</span>
+<span class="fc" id="L43">            entity.setIsbn(book.getIsbn());</span>
+<span class="fc" id="L44">            entity.setStock(book.getStock());</span>
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">            entity.setCategories(book.getCategories() == null ? null : book.getCategories().stream().map(categoryResponse -&gt; {</span>
+<span class="fc" id="L46">                com.ensam.projet.entity.Category category = new com.ensam.projet.entity.Category();</span>
+<span class="fc" id="L47">                category.setName(categoryResponse.getName());</span>
+<span class="fc" id="L48">                return category;</span>
+<span class="fc" id="L49">            }).collect(java.util.stream.Collectors.toSet()));</span>
+<span class="fc" id="L50">            entity.setCreatedAt(book.getCreatedAt());</span>
+<span class="fc" id="L51">            return entity;</span>
+<span class="fc" id="L52">        }).toList());</span>
+<span class="fc" id="L53">        return ResponseEntity.ok()</span>
+<span class="fc" id="L54">                .header(HttpHeaders.CONTENT_DISPOSITION, &quot;attachment; filename=books.pdf&quot;)</span>
+<span class="fc" id="L55">                .contentType(MediaType.APPLICATION_PDF)</span>
+<span class="fc" id="L56">                .body(pdf);</span>
     }
 
     @Operation(summary = &quot;Exporter les livres en Excel&quot;)
     @GetMapping(&quot;/excel/books&quot;)
     @PreAuthorize(&quot;hasAnyRole('ADMIN','MANAGER')&quot;)
     public ResponseEntity&lt;byte[]&gt; exportBooksExcel() {
-<span class="nc" id="L63">        List&lt;BookResponse&gt; books = bookService.getAllBooks(0, 1000, &quot;title&quot;, &quot;asc&quot;, null, null).getContent();</span>
-<span class="nc" id="L64">        byte[] excel = exportService.exportBooksToExcel(books.stream().map(book -&gt; {</span>
-<span class="nc" id="L65">            com.ensam.projet.entity.Book entity = new com.ensam.projet.entity.Book();</span>
-<span class="nc" id="L66">            entity.setId(book.getId());</span>
-<span class="nc" id="L67">            entity.setTitle(book.getTitle());</span>
-<span class="nc" id="L68">            entity.setAuthor(book.getAuthor());</span>
-<span class="nc" id="L69">            entity.setIsbn(book.getIsbn());</span>
-<span class="nc" id="L70">            entity.setStock(book.getStock());</span>
-<span class="nc bnc" id="L71" title="All 2 branches missed.">            entity.setCategories(book.getCategories() == null ? null : book.getCategories().stream().map(categoryResponse -&gt; {</span>
+<span class="fc" id="L63">        List&lt;BookResponse&gt; books = bookService.getAllBooks(0, 1000, &quot;title&quot;, &quot;asc&quot;, null, null).getContent();</span>
+<span class="fc" id="L64">        byte[] excel = exportService.exportBooksToExcel(books.stream().map(book -&gt; {</span>
+<span class="fc" id="L65">            com.ensam.projet.entity.Book entity = new com.ensam.projet.entity.Book();</span>
+<span class="fc" id="L66">            entity.setId(book.getId());</span>
+<span class="fc" id="L67">            entity.setTitle(book.getTitle());</span>
+<span class="fc" id="L68">            entity.setAuthor(book.getAuthor());</span>
+<span class="fc" id="L69">            entity.setIsbn(book.getIsbn());</span>
+<span class="fc" id="L70">            entity.setStock(book.getStock());</span>
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">            entity.setCategories(book.getCategories() == null ? null : book.getCategories().stream().map(categoryResponse -&gt; {</span>
 <span class="nc" id="L72">                com.ensam.projet.entity.Category category = new com.ensam.projet.entity.Category();</span>
 <span class="nc" id="L73">                category.setName(categoryResponse.getName());</span>
 <span class="nc" id="L74">                return category;</span>
 <span class="nc" id="L75">            }).collect(java.util.stream.Collectors.toSet()));</span>
-<span class="nc" id="L76">            entity.setCreatedAt(book.getCreatedAt());</span>
-<span class="nc" id="L77">            return entity;</span>
-<span class="nc" id="L78">        }).toList());</span>
-<span class="nc" id="L79">        return ResponseEntity.ok()</span>
-<span class="nc" id="L80">                .header(HttpHeaders.CONTENT_DISPOSITION, &quot;attachment; filename=books.xlsx&quot;)</span>
-<span class="nc" id="L81">                .contentType(MediaType.parseMediaType(&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;))</span>
-<span class="nc" id="L82">                .body(excel);</span>
+<span class="fc" id="L76">            entity.setCreatedAt(book.getCreatedAt());</span>
+<span class="fc" id="L77">            return entity;</span>
+<span class="fc" id="L78">        }).toList());</span>
+<span class="fc" id="L79">        return ResponseEntity.ok()</span>
+<span class="fc" id="L80">                .header(HttpHeaders.CONTENT_DISPOSITION, &quot;attachment; filename=books.xlsx&quot;)</span>
+<span class="fc" id="L81">                .contentType(MediaType.parseMediaType(&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;))</span>
+<span class="fc" id="L82">                .body(excel);</span>
     }
 
     @Operation(summary = &quot;Exporter les emprunts en PDF&quot;)
     @GetMapping(&quot;/pdf/loans&quot;)
     @PreAuthorize(&quot;hasAnyRole('ADMIN','MANAGER')&quot;)
     public ResponseEntity&lt;byte[]&gt; exportLoansPdf() {
-<span class="nc" id="L89">        List&lt;LoanResponse&gt; loans = loanService.getAllLoans(0, 1000, null, null).getContent();</span>
-<span class="nc" id="L90">        byte[] pdf = exportService.exportLoansToPdf(loans.stream().map(loanResponse -&gt; {</span>
-<span class="nc" id="L91">            com.ensam.projet.entity.Loan loan = new com.ensam.projet.entity.Loan();</span>
-<span class="nc" id="L92">            loan.setId(loanResponse.getId());</span>
-<span class="nc" id="L93">            loan.setStatus(loanResponse.getStatus());</span>
-<span class="nc" id="L94">            loan.setLoanDate(loanResponse.getLoanDate());</span>
-<span class="nc" id="L95">            loan.setExpectedReturnDate(loanResponse.getExpectedReturnDate());</span>
-<span class="nc" id="L96">            com.ensam.projet.entity.Book book = new com.ensam.projet.entity.Book();</span>
-<span class="nc" id="L97">            book.setTitle(loanResponse.getBook().getTitle());</span>
-<span class="nc" id="L98">            loan.setBook(book);</span>
-<span class="nc" id="L99">            com.ensam.projet.entity.User user = new com.ensam.projet.entity.User();</span>
-<span class="nc" id="L100">            user.setUsername(loanResponse.getUser().getUsername());</span>
-<span class="nc" id="L101">            loan.setUser(user);</span>
-<span class="nc" id="L102">            return loan;</span>
-<span class="nc" id="L103">        }).toList());</span>
-<span class="nc" id="L104">        return ResponseEntity.ok()</span>
-<span class="nc" id="L105">                .header(HttpHeaders.CONTENT_DISPOSITION, &quot;attachment; filename=loans.pdf&quot;)</span>
-<span class="nc" id="L106">                .contentType(MediaType.APPLICATION_PDF)</span>
-<span class="nc" id="L107">                .body(pdf);</span>
+<span class="fc" id="L89">        List&lt;LoanResponse&gt; loans = loanService.getAllLoans(0, 1000, null, null).getContent();</span>
+<span class="fc" id="L90">        byte[] pdf = exportService.exportLoansToPdf(loans.stream().map(loanResponse -&gt; {</span>
+<span class="fc" id="L91">            com.ensam.projet.entity.Loan loan = new com.ensam.projet.entity.Loan();</span>
+<span class="fc" id="L92">            loan.setId(loanResponse.getId());</span>
+<span class="fc" id="L93">            loan.setStatus(loanResponse.getStatus());</span>
+<span class="fc" id="L94">            loan.setLoanDate(loanResponse.getLoanDate());</span>
+<span class="fc" id="L95">            loan.setExpectedReturnDate(loanResponse.getExpectedReturnDate());</span>
+<span class="fc" id="L96">            com.ensam.projet.entity.Book book = new com.ensam.projet.entity.Book();</span>
+<span class="fc" id="L97">            book.setTitle(loanResponse.getBook().getTitle());</span>
+<span class="fc" id="L98">            loan.setBook(book);</span>
+<span class="fc" id="L99">            com.ensam.projet.entity.User user = new com.ensam.projet.entity.User();</span>
+<span class="fc" id="L100">            user.setUsername(loanResponse.getUser().getUsername());</span>
+<span class="fc" id="L101">            loan.setUser(user);</span>
+<span class="fc" id="L102">            return loan;</span>
+<span class="fc" id="L103">        }).toList());</span>
+<span class="fc" id="L104">        return ResponseEntity.ok()</span>
+<span class="fc" id="L105">                .header(HttpHeaders.CONTENT_DISPOSITION, &quot;attachment; filename=loans.pdf&quot;)</span>
+<span class="fc" id="L106">                .contentType(MediaType.APPLICATION_PDF)</span>
+<span class="fc" id="L107">                .body(pdf);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

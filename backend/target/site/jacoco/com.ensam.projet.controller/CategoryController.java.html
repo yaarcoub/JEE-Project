@@ -26,36 +26,36 @@ public class CategoryController {
     @GetMapping
     @PreAuthorize(&quot;isAuthenticated()&quot;)
     public ResponseEntity&lt;ApiResponse&lt;List&lt;CategoryResponse&gt;&gt;&gt; getAllCategories() {
-<span class="nc" id="L29">        return ResponseEntity.ok(ApiResponse.success(categoryService.getAllCategories(), &quot;Catégories récupérées&quot;));</span>
+<span class="fc" id="L29">        return ResponseEntity.ok(ApiResponse.success(categoryService.getAllCategories(), &quot;Catégories récupérées&quot;));</span>
     }
 
     @Operation(summary = &quot;Récupérer une catégorie&quot;)
     @GetMapping(&quot;/{id}&quot;)
     @PreAuthorize(&quot;isAuthenticated()&quot;)
     public ResponseEntity&lt;ApiResponse&lt;CategoryResponse&gt;&gt; getCategory(@PathVariable Long id) {
-<span class="nc" id="L36">        return ResponseEntity.ok(ApiResponse.success(categoryService.getCategoryById(id), &quot;Catégorie récupérée&quot;));</span>
+<span class="fc" id="L36">        return ResponseEntity.ok(ApiResponse.success(categoryService.getCategoryById(id), &quot;Catégorie récupérée&quot;));</span>
     }
 
     @Operation(summary = &quot;Créer une catégorie&quot;)
     @PostMapping
     @PreAuthorize(&quot;hasAnyRole('ADMIN','MANAGER')&quot;)
     public ResponseEntity&lt;ApiResponse&lt;CategoryResponse&gt;&gt; createCategory(@Valid @RequestBody CategoryRequest request) {
-<span class="nc" id="L43">        return ResponseEntity.status(201).body(ApiResponse.success(categoryService.createCategory(request), &quot;Catégorie créée&quot;));</span>
+<span class="fc" id="L43">        return ResponseEntity.status(201).body(ApiResponse.success(categoryService.createCategory(request), &quot;Catégorie créée&quot;));</span>
     }
 
     @Operation(summary = &quot;Mettre à jour une catégorie&quot;)
     @PutMapping(&quot;/{id}&quot;)
     @PreAuthorize(&quot;hasAnyRole('ADMIN','MANAGER')&quot;)
     public ResponseEntity&lt;ApiResponse&lt;CategoryResponse&gt;&gt; updateCategory(@PathVariable Long id, @Valid @RequestBody CategoryRequest request) {
-<span class="nc" id="L50">        return ResponseEntity.ok(ApiResponse.success(categoryService.updateCategory(id, request), &quot;Catégorie mise à jour&quot;));</span>
+<span class="fc" id="L50">        return ResponseEntity.ok(ApiResponse.success(categoryService.updateCategory(id, request), &quot;Catégorie mise à jour&quot;));</span>
     }
 
     @Operation(summary = &quot;Supprimer une catégorie&quot;)
     @DeleteMapping(&quot;/{id}&quot;)
     @PreAuthorize(&quot;hasRole('ADMIN')&quot;)
     public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; deleteCategory(@PathVariable Long id) {
-<span class="nc" id="L57">        categoryService.deleteCategory(id);</span>
-<span class="nc" id="L58">        return ResponseEntity.noContent().build();</span>
+<span class="fc" id="L57">        categoryService.deleteCategory(id);</span>
+<span class="fc" id="L58">        return ResponseEntity.noContent().build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

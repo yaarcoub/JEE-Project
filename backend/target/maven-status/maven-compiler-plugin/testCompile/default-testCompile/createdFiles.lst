@@ -1,9 +1,12 @@
 com/ensam/projet/controller/AuthControllerIntegrationTest.class
 com/ensam/projet/mapper/LoanMapperTest.class
 com/ensam/projet/service/impl/LoanServiceImplTest.class
+com/ensam/projet/controller/DashboardControllerTest.class
 com/ensam/projet/repository/LoanRepositoryTest.class
+com/ensam/projet/controller/CategoryControllerTest.class
 com/ensam/projet/service/impl/BookServiceImplTest.class
 com/ensam/projet/controller/LoanControllerTest.class
+com/ensam/projet/controller/ExportControllerTest.class
 com/ensam/projet/mapper/CategoryMapperTest.class
 com/ensam/projet/repository/BookRepositoryTest.class
 com/ensam/projet/controller/UserControllerIntegrationTest.class

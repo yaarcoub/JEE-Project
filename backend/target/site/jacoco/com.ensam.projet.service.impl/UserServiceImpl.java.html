@@ -36,97 +36,97 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public PagedResponse&lt;UserResponse&gt; getAllUsers(int page, int size) {
-<span class="nc" id="L39">        Page&lt;User&gt; users = userRepository.findAll(PageRequest.of(page, size));</span>
-<span class="nc" id="L40">        return new PagedResponse&lt;&gt;(users.stream().map(userMapper::toResponse).toList(),</span>
-<span class="nc" id="L41">                users.getNumber(), users.getTotalPages(), users.getTotalElements(), users.getSize(), users.isLast());</span>
+<span class="fc" id="L39">        Page&lt;User&gt; users = userRepository.findAll(PageRequest.of(page, size));</span>
+<span class="fc" id="L40">        return new PagedResponse&lt;&gt;(users.stream().map(userMapper::toResponse).toList(),</span>
+<span class="fc" id="L41">                users.getNumber(), users.getTotalPages(), users.getTotalElements(), users.getSize(), users.isLast());</span>
     }
 
     @Override
     public UserResponse getUserById(Long id) {
-<span class="nc" id="L46">        User user = userRepository.findById(id)</span>
-<span class="nc" id="L47">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;));</span>
-<span class="nc" id="L48">        return userMapper.toResponse(user);</span>
+<span class="fc" id="L46">        User user = userRepository.findById(id)</span>
+<span class="fc" id="L47">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;));</span>
+<span class="fc" id="L48">        return userMapper.toResponse(user);</span>
     }
 
     @Override
     public UserResponse updateRoles(Long id, Set&lt;String&gt; roles) {
-<span class="nc" id="L53">        User user = userRepository.findById(id)</span>
-<span class="nc" id="L54">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;));</span>
-<span class="nc" id="L55">        Set&lt;Role&gt; newRoles = new HashSet&lt;&gt;();</span>
-<span class="nc bnc" id="L56" title="All 2 branches missed.">        for (String roleName : roles) {</span>
-<span class="nc" id="L57">            String normalizedRole = roleName.toUpperCase();</span>
-<span class="nc bnc" id="L58" title="All 2 branches missed.">            if (!normalizedRole.startsWith(&quot;ROLE_&quot;)) {</span>
-<span class="nc" id="L59">                normalizedRole = &quot;ROLE_&quot; + normalizedRole;</span>
+<span class="fc" id="L53">        User user = userRepository.findById(id)</span>
+<span class="fc" id="L54">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;));</span>
+<span class="fc" id="L55">        Set&lt;Role&gt; newRoles = new HashSet&lt;&gt;();</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        for (String roleName : roles) {</span>
+<span class="fc" id="L57">            String normalizedRole = roleName.toUpperCase();</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">            if (!normalizedRole.startsWith(&quot;ROLE_&quot;)) {</span>
+<span class="fc" id="L59">                normalizedRole = &quot;ROLE_&quot; + normalizedRole;</span>
             }
-<span class="nc" id="L61">            ERole eRole = ERole.valueOf(normalizedRole);</span>
-<span class="nc" id="L62">            Role role = roleRepository.findByName(eRole)</span>
-<span class="nc" id="L63">                    .orElseThrow(() -&gt; new BadRequestException(&quot;Role introuvable: &quot; + roleName));</span>
-<span class="nc" id="L64">            newRoles.add(role);</span>
-<span class="nc" id="L65">        }</span>
-<span class="nc" id="L66">        user.setRoles(newRoles);</span>
-<span class="nc" id="L67">        return userMapper.toResponse(userRepository.save(user));</span>
+<span class="fc" id="L61">            ERole eRole = ERole.valueOf(normalizedRole);</span>
+<span class="fc" id="L62">            Role role = roleRepository.findByName(eRole)</span>
+<span class="fc" id="L63">                    .orElseThrow(() -&gt; new BadRequestException(&quot;Role introuvable: &quot; + roleName));</span>
+<span class="fc" id="L64">            newRoles.add(role);</span>
+<span class="fc" id="L65">        }</span>
+<span class="fc" id="L66">        user.setRoles(newRoles);</span>
+<span class="fc" id="L67">        return userMapper.toResponse(userRepository.save(user));</span>
     }
 
     @Override
     public UserResponse toggleEnabled(Long id) {
-<span class="nc" id="L72">        User user = userRepository.findById(id)</span>
-<span class="nc" id="L73">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;));</span>
-<span class="nc bnc" id="L74" title="All 2 branches missed.">        user.setEnabled(!user.isEnabled());</span>
-<span class="nc" id="L75">        return userMapper.toResponse(userRepository.save(user));</span>
+<span class="fc" id="L72">        User user = userRepository.findById(id)</span>
+<span class="fc" id="L73">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;));</span>
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">        user.setEnabled(!user.isEnabled());</span>
+<span class="fc" id="L75">        return userMapper.toResponse(userRepository.save(user));</span>
     }
 
     @Override
     public void deleteUser(Long id) {
-<span class="nc bnc" id="L80" title="All 2 branches missed.">        if (!userRepository.existsById(id)) {</span>
-<span class="nc" id="L81">            throw new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;);</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        if (!userRepository.existsById(id)) {</span>
+<span class="fc" id="L81">            throw new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;);</span>
         }
-<span class="nc" id="L83">        userRepository.deleteById(id);</span>
-<span class="nc" id="L84">    }</span>
+<span class="fc" id="L83">        userRepository.deleteById(id);</span>
+<span class="fc" id="L84">    }</span>
 
     @Override
     public UserResponse getCurrentUser() {
-<span class="nc" id="L88">        String username = getCurrentUsername();</span>
-<span class="nc" id="L89">        User user = userRepository.findByUsername(username)</span>
-<span class="nc" id="L90">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;));</span>
-<span class="nc" id="L91">        return userMapper.toResponse(user);</span>
+<span class="fc" id="L88">        String username = getCurrentUsername();</span>
+<span class="fc" id="L89">        User user = userRepository.findByUsername(username)</span>
+<span class="pc" id="L90">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;));</span>
+<span class="fc" id="L91">        return userMapper.toResponse(user);</span>
     }
 
     @Override
     public UserResponse updateProfile(String username, String email) {
-<span class="nc" id="L96">        String current = getCurrentUsername();</span>
-<span class="nc" id="L97">        User user = userRepository.findByUsername(current)</span>
-<span class="nc" id="L98">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;));</span>
-<span class="nc bnc" id="L99" title="All 4 branches missed.">        if (!user.getUsername().equals(username) &amp;&amp; userRepository.existsByUsername(username)) {</span>
-<span class="nc" id="L100">            throw new BadRequestException(&quot;Nom d'utilisateur déjà utilisé&quot;);</span>
+<span class="fc" id="L96">        String current = getCurrentUsername();</span>
+<span class="fc" id="L97">        User user = userRepository.findByUsername(current)</span>
+<span class="pc" id="L98">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;));</span>
+<span class="fc bfc" id="L99" title="All 4 branches covered.">        if (!user.getUsername().equals(username) &amp;&amp; userRepository.existsByUsername(username)) {</span>
+<span class="fc" id="L100">            throw new BadRequestException(&quot;Nom d'utilisateur déjà utilisé&quot;);</span>
         }
-<span class="nc bnc" id="L102" title="All 4 branches missed.">        if (!user.getEmail().equals(email) &amp;&amp; userRepository.existsByEmail(email)) {</span>
-<span class="nc" id="L103">            throw new BadRequestException(&quot;Email déjà utilisé&quot;);</span>
+<span class="pc bpc" id="L102" title="1 of 4 branches missed.">        if (!user.getEmail().equals(email) &amp;&amp; userRepository.existsByEmail(email)) {</span>
+<span class="fc" id="L103">            throw new BadRequestException(&quot;Email déjà utilisé&quot;);</span>
         }
-<span class="nc" id="L105">        user.setUsername(username);</span>
-<span class="nc" id="L106">        user.setEmail(email);</span>
-<span class="nc" id="L107">        return userMapper.toResponse(userRepository.save(user));</span>
+<span class="fc" id="L105">        user.setUsername(username);</span>
+<span class="fc" id="L106">        user.setEmail(email);</span>
+<span class="fc" id="L107">        return userMapper.toResponse(userRepository.save(user));</span>
     }
 
     @Override
     public void changePassword(String oldPassword, String newPassword) {
-<span class="nc" id="L112">        String currentUsername = getCurrentUsername();</span>
-<span class="nc" id="L113">        User user = userRepository.findByUsername(currentUsername)</span>
-<span class="nc" id="L114">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;));</span>
+<span class="fc" id="L112">        String currentUsername = getCurrentUsername();</span>
+<span class="fc" id="L113">        User user = userRepository.findByUsername(currentUsername)</span>
+<span class="pc" id="L114">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Utilisateur introuvable&quot;));</span>
 
-<span class="nc bnc" id="L116" title="All 2 branches missed.">        if (!passwordEncoder.matches(oldPassword, user.getPassword())) {</span>
-<span class="nc" id="L117">            throw new BadRequestException(&quot;L'ancien mot de passe est incorrect&quot;);</span>
+<span class="fc bfc" id="L116" title="All 2 branches covered.">        if (!passwordEncoder.matches(oldPassword, user.getPassword())) {</span>
+<span class="fc" id="L117">            throw new BadRequestException(&quot;L'ancien mot de passe est incorrect&quot;);</span>
         }
 
-<span class="nc" id="L120">        user.setPassword(passwordEncoder.encode(newPassword));</span>
-<span class="nc" id="L121">        userRepository.save(user);</span>
-<span class="nc" id="L122">    }</span>
+<span class="fc" id="L120">        user.setPassword(passwordEncoder.encode(newPassword));</span>
+<span class="fc" id="L121">        userRepository.save(user);</span>
+<span class="fc" id="L122">    }</span>
 
     private String getCurrentUsername() {
-<span class="nc" id="L125">        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();</span>
-<span class="nc bnc" id="L126" title="All 2 branches missed.">        if (principal instanceof UserDetails userDetails) {</span>
-<span class="nc" id="L127">            return userDetails.getUsername();</span>
+<span class="fc" id="L125">        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();</span>
+<span class="fc bfc" id="L126" title="All 2 branches covered.">        if (principal instanceof UserDetails userDetails) {</span>
+<span class="fc" id="L127">            return userDetails.getUsername();</span>
         }
-<span class="nc" id="L129">        return principal.toString();</span>
+<span class="fc" id="L129">        return principal.toString();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

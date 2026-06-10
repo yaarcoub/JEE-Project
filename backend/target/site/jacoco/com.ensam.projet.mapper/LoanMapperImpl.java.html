@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = &quot;org.mapstruct.ap.MappingProcessor&quot;,
-    date = &quot;2026-06-10T09:15:11+0100&quot;,
+    date = &quot;2026-06-10T09:37:51+0100&quot;,
     comments = &quot;version: 1.5.5.Final, compiler: javac, environment: Java 21.0.11 (Red Hat, Inc.)&quot;
 )
 @Component
@@ -23,22 +23,22 @@ import org.springframework.stereotype.Component;
 
     @Override
     public LoanResponse toResponse(Loan loan) {
-<span class="nc bnc" id="L26" title="All 2 branches missed.">        if ( loan == null ) {</span>
-<span class="nc" id="L27">            return null;</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        if ( loan == null ) {</span>
+<span class="fc" id="L27">            return null;</span>
         }
 
-<span class="nc" id="L30">        LoanResponse loanResponse = new LoanResponse();</span>
+<span class="fc" id="L30">        LoanResponse loanResponse = new LoanResponse();</span>
 
-<span class="nc" id="L32">        loanResponse.setId( loan.getId() );</span>
-<span class="nc" id="L33">        loanResponse.setLoanDate( loan.getLoanDate() );</span>
-<span class="nc" id="L34">        loanResponse.setExpectedReturnDate( loan.getExpectedReturnDate() );</span>
-<span class="nc" id="L35">        loanResponse.setActualReturnDate( loan.getActualReturnDate() );</span>
-<span class="nc" id="L36">        loanResponse.setStatus( loan.getStatus() );</span>
-<span class="nc" id="L37">        loanResponse.setBook( bookMapper.toResponse( loan.getBook() ) );</span>
-<span class="nc" id="L38">        loanResponse.setUser( userMapper.toResponse( loan.getUser() ) );</span>
-<span class="nc" id="L39">        loanResponse.setDetail( loanDetailMapper.toResponse( loan.getDetail() ) );</span>
+<span class="fc" id="L32">        loanResponse.setId( loan.getId() );</span>
+<span class="fc" id="L33">        loanResponse.setLoanDate( loan.getLoanDate() );</span>
+<span class="fc" id="L34">        loanResponse.setExpectedReturnDate( loan.getExpectedReturnDate() );</span>
+<span class="fc" id="L35">        loanResponse.setActualReturnDate( loan.getActualReturnDate() );</span>
+<span class="fc" id="L36">        loanResponse.setStatus( loan.getStatus() );</span>
+<span class="fc" id="L37">        loanResponse.setBook( bookMapper.toResponse( loan.getBook() ) );</span>
+<span class="fc" id="L38">        loanResponse.setUser( userMapper.toResponse( loan.getUser() ) );</span>
+<span class="fc" id="L39">        loanResponse.setDetail( loanDetailMapper.toResponse( loan.getDetail() ) );</span>
 
-<span class="nc" id="L41">        return loanResponse;</span>
+<span class="fc" id="L41">        return loanResponse;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

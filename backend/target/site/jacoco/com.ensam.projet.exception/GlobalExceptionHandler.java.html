@@ -50,8 +50,8 @@ import java.util.Map;
 
     @ExceptionHandler(AuthenticationException.class)
     public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; handleAuthentication(AuthenticationException ex) {
-<span class="nc" id="L53">        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)</span>
-<span class="nc" id="L54">                .body(ApiResponse.error(ex.getMessage(), HttpStatus.UNAUTHORIZED.value()));</span>
+<span class="fc" id="L53">        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)</span>
+<span class="fc" id="L54">                .body(ApiResponse.error(ex.getMessage(), HttpStatus.UNAUTHORIZED.value()));</span>
     }
 
     @ExceptionHandler(DataIntegrityViolationException.class)
@@ -67,9 +67,9 @@ import java.util.Map;
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; handleAll(Exception ex, HttpServletRequest request) {
-<span class="nc" id="L70">        ex.printStackTrace();</span>
-<span class="nc" id="L71">        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)</span>
-<span class="nc" id="L72">                .body(ApiResponse.error(&quot;Erreur serveur inattendue&quot;, HttpStatus.INTERNAL_SERVER_ERROR.value()));</span>
+<span class="fc" id="L70">        ex.printStackTrace();</span>
+<span class="fc" id="L71">        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)</span>
+<span class="fc" id="L72">                .body(ApiResponse.error(&quot;Erreur serveur inattendue&quot;, HttpStatus.INTERNAL_SERVER_ERROR.value()));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

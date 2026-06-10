@@ -27,26 +27,26 @@ import java.util.function.Function;
     private long jwtRefreshExpiration;
 
     private Key getSigningKey() {
-<span class="nc" id="L30">        byte[] keyBytes = Base64.getDecoder().decode(jwtSecret);</span>
-<span class="nc" id="L31">        return new SecretKeySpec(keyBytes, SignatureAlgorithm.HS256.getJcaName());</span>
+<span class="fc" id="L30">        byte[] keyBytes = Base64.getDecoder().decode(jwtSecret);</span>
+<span class="fc" id="L31">        return new SecretKeySpec(keyBytes, SignatureAlgorithm.HS256.getJcaName());</span>
     }
 
     public String generateAccessToken(UserDetails userDetails) {
-<span class="nc" id="L35">        return createToken(userDetails.getUsername(), jwtAccessExpiration);</span>
+<span class="fc" id="L35">        return createToken(userDetails.getUsername(), jwtAccessExpiration);</span>
     }
 
     public String generateRefreshToken(UserDetails userDetails) {
-<span class="nc" id="L39">        return createToken(userDetails.getUsername(), jwtRefreshExpiration);</span>
+<span class="fc" id="L39">        return createToken(userDetails.getUsername(), jwtRefreshExpiration);</span>
     }
 
     private String createToken(String subject, long expiryMillis) {
-<span class="nc" id="L43">        Instant now = Instant.now();</span>
-<span class="nc" id="L44">        return Jwts.builder()</span>
-<span class="nc" id="L45">                .setSubject(subject)</span>
-<span class="nc" id="L46">                .setIssuedAt(Date.from(now))</span>
-<span class="nc" id="L47">                .setExpiration(Date.from(now.plusMillis(expiryMillis)))</span>
-<span class="nc" id="L48">                .signWith(getSigningKey(), SignatureAlgorithm.HS256)</span>
-<span class="nc" id="L49">                .compact();</span>
+<span class="fc" id="L43">        Instant now = Instant.now();</span>
+<span class="fc" id="L44">        return Jwts.builder()</span>
+<span class="fc" id="L45">                .setSubject(subject)</span>
+<span class="fc" id="L46">                .setIssuedAt(Date.from(now))</span>
+<span class="fc" id="L47">                .setExpiration(Date.from(now.plusMillis(expiryMillis)))</span>
+<span class="fc" id="L48">                .signWith(getSigningKey(), SignatureAlgorithm.HS256)</span>
+<span class="fc" id="L49">                .compact();</span>
     }
 
     public String extractUsername(String token) {
@@ -59,9 +59,9 @@ import java.util.function.Function;
     }
 
     public Claims extractAllClaims(String token) {
-<span class="nc" id="L62">        return Jwts.parserBuilder()</span>
-<span class="nc" id="L63">                .setSigningKey(getSigningKey())</span>
-<span class="nc" id="L64">                .build()</span>
+<span class="pc" id="L62">        return Jwts.parserBuilder()</span>
+<span class="fc" id="L63">                .setSigningKey(getSigningKey())</span>
+<span class="fc" id="L64">                .build()</span>
 <span class="nc" id="L65">                .parseClaimsJws(token)</span>
 <span class="nc" id="L66">                .getBody();</span>
     }

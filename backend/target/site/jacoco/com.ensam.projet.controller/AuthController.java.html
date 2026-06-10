@@ -23,13 +23,13 @@ public class AuthController {
     @Operation(summary = &quot;Enregistrer un nouvel utilisateur&quot;)
     @PostMapping(&quot;/register&quot;)
     public ResponseEntity&lt;ApiResponse&lt;AuthResponse&gt;&gt; register(@Valid @RequestBody RegisterRequest request) {
-<span class="nc" id="L26">        return ResponseEntity.ok(ApiResponse.success(authService.register(request), &quot;Inscription réussie&quot;));</span>
+<span class="fc" id="L26">        return ResponseEntity.ok(ApiResponse.success(authService.register(request), &quot;Inscription réussie&quot;));</span>
     }
 
     @Operation(summary = &quot;Connexion utilisateur&quot;)
     @PostMapping(&quot;/login&quot;)
     public ResponseEntity&lt;ApiResponse&lt;AuthResponse&gt;&gt; login(@Valid @RequestBody LoginRequest request) {
-<span class="nc" id="L32">        return ResponseEntity.ok(ApiResponse.success(authService.login(request), &quot;Connexion réussie&quot;));</span>
+<span class="fc" id="L32">        return ResponseEntity.ok(ApiResponse.success(authService.login(request), &quot;Connexion réussie&quot;));</span>
     }
 
     @Operation(summary = &quot;Renouveler le jeton d'accès&quot;)
@@ -41,8 +41,8 @@ public class AuthController {
     @Operation(summary = &quot;Déconnexion&quot;)
     @PostMapping(&quot;/logout&quot;)
     public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; logout() {
-<span class="nc" id="L44">        authService.logout();</span>
-<span class="nc" id="L45">        return ResponseEntity.ok(ApiResponse.success(null, &quot;Déconnexion réussie&quot;));</span>
+<span class="fc" id="L44">        authService.logout();</span>
+<span class="fc" id="L45">        return ResponseEntity.ok(ApiResponse.success(null, &quot;Déconnexion réussie&quot;));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

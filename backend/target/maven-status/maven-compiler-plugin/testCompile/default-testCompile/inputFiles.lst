@@ -5,11 +5,14 @@
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/service/impl/UserServiceImplTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/mapper/UserMapperTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/mapper/CategoryMapperTest.java
+/home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/controller/ExportControllerTest.java
+/home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/controller/DashboardControllerTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/mapper/LoanDetailMapperTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/service/impl/BookServiceImplTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/service/impl/LoanServiceImplTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/controller/AuthControllerIntegrationTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/mapper/LoanMapperTest.java
+/home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/controller/CategoryControllerTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/controller/UserControllerIntegrationTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/repository/UserRepositoryTest.java
 /home/yass/S8/JEE/project/JEE-Project/backend/src/test/java/com/ensam/projet/mapper/BookMapperTest.java

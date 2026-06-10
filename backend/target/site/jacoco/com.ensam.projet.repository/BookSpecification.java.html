@@ -19,17 +19,17 @@ import org.springframework.data.jpa.domain.Specification;
     }
 
     public static Specification&lt;Book&gt; hasCategory(Long categoryId) {
-<span class="nc" id="L22">        return (root, query, cb) -&gt; {</span>
-<span class="nc bnc" id="L23" title="All 2 branches missed.">            if (categoryId == null) {</span>
+<span class="fc" id="L22">        return (root, query, cb) -&gt; {</span>
+<span class="pc bpc" id="L23" title="1 of 2 branches missed.">            if (categoryId == null) {</span>
 <span class="nc" id="L24">                return null;</span>
             }
-<span class="nc" id="L26">            Join&lt;Book, Category&gt; categories = root.join(&quot;categories&quot;);</span>
-<span class="nc" id="L27">            return cb.equal(categories.get(&quot;id&quot;), categoryId);</span>
+<span class="fc" id="L26">            Join&lt;Book, Category&gt; categories = root.join(&quot;categories&quot;);</span>
+<span class="fc" id="L27">            return cb.equal(categories.get(&quot;id&quot;), categoryId);</span>
         };
     }
 
     public static Specification&lt;Book&gt; hasKeyword(String keyword) {
-<span class="nc" id="L32">        return (root, query, cb) -&gt; {</span>
+<span class="fc" id="L32">        return (root, query, cb) -&gt; {</span>
 <span class="nc bnc" id="L33" title="All 4 branches missed.">            if (keyword == null || keyword.isBlank()) {</span>
 <span class="nc" id="L34">                return null;</span>
             }
