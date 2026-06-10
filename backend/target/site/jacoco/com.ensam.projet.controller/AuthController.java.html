@@ -23,13 +23,13 @@ public class AuthController {
     @Operation(summary = &quot;Enregistrer un nouvel utilisateur&quot;)
     @PostMapping(&quot;/register&quot;)
     public ResponseEntity&lt;ApiResponse&lt;AuthResponse&gt;&gt; register(@Valid @RequestBody RegisterRequest request) {
-<span class="fc" id="L26">        return ResponseEntity.ok(ApiResponse.success(authService.register(request), &quot;Inscription réussie&quot;));</span>
+<span class="nc" id="L26">        return ResponseEntity.ok(ApiResponse.success(authService.register(request), &quot;Inscription réussie&quot;));</span>
     }
 
     @Operation(summary = &quot;Connexion utilisateur&quot;)
     @PostMapping(&quot;/login&quot;)
     public ResponseEntity&lt;ApiResponse&lt;AuthResponse&gt;&gt; login(@Valid @RequestBody LoginRequest request) {
-<span class="fc" id="L32">        return ResponseEntity.ok(ApiResponse.success(authService.login(request), &quot;Connexion réussie&quot;));</span>
+<span class="nc" id="L32">        return ResponseEntity.ok(ApiResponse.success(authService.login(request), &quot;Connexion réussie&quot;));</span>
     }
 
     @Operation(summary = &quot;Renouveler le jeton d'accès&quot;)

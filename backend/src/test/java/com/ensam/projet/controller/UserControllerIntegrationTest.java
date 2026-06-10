@@ -172,4 +172,49 @@ class UserControllerIntegrationTest {
                 .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isBadRequest()); // Doit retourner 400 Bad Request grâce à @Valid
     }
+
+    @Test
+    @WithMockUser(roles = "ADMIN")
+    void shouldGetUserForAdmin() throws Exception {
+        when(userService.getUserById(1L)).thenReturn(mockUserResponse);
+
+        mockMvc.perform(get("/api/users/1"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.data.username").value("testuser"));
+    }
+
+    @Test
+    @WithMockUser(roles = "USER")
+    void shouldReturn403WhenUserTriesToGetUser() throws Exception {
+        mockMvc.perform(get("/api/users/1"))
+                .andExpect(status().isForbidden());
+    }
+
+    @Test
+    @WithMockUser(roles = "USER")
+    void shouldReturn403WhenUserTriesToUpdateRoles() throws Exception {
+        Set<String> roles = Set.of("ROLE_MANAGER");
+
+        mockMvc.perform(put("/api/users/1/roles")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(roles)))
+                .andExpect(status().isForbidden());
+    }
+
+    @Test
+    @WithMockUser(roles = "ADMIN")
+    void shouldToggleUserForAdmin() throws Exception {
+        when(userService.toggleEnabled(1L)).thenReturn(mockUserResponse);
+
+        mockMvc.perform(put("/api/users/1/toggle"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.success").value(true));
+    }
+
+    @Test
+    @WithMockUser(roles = "USER")
+    void shouldReturn403WhenUserTriesToToggleUser() throws Exception {
+        mockMvc.perform(put("/api/users/1/toggle"))
+                .andExpect(status().isForbidden());
+    }
 }

@@ -24,6 +24,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.core.userdetails.UserDetails;
 import com.ensam.projet.exception.BadRequestException;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Collections;
 import java.util.Optional;
 
@@ -170,6 +172,158 @@ class UserServiceImplTest {
         verify(userRepository).save(user);
 
         // Nettoyage
+        SecurityContextHolder.clearContext();
+    }
+
+    @Test
+    void shouldUpdateRolesSuccessfully() {
+        Set<String> requestedRoles = new HashSet<>();
+        requestedRoles.add("ADMIN");
+        requestedRoles.add("ROLE_USER");
+
+        com.ensam.projet.entity.Role adminRole = new com.ensam.projet.entity.Role();
+        adminRole.setName(com.ensam.projet.entity.ERole.ROLE_ADMIN);
+        
+        com.ensam.projet.entity.Role userRole = new com.ensam.projet.entity.Role();
+        userRole.setName(com.ensam.projet.entity.ERole.ROLE_USER);
+
+        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+        when(roleRepository.findByName(com.ensam.projet.entity.ERole.ROLE_ADMIN)).thenReturn(Optional.of(adminRole));
+        when(roleRepository.findByName(com.ensam.projet.entity.ERole.ROLE_USER)).thenReturn(Optional.of(userRole));
+        when(userRepository.save(any(User.class))).thenReturn(user);
+        when(userMapper.toResponse(any(User.class))).thenReturn(userResponse);
+
+        UserResponse result = userService.updateRoles(1L, requestedRoles);
+
+        assertThat(result).isNotNull();
+        verify(userRepository).save(user);
+    }
+
+    @Test
+    void shouldThrowWhenUpdateRolesUserNotFound() {
+        when(userRepository.findById(1L)).thenReturn(Optional.empty());
+        Set<String> roles = Collections.singleton("ADMIN");
+
+        assertThrows(ResourceNotFoundException.class, () -> userService.updateRoles(1L, roles));
+    }
+
+    @Test
+    void shouldThrowWhenUpdateRolesRoleNotFound() {
+        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+        when(roleRepository.findByName(com.ensam.projet.entity.ERole.ROLE_ADMIN)).thenReturn(Optional.empty());
+        
+        Set<String> roles = Collections.singleton("ADMIN");
+
+        assertThrows(BadRequestException.class, () -> userService.updateRoles(1L, roles));
+    }
+
+    @Test
+    void shouldThrowWhenToggleEnabledUserNotFound() {
+        when(userRepository.findById(1L)).thenReturn(Optional.empty());
+        assertThrows(ResourceNotFoundException.class, () -> userService.toggleEnabled(1L));
+    }
+
+    @Test
+    void shouldThrowWhenDeleteUserNotFound() {
+        when(userRepository.existsById(1L)).thenReturn(false);
+        assertThrows(ResourceNotFoundException.class, () -> userService.deleteUser(1L));
+    }
+
+    @Test
+    void shouldGetCurrentUserSuccessfully() {
+        Authentication authentication = mock(Authentication.class);
+        SecurityContext securityContext = mock(SecurityContext.class);
+        UserDetails userDetails = mock(UserDetails.class);
+
+        when(securityContext.getAuthentication()).thenReturn(authentication);
+        when(authentication.getPrincipal()).thenReturn(userDetails);
+        when(userDetails.getUsername()).thenReturn("youssef");
+        SecurityContextHolder.setContext(securityContext);
+
+        when(userRepository.findByUsername("youssef")).thenReturn(Optional.of(user));
+        when(userMapper.toResponse(user)).thenReturn(userResponse);
+
+        UserResponse result = userService.getCurrentUser();
+
+        assertThat(result).isNotNull();
+        assertThat(result.getUsername()).isEqualTo("youssef");
+
+        SecurityContextHolder.clearContext();
+    }
+
+    @Test
+    void shouldGetCurrentUserAsStringPrincipal() {
+        Authentication authentication = mock(Authentication.class);
+        SecurityContext securityContext = mock(SecurityContext.class);
+
+        when(securityContext.getAuthentication()).thenReturn(authentication);
+        when(authentication.getPrincipal()).thenReturn("youssef");
+        SecurityContextHolder.setContext(securityContext);
+
+        when(userRepository.findByUsername("youssef")).thenReturn(Optional.of(user));
+        when(userMapper.toResponse(user)).thenReturn(userResponse);
+
+        UserResponse result = userService.getCurrentUser();
+
+        assertThat(result).isNotNull();
+
+        SecurityContextHolder.clearContext();
+    }
+
+    @Test
+    void shouldUpdateProfileSuccessfully() {
+        Authentication authentication = mock(Authentication.class);
+        SecurityContext securityContext = mock(SecurityContext.class);
+
+        when(securityContext.getAuthentication()).thenReturn(authentication);
+        when(authentication.getPrincipal()).thenReturn("youssef");
+        SecurityContextHolder.setContext(securityContext);
+
+        when(userRepository.findByUsername("youssef")).thenReturn(Optional.of(user));
+        when(userRepository.existsByUsername("newUsername")).thenReturn(false);
+        when(userRepository.existsByEmail("new@email.com")).thenReturn(false);
+        when(userRepository.save(any(User.class))).thenReturn(user);
+        when(userMapper.toResponse(any(User.class))).thenReturn(userResponse);
+
+        UserResponse result = userService.updateProfile("newUsername", "new@email.com");
+
+        assertThat(result).isNotNull();
+        verify(userRepository).save(user);
+
+        SecurityContextHolder.clearContext();
+    }
+
+    @Test
+    void shouldThrowWhenUpdateProfileUsernameTaken() {
+        Authentication authentication = mock(Authentication.class);
+        SecurityContext securityContext = mock(SecurityContext.class);
+
+        when(securityContext.getAuthentication()).thenReturn(authentication);
+        when(authentication.getPrincipal()).thenReturn("youssef");
+        SecurityContextHolder.setContext(securityContext);
+
+        when(userRepository.findByUsername("youssef")).thenReturn(Optional.of(user));
+        when(userRepository.existsByUsername("takenUsername")).thenReturn(true);
+
+        assertThrows(BadRequestException.class, () -> userService.updateProfile("takenUsername", "new@email.com"));
+
+        SecurityContextHolder.clearContext();
+    }
+
+    @Test
+    void shouldThrowWhenUpdateProfileEmailTaken() {
+        Authentication authentication = mock(Authentication.class);
+        SecurityContext securityContext = mock(SecurityContext.class);
+
+        when(securityContext.getAuthentication()).thenReturn(authentication);
+        when(authentication.getPrincipal()).thenReturn("youssef");
+        SecurityContextHolder.setContext(securityContext);
+
+        when(userRepository.findByUsername("youssef")).thenReturn(Optional.of(user));
+        when(userRepository.existsByEmail("taken@email.com")).thenReturn(true);
+
+        assertThrows(BadRequestException.class, () -> userService.updateProfile("youssef", "taken@email.com"));
+
         SecurityContextHolder.clearContext();
     }
 

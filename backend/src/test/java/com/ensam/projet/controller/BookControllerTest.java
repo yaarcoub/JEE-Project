@@ -151,4 +151,33 @@ class BookControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.data.title").value("Spring Boot in Action"));
     }
+
+    @Test
+    @WithMockUser(roles = "MANAGER")
+    void shouldGetBookLoans() throws Exception {
+        PagedResponse<com.ensam.projet.dto.response.LoanResponse> pagedResponse = new PagedResponse<>(
+                Collections.emptyList(), 0, 1, 0L, 10, true
+        );
+        when(bookService.getBookLoans(anyLong(), anyInt(), anyInt())).thenReturn(pagedResponse);
+
+        mockMvc.perform(get("/api/books/1/loans")
+                        .param("page", "0")
+                        .param("size", "10"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.data.content").isArray());
+    }
+
+    @Test
+    @WithMockUser(roles = "USER")
+    void shouldReturn403WhenGetBookLoansAsUser() throws Exception {
+        mockMvc.perform(get("/api/books/1/loans"))
+                .andExpect(status().isForbidden());
+    }
+
+    @Test
+    @WithMockUser(roles = "MANAGER")
+    void shouldReturn403WhenDeleteBookAsManager() throws Exception {
+        mockMvc.perform(delete("/api/books/1"))
+                .andExpect(status().isForbidden());
+    }
 }

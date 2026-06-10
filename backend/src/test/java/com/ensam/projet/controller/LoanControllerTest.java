@@ -190,4 +190,28 @@ class LoanControllerTest {
                 .andExpect(jsonPath("$.data.content").isArray())
                 .andExpect(jsonPath("$.data.content[0].id").value(1L));
     }
+
+    @Test
+    @WithMockUser(roles = "USER")
+    void shouldReturn403WhenUpdateLoanAsUser() throws Exception {
+        mockMvc.perform(put("/api/loans/1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(loanRequest)))
+                .andExpect(status().isForbidden());
+    }
+
+    @Test
+    @WithMockUser(roles = "USER")
+    void shouldReturn403WhenReturnLoanAsUser() throws Exception {
+        mockMvc.perform(put("/api/loans/1/return")
+                        .param("returnedBy", "user"))
+                .andExpect(status().isForbidden());
+    }
+
+    @Test
+    @WithMockUser(roles = "MANAGER")
+    void shouldReturn403WhenDeleteLoanAsManager() throws Exception {
+        mockMvc.perform(delete("/api/loans/1"))
+                .andExpect(status().isForbidden());
+    }
 }

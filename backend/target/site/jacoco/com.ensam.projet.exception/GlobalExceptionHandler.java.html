@@ -50,8 +50,8 @@ import java.util.Map;
 
     @ExceptionHandler(AuthenticationException.class)
     public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; handleAuthentication(AuthenticationException ex) {
-<span class="fc" id="L53">        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)</span>
-<span class="fc" id="L54">                .body(ApiResponse.error(ex.getMessage(), HttpStatus.UNAUTHORIZED.value()));</span>
+<span class="nc" id="L53">        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)</span>
+<span class="nc" id="L54">                .body(ApiResponse.error(ex.getMessage(), HttpStatus.UNAUTHORIZED.value()));</span>
     }
 
     @ExceptionHandler(DataIntegrityViolationException.class)

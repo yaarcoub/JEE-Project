@@ -37,7 +37,7 @@ public class UserController {
     @GetMapping(&quot;/{id}&quot;)
     @PreAuthorize(&quot;hasRole('ADMIN')&quot;)
     public ResponseEntity&lt;ApiResponse&lt;UserResponse&gt;&gt; getUser(@PathVariable Long id) {
-<span class="nc" id="L40">        return ResponseEntity.ok(ApiResponse.success(userService.getUserById(id), &quot;Utilisateur récupéré&quot;));</span>
+<span class="fc" id="L40">        return ResponseEntity.ok(ApiResponse.success(userService.getUserById(id), &quot;Utilisateur récupéré&quot;));</span>
     }
 
     @Operation(summary = &quot;Mettre à jour les rôles d'un utilisateur&quot;)
@@ -51,7 +51,7 @@ public class UserController {
     @PutMapping(&quot;/{id}/toggle&quot;)
     @PreAuthorize(&quot;hasRole('ADMIN')&quot;)
     public ResponseEntity&lt;ApiResponse&lt;UserResponse&gt;&gt; toggleUser(@PathVariable Long id) {
-<span class="nc" id="L54">        return ResponseEntity.ok(ApiResponse.success(userService.toggleEnabled(id), &quot;Statut de l'utilisateur mis à jour&quot;));</span>
+<span class="fc" id="L54">        return ResponseEntity.ok(ApiResponse.success(userService.toggleEnabled(id), &quot;Statut de l'utilisateur mis à jour&quot;));</span>
     }
 
     @Operation(summary = &quot;Supprimer un utilisateur&quot;)

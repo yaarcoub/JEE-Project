@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = &quot;org.mapstruct.ap.MappingProcessor&quot;,
-    date = &quot;2026-06-10T00:20:40+0100&quot;,
+    date = &quot;2026-06-10T09:15:11+0100&quot;,
     comments = &quot;version: 1.5.5.Final, compiler: javac, environment: Java 21.0.11 (Red Hat, Inc.)&quot;
 )
 @Component
@@ -24,57 +24,57 @@ import org.springframework.stereotype.Component;
 
     @Override
     public BookResponse toResponse(Book book) {
-<span class="fc bfc" id="L27" title="All 2 branches covered.">        if ( book == null ) {</span>
-<span class="fc" id="L28">            return null;</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        if ( book == null ) {</span>
+<span class="nc" id="L28">            return null;</span>
         }
 
-<span class="fc" id="L31">        BookResponse bookResponse = new BookResponse();</span>
+<span class="nc" id="L31">        BookResponse bookResponse = new BookResponse();</span>
 
-<span class="fc" id="L33">        bookResponse.setId( book.getId() );</span>
-<span class="fc" id="L34">        bookResponse.setTitle( book.getTitle() );</span>
-<span class="fc" id="L35">        bookResponse.setAuthor( book.getAuthor() );</span>
-<span class="fc" id="L36">        bookResponse.setIsbn( book.getIsbn() );</span>
-<span class="fc" id="L37">        bookResponse.setDescription( book.getDescription() );</span>
-<span class="fc" id="L38">        bookResponse.setStock( book.getStock() );</span>
-<span class="fc" id="L39">        bookResponse.setPublishedDate( book.getPublishedDate() );</span>
-<span class="fc" id="L40">        bookResponse.setCreatedAt( book.getCreatedAt() );</span>
-<span class="fc" id="L41">        bookResponse.setUpdatedAt( book.getUpdatedAt() );</span>
-<span class="fc" id="L42">        bookResponse.setCategories( categorySetToCategoryResponseSet( book.getCategories() ) );</span>
+<span class="nc" id="L33">        bookResponse.setId( book.getId() );</span>
+<span class="nc" id="L34">        bookResponse.setTitle( book.getTitle() );</span>
+<span class="nc" id="L35">        bookResponse.setAuthor( book.getAuthor() );</span>
+<span class="nc" id="L36">        bookResponse.setIsbn( book.getIsbn() );</span>
+<span class="nc" id="L37">        bookResponse.setDescription( book.getDescription() );</span>
+<span class="nc" id="L38">        bookResponse.setStock( book.getStock() );</span>
+<span class="nc" id="L39">        bookResponse.setPublishedDate( book.getPublishedDate() );</span>
+<span class="nc" id="L40">        bookResponse.setCreatedAt( book.getCreatedAt() );</span>
+<span class="nc" id="L41">        bookResponse.setUpdatedAt( book.getUpdatedAt() );</span>
+<span class="nc" id="L42">        bookResponse.setCategories( categorySetToCategoryResponseSet( book.getCategories() ) );</span>
 
-<span class="fc" id="L44">        fillActiveLoans( book, bookResponse );</span>
+<span class="nc" id="L44">        fillActiveLoans( book, bookResponse );</span>
 
-<span class="fc" id="L46">        return bookResponse;</span>
+<span class="nc" id="L46">        return bookResponse;</span>
     }
 
     @Override
     public Book toEntity(BookRequest request) {
-<span class="fc bfc" id="L51" title="All 2 branches covered.">        if ( request == null ) {</span>
-<span class="fc" id="L52">            return null;</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        if ( request == null ) {</span>
+<span class="nc" id="L52">            return null;</span>
         }
 
-<span class="fc" id="L55">        Book book = new Book();</span>
+<span class="nc" id="L55">        Book book = new Book();</span>
 
-<span class="fc" id="L57">        book.setTitle( request.getTitle() );</span>
-<span class="fc" id="L58">        book.setAuthor( request.getAuthor() );</span>
-<span class="fc" id="L59">        book.setIsbn( request.getIsbn() );</span>
-<span class="fc" id="L60">        book.setDescription( request.getDescription() );</span>
-<span class="fc" id="L61">        book.setStock( request.getStock() );</span>
-<span class="fc" id="L62">        book.setPublishedDate( request.getPublishedDate() );</span>
+<span class="nc" id="L57">        book.setTitle( request.getTitle() );</span>
+<span class="nc" id="L58">        book.setAuthor( request.getAuthor() );</span>
+<span class="nc" id="L59">        book.setIsbn( request.getIsbn() );</span>
+<span class="nc" id="L60">        book.setDescription( request.getDescription() );</span>
+<span class="nc" id="L61">        book.setStock( request.getStock() );</span>
+<span class="nc" id="L62">        book.setPublishedDate( request.getPublishedDate() );</span>
 
-<span class="fc" id="L64">        return book;</span>
+<span class="nc" id="L64">        return book;</span>
     }
 
     protected Set&lt;CategoryResponse&gt; categorySetToCategoryResponseSet(Set&lt;Category&gt; set) {
-<span class="pc bpc" id="L68" title="1 of 2 branches missed.">        if ( set == null ) {</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        if ( set == null ) {</span>
 <span class="nc" id="L69">            return null;</span>
         }
 
-<span class="fc" id="L72">        Set&lt;CategoryResponse&gt; set1 = new LinkedHashSet&lt;CategoryResponse&gt;( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );</span>
-<span class="pc bpc" id="L73" title="1 of 2 branches missed.">        for ( Category category : set ) {</span>
+<span class="nc" id="L72">        Set&lt;CategoryResponse&gt; set1 = new LinkedHashSet&lt;CategoryResponse&gt;( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">        for ( Category category : set ) {</span>
 <span class="nc" id="L74">            set1.add( categoryMapper.toResponse( category ) );</span>
 <span class="nc" id="L75">        }</span>
 
-<span class="fc" id="L77">        return set1;</span>
+<span class="nc" id="L77">        return set1;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

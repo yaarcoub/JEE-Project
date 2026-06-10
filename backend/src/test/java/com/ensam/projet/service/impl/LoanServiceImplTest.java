@@ -232,4 +232,108 @@ class LoanServiceImplTest {
 
         assertThat(response.getContent()).hasSize(1);
     }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    void shouldGetAllLoansWithStatusAndUserId() {
+        Page<Loan> page = new PageImpl<>(Collections.singletonList(loan));
+        // On utilise org.springframework.data.jpa.domain.Specification pour mocker le lambda
+        when(loanRepository.findAll(any(org.springframework.data.jpa.domain.Specification.class), any(Pageable.class))).thenReturn(page);
+        when(loanMapper.toResponse(loan)).thenReturn(new LoanResponse());
+
+        var response = loanService.getAllLoans(0, 10, LoanStatus.ACTIVE, 1L);
+
+        assertThat(response.getContent()).hasSize(1);
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    void shouldGetAllLoansWithStatusOnly() {
+        Page<Loan> page = new PageImpl<>(Collections.singletonList(loan));
+        when(loanRepository.findAll(any(org.springframework.data.jpa.domain.Specification.class), any(Pageable.class))).thenReturn(page);
+        when(loanMapper.toResponse(loan)).thenReturn(new LoanResponse());
+
+        var response = loanService.getAllLoans(0, 10, LoanStatus.ACTIVE, null);
+
+        assertThat(response.getContent()).hasSize(1);
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    void shouldGetAllLoansWithUserIdOnly() {
+        Page<Loan> page = new PageImpl<>(Collections.singletonList(loan));
+        when(loanRepository.findAll(any(org.springframework.data.jpa.domain.Specification.class), any(Pageable.class))).thenReturn(page);
+        when(loanMapper.toResponse(loan)).thenReturn(new LoanResponse());
+
+        var response = loanService.getAllLoans(0, 10, null, 1L);
+
+        assertThat(response.getContent()).hasSize(1);
+    }
+
+    // --- NOUVEAUX TESTS POUR LES NULL CHECKS (Couvre les if(loan.getDetail() == null) ---
+
+    @Test
+    void shouldUpdateLoanWhenDetailIsNull() {
+        // On force le détail à null pour entrer dans le fameux 'if'
+        loan.setDetail(null); 
+        when(loanRepository.findById(1L)).thenReturn(Optional.of(loan));
+        when(loanRepository.save(loan)).thenReturn(loan);
+        when(loanMapper.toResponse(loan)).thenReturn(new LoanResponse());
+
+        var response = loanService.updateLoan(1L, request);
+
+        assertThat(response).isNotNull();
+        // On vérifie que le service a bien créé le détail qui manquait
+        assertThat(loan.getDetail()).isNotNull(); 
+        assertThat(loan.getDetail().getNotes()).isEqualTo("New notes");
+    }
+
+    @Test
+    void shouldReturnLoanWhenDetailIsNull() {
+        // On force le détail à null
+        loan.setDetail(null);
+        when(loanRepository.findById(1L)).thenReturn(Optional.of(loan));
+        when(loanRepository.save(loan)).thenReturn(loan);
+        when(loanMapper.toResponse(loan)).thenReturn(new LoanResponse());
+
+        var response = loanService.returnLoan(1L, "Admin");
+
+        assertThat(response).isNotNull();
+        assertThat(loan.getStatus()).isEqualTo(LoanStatus.RETURNED);
+        // On vérifie que le détail a été recréé
+        assertThat(loan.getDetail()).isNotNull();
+        assertThat(loan.getDetail().getReturnedBy()).isEqualTo("Admin");
+    }
+
+    // --- NOUVELLES EXCEPTIONS MANQUANTES ---
+
+    @Test
+    void shouldThrowWhenUpdateLoanNotFound() {
+        when(loanRepository.findById(1L)).thenReturn(Optional.empty());
+        assertThrows(ResourceNotFoundException.class, () -> loanService.updateLoan(1L, request));
+    }
+
+    @Test
+    void shouldThrowWhenReturnLoanNotFound() {
+        when(loanRepository.findById(1L)).thenReturn(Optional.empty());
+        assertThrows(ResourceNotFoundException.class, () -> loanService.returnLoan(1L, "Admin"));
+    }
+
+    @Test
+    void shouldCreateLoanWithPrincipalAsString() {
+        // Simule le cas où le principal de Spring Security est un simple String ("anonymousUser") au lieu d'un objet UserDetails
+        when(securityContext.getAuthentication()).thenReturn(authentication);
+        SecurityContextHolder.setContext(securityContext);
+        when(authentication.getPrincipal()).thenReturn("testuser"); // <-- String classique
+        
+        when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(user));
+        when(bookRepository.findById(1L)).thenReturn(Optional.of(book));
+        when(loanRepository.existsByUserIdAndBookIdAndStatus(1L, 1L, LoanStatus.ACTIVE)).thenReturn(false);
+        when(loanRepository.save(any(Loan.class))).thenReturn(loan);
+        when(loanMapper.toResponse(loan)).thenReturn(new LoanResponse());
+
+        var response = loanService.createLoan(request);
+
+        assertThat(response).isNotNull();
+    }
 }
